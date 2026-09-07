@@ -16,11 +16,16 @@ import {
   userPhoneVerificationStatus,
   type UserPhoneRecord
 } from "../../../lib/store.js";
-import { hasTwilioOutboundConfig, sendUserPhoneVerification } from "../../../lib/twilio.js";
+import {
+  hasTwilioOutboundConfig,
+  sendUserPhoneVerification,
+  smsConsentVersion
+} from "../../../lib/twilio.js";
 
 interface UserPhoneBody {
   userPhone?: unknown;
   verificationCode?: unknown;
+  smsConsent?: unknown;
 }
 
 export default async function handler(
@@ -62,6 +67,10 @@ async function requestVerificationCode(
   userId: string
 ): Promise<void> {
   const body = readJsonBody<UserPhoneBody>(request);
+  if (body.smsConsent !== true) {
+    sendJson(response, 400, { ok: false, error: "sms_consent_required" });
+    return;
+  }
 
   let userPhone: string;
   try {
@@ -81,6 +90,8 @@ async function requestVerificationCode(
     userPhone,
     createdAt: existing?.createdAt ?? now,
     updatedAt: now,
+    smsConsentGrantedAt: now,
+    smsConsentVersion,
     verificationStatus: alreadyVerified ? "verified" : "pending",
     verificationCodeVerifier: verificationCode
       ? await createPinVerifier(verificationCode, new Date(now))

@@ -9,7 +9,25 @@ import {
   sponsorVerificationStatus,
   type SponsorRecord
 } from "../../lib/store.js";
-import { twimlMessage, validateTwilioRequest } from "../../lib/twilio.js";
+import {
+  smsHelpMessage,
+  smsOptInMessage,
+  smsOptOutMessage,
+  twimlMessage,
+  validateTwilioRequest
+} from "../../lib/twilio.js";
+
+const optInKeywords = new Set(["START", "YES", "UNSTOP"]);
+const optOutKeywords = new Set([
+  "CANCEL",
+  "END",
+  "OPTOUT",
+  "QUIT",
+  "REVOKE",
+  "STOP",
+  "STOPALL",
+  "UNSUBSCRIBE"
+]);
 
 export default async function handler(
   request: VercelRequest,
@@ -31,7 +49,7 @@ export default async function handler(
   try {
     sponsorPhone = normalizePhone(params.From ?? "");
   } catch {
-    sendTwiml(response, "PackPact could not read your sender phone number.");
+    sendTwiml(response, "Pack Shield could not read your sender phone number.");
     return;
   }
 
@@ -45,28 +63,36 @@ async function handleSponsorCommand(
   body: string
 ): Promise<string> {
   const upperBody = body.toUpperCase();
+  if (optOutKeywords.has(upperBody)) {
+    return smsOptOutMessage;
+  }
+
+  if (optInKeywords.has(upperBody)) {
+    return smsOptInMessage;
+  }
+
   if (!body || upperBody === "HELP" || upperBody === "?" || upperBody === "INFO") {
-    return "PackPact sponsor commands: text PIN followed by 4-10 digits to set or rotate the private Shield PIN. Example: PIN 482913";
+    return smsHelpMessage;
   }
 
   if (upperBody === "STATUS") {
     const linkedUsers = await linkedSponsorUsers(sponsorPhone);
     if (linkedUsers.length === 0) {
-      return "This phone is not registered as a PackPact sponsor yet.";
+      return "Pack Shield: This phone is not registered as a sponsor yet. Reply STOP to opt out, HELP for help.";
     }
 
     const verifiedCount = linkedUsers.filter(
       (record) => sponsorVerificationStatus(record) === "verified"
     ).length;
     const pinCount = linkedUsers.filter((record) => Boolean(record.pinVerifier)).length;
-    return `This phone sponsors ${linkedUsers.length} PackPact link(s). Verified: ${verifiedCount}. Private PIN set on ${pinCount}.`;
+    return `Pack Shield: This phone sponsors ${linkedUsers.length} link(s). Verified: ${verifiedCount}. Shield approval code set on ${pinCount}. Reply STOP to opt out.`;
   }
 
   const verifyMatch = body.match(/^VERIFY\s+(\d{6})$/i);
   if (verifyMatch) {
     const linkedUsers = await linkedSponsorUsers(sponsorPhone);
     if (linkedUsers.length === 0) {
-      return "This phone is not registered as a PackPact sponsor yet. Ask the user to add you as their sponsor first.";
+      return "Pack Shield: This phone is not registered as a sponsor yet. Ask the user to add you as their sponsor first. Reply STOP to opt out.";
     }
 
     const now = new Date().toISOString();
@@ -82,7 +108,7 @@ async function handleSponsorCommand(
     }
 
     if (matches.length === 0) {
-      return "That PackPact verification code did not match. Check the invite text and try VERIFY followed by the 6-digit code.";
+      return "Pack Shield: That verification code did not match. Check the invite text and reply VERIFY followed by the 6-digit code. Reply HELP for help.";
     }
 
     await Promise.all(
@@ -98,24 +124,24 @@ async function handleSponsorCommand(
       )
     );
 
-    return `PackPact sponsor link verified for ${matches.length} account(s). You can now text PIN followed by 4-10 digits to set or rotate the private Shield PIN.`;
+    return "Pack Shield: Support contact verified. To set or change the Shield approval code for this user's account, reply CODE followed by 4 to 10 digits. Msg frequency varies. Msg&data rates may apply. Reply STOP to opt out, HELP for help.";
   }
 
-  const pinMatch = body.match(/^PIN\s+(\d{4,10})$/i);
+  const pinMatch = body.match(/^(?:CODE|PIN)\s+(\d{4,10})$/i);
   if (!pinMatch) {
-    return "Command not recognized. Text VERIFY followed by your invite code, or PIN followed by 4-10 digits after verification.";
+    return "Pack Shield: Command not recognized. Reply VERIFY plus your invite code to accept, CODE plus 4 to 10 digits after verification, or HELP for help.";
   }
 
   const linkedUsers = await linkedSponsorUsers(sponsorPhone);
   if (linkedUsers.length === 0) {
-    return "This phone is not registered as a PackPact sponsor yet. Ask the user to add you as their sponsor first.";
+    return "Pack Shield: This phone is not registered as a sponsor yet. Ask the user to add you as their sponsor first. Reply STOP to opt out.";
   }
 
   const verifiedUsers = linkedUsers.filter(
     (record) => sponsorVerificationStatus(record) === "verified"
   );
   if (verifiedUsers.length === 0) {
-    return "This sponsor link is not verified yet. Text VERIFY followed by the 6-digit invite code first.";
+    return "Pack Shield: This sponsor link is not verified yet. Reply VERIFY followed by the 6-digit invite code first.";
   }
 
   const pinVerifier = await createPinVerifier(pinMatch[1]);
@@ -129,7 +155,7 @@ async function handleSponsorCommand(
     )
   );
 
-  return `PackPact sponsor PIN updated for ${verifiedUsers.length} link(s). Keep it private from the user.`;
+  return `Pack Shield: Shield approval code updated for ${verifiedUsers.length} link(s). Keep this code confidential. Reply STOP to opt out.`;
 }
 
 async function linkedSponsorUsers(sponsorPhone: string) {

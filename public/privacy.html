@@ -90,7 +90,8 @@
       <p>Pack Shield may collect the following information when you use the app or SMS features:</p>
       <ul>
         <li>User phone number and phone verification status.</li>
-        <li>Sponsor name, sponsor phone number, sponsor verification status, and sponsor PIN setup status.</li>
+        <li>Sponsor name, sponsor phone number, sponsor verification status, and Shield approval code setup status.</li>
+        <li>SMS consent records, such as consent version, consent timestamp, phone number, and related sponsor invitation status.</li>
         <li>SMS command metadata, such as sender number, recipient number, message direction, delivery status, and timestamps.</li>
         <li>Pack Shield change summaries, such as notices that blocked websites or app selections were added.</li>
         <li>Backend identifiers used to connect an app install with its sponsor setup.</li>
@@ -102,8 +103,9 @@
       <ul>
         <li>Verify the user's phone number.</li>
         <li>Invite a trusted sponsor and let that sponsor confirm their role.</li>
-        <li>Let a verified sponsor set or rotate a private Pack Shield approval PIN.</li>
+        <li>Let a verified sponsor set or update a Shield approval code.</li>
         <li>Send sponsor notices related to Pack Shield changes.</li>
+        <li>Send user-requested accountability alerts to opted-in support contacts.</li>
         <li>Respond to SMS commands such as VERIFY, PIN, STATUS, HELP, STOP, and START where supported.</li>
         <li>Maintain safety, security, abuse prevention, compliance, and service reliability.</li>
       </ul>
@@ -116,9 +118,9 @@
         Message frequency varies based on user and sponsor actions. Message and data rates may apply. Reply STOP to opt out of SMS messages. Reply HELP for help.
       </p>
 
-      <h2>Sponsor PINs</h2>
+      <h2>Shield Approval Codes</h2>
       <p>
-        Sponsor PINs are intended to remain private from the app user. Pack Shield does not store sponsor PINs in plaintext. The backend stores only a salted and peppered verifier used to check future approval attempts.
+        Shield approval codes are intended to remain confidential. Pack Shield does not store approval codes in plaintext. The backend stores only a salted and peppered verifier used to check future approval attempts.
       </p>
 
       <h2>Service Providers</h2>

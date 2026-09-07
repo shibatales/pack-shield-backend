@@ -20,6 +20,16 @@
       "source": "/public/terms",
       "destination": "/terms",
       "permanent": true
+    },
+    {
+      "source": "/public/sms-consent.html",
+      "destination": "/sms-consent",
+      "permanent": true
+    },
+    {
+      "source": "/public/sms-consent",
+      "destination": "/sms-consent",
+      "permanent": true
     }
   ],
   "rewrites": [
@@ -30,6 +40,10 @@
     {
       "source": "/terms",
       "destination": "/terms.html"
+    },
+    {
+      "source": "/sms-consent",
+      "destination": "/sms-consent.html"
     }
   ],
   "functions": {

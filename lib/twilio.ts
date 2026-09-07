@@ -3,6 +3,14 @@ import type { VercelRequest } from "@vercel/node";
 import { booleanEnv, optionalEnv, requiredEnv } from "./env.js";
 import { requestPublicUrl } from "./http.js";
 
+export const smsConsentVersion = "sms-consent-2026-09-07";
+export const smsOptInMessage =
+  "Pack Shield: You are opted in for Pack Shield verification, sponsor setup, Shield notices, and accountability alerts. Msg frequency varies. Msg&data rates may apply. Reply HELP for help or STOP to opt out.";
+export const smsHelpMessage =
+  "Pack Shield help: Reply VERIFY plus your invite code to accept, CODE plus 4 to 10 digits to set or update a Shield approval code, or STATUS for status. Msg&data rates may apply. Reply STOP to opt out.";
+export const smsOptOutMessage =
+  "Pack Shield: You have opted out and will receive no further Pack Shield SMS messages. Reply START to opt back in.";
+
 export function validateTwilioRequest(
   request: VercelRequest,
   params: Record<string, string>
@@ -49,10 +57,10 @@ export async function sendSponsorInvite(
   sponsorName: string | undefined,
   verificationCode: string
 ): Promise<void> {
-  const name = sponsorName ? ` ${sponsorName}` : "";
+  void sponsorName;
   await sendText(
     sponsorPhone,
-    `Pack Shield:${name} you were invited as a recovery sponsor. Text VERIFY ${verificationCode} to accept. Then text PIN followed by 4-10 digits to set the private Shield PIN.`
+    `Pack Shield: A Pack Shield user says you agreed to be their support contact. To receive account and support alerts, reply VERIFY ${verificationCode}. Msg frequency varies. Msg&data rates may apply. Reply STOP to opt out, HELP for help.`
   );
 }
 
@@ -62,14 +70,14 @@ export async function sendUserPhoneVerification(
 ): Promise<void> {
   await sendText(
     userPhone,
-    `Pack Shield verification code: ${verificationCode}. Enter this in the app before adding an SMS sponsor.`
+    `Pack Shield: Your verification code is ${verificationCode}. Enter it in the app to verify your phone. Reply STOP to opt out, HELP for help.`
   );
 }
 
 export async function sendSponsorReplacementNotice(sponsorPhone: string): Promise<void> {
   await sendText(
     sponsorPhone,
-    "Pack Shield: your sponsor link was changed. If this was not expected, check in with the Pack Shield user."
+    "Pack Shield: Your sponsor link was changed. You will no longer receive sponsor messages for this user. Reply HELP for help or STOP to opt out."
   );
 }
 

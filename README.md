@@ -98,14 +98,14 @@ Vercel hosts the API. Twilio owns the SMS number and sends inbound texts to the 
    VERIFY 123456
    ```
 
-8. Sponsor sets or rotates the private Shield PIN by texting:
+8. Sponsor sets or rotates the Shield approval code by texting:
 
    ```txt
-   PIN 482913
+   CODE 482913
    ```
 
-9. Backend validates the Twilio signature, verifies the sender phone, hashes the PIN, and stores the verifier.
-10. Sponsor can rotate any time by texting a new `PIN ######`.
+9. Backend validates the Twilio signature, verifies the sender phone, hashes the code, and stores the verifier.
+10. Sponsor can rotate any time by texting a new `CODE ######`.
 11. The app can notify the sponsor about added Shield items with `POST /api/users/:userId/shield-change`.
 
 Replacing an already verified sponsor requires the current sponsor PIN. That blocks silent sponsor swaps after the first sponsor is established. This still cannot prove the user does not control a second phone number; that part requires human trust, sponsor opt-in, and alerts.

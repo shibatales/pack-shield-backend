@@ -66,7 +66,7 @@ export default async function handler(
 
   await sendText(
     sponsor.sponsorPhone,
-    `PackPact Shield update: ${summary}.${itemText}`
+    `Pack Shield: ${summary}.${itemText} A Shield approval code is required to remove or edit Shield items. Reply STOP to opt out, HELP for help.`
   );
 
   sendJson(response, 200, { ok: true, sent: true });

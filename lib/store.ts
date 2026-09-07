@@ -23,6 +23,8 @@ export interface SponsorRecord {
   sponsorName?: string;
   createdAt: string;
   updatedAt: string;
+  inviteConsentGrantedAt?: string;
+  inviteConsentVersion?: string;
   verificationStatus?: "pending" | "verified";
   verificationCodeVerifier?: PinVerifier;
   verificationCodeCreatedAt?: string;
@@ -35,6 +37,8 @@ export interface UserPhoneRecord {
   userPhone: string;
   createdAt: string;
   updatedAt: string;
+  smsConsentGrantedAt?: string;
+  smsConsentVersion?: string;
   verificationStatus?: "pending" | "verified";
   verificationCodeVerifier?: PinVerifier;
   verificationCodeCreatedAt?: string;

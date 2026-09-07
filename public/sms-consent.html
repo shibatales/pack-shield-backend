@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pack Shield SMS Consent Evidence</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #0f0b17;
+      --panel: rgba(31, 24, 48, 0.82);
+      --card: rgba(255, 255, 255, 0.07);
+      --ink: #f7f2ff;
+      --muted: #c8bed6;
+      --accent: #4ee2c0;
+      --aqua: #24c9ff;
+      --line: rgba(255, 255, 255, 0.14);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font: 16px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 15% 8%, rgba(78, 226, 192, 0.24), transparent 34rem),
+        radial-gradient(circle at 86% 14%, rgba(255, 99, 111, 0.17), transparent 30rem),
+        linear-gradient(145deg, #0b0710, var(--bg));
+    }
+
+    main {
+      width: min(940px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 48px 0;
+    }
+
+    .panel,
+    .mockup,
+    .message {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      backdrop-filter: blur(20px);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.28);
+    }
+
+    .panel {
+      padding: 28px;
+      border-radius: 14px;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+      font-size: clamp(32px, 6vw, 54px);
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      margin: 30px 0 12px;
+      font-size: 24px;
+    }
+
+    h3 {
+      margin-bottom: 8px;
+      font-size: 16px;
+    }
+
+    p,
+    li {
+      color: var(--muted);
+    }
+
+    a {
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 14px;
+    }
+
+    .mockup {
+      padding: 16px;
+      border-radius: 12px;
+    }
+
+    .field,
+    .consent,
+    .button {
+      border-radius: 9px;
+      border: 1px solid var(--line);
+      background: var(--card);
+    }
+
+    .field {
+      margin: 10px 0;
+      padding: 12px;
+      color: var(--muted);
+    }
+
+    .consent {
+      display: grid;
+      grid-template-columns: 26px 1fr;
+      gap: 10px;
+      margin: 12px 0;
+      padding: 12px;
+    }
+
+    .box {
+      width: 20px;
+      height: 20px;
+      border-radius: 4px;
+      border: 2px solid rgba(200, 190, 214, 0.75);
+    }
+
+    .consent strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--ink);
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      width: 100%;
+      margin-top: 4px;
+      color: var(--ink);
+      font-weight: 800;
+      background: rgba(78, 226, 192, 0.16);
+      border-color: rgba(78, 226, 192, 0.42);
+    }
+
+    .button.disabled {
+      opacity: 0.55;
+    }
+
+    .message {
+      margin: 10px 0;
+      padding: 14px;
+      border-radius: 10px;
+      color: var(--muted);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    nav a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 42px;
+      padding: 0 16px;
+      border: 1px solid rgba(78, 226, 192, 0.42);
+      border-radius: 10px;
+      text-decoration: none;
+      background: rgba(78, 226, 192, 0.08);
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="panel" aria-labelledby="title">
+      <h1 id="title">Pack Shield SMS Consent Evidence</h1>
+      <p>
+        This page documents the Pack Shield SMS consent flow used in the iOS app and support-contact SMS setup. Pack Shield SMS is non-marketing and supports phone verification, support-contact setup, Shield notices, and user-requested accountability alerts.
+      </p>
+      <p>
+        Message frequency varies based on user and sponsor actions. Message and data rates may apply. Recipients can reply STOP to opt out or HELP for help. Terms: <a href="/terms">packshield.app/terms</a>. Privacy: <a href="/privacy">packshield.app/privacy</a>.
+      </p>
+
+      <h2>In-App Consent Flow</h2>
+      <div class="grid">
+        <article class="mockup" aria-labelledby="user-consent">
+          <h3 id="user-consent">User phone verification</h3>
+          <div class="field">Your phone number</div>
+          <div class="consent">
+            <span class="box" aria-hidden="true"></span>
+            <div>
+              <strong>Unchecked by default</strong>
+              I agree to receive Pack Shield texts for phone verification, sponsor setup, Shield notices, and accountability alerts.
+              <br>Message frequency varies. Msg&amp;data rates may apply. Reply STOP to opt out or HELP for help.
+            </div>
+          </div>
+          <div class="button disabled">Text me a code</div>
+        </article>
+
+        <article class="mockup" aria-labelledby="sponsor-consent">
+          <h3 id="sponsor-consent">Sponsor invite confirmation</h3>
+          <div class="field">Sponsor phone number</div>
+          <div class="consent">
+            <span class="box" aria-hidden="true"></span>
+            <div>
+              <strong>Unchecked by default</strong>
+              I confirm this sponsor agreed to receive Pack Shield texts before I send the invite.
+              <br>They must reply VERIFY from their own phone to accept. Message frequency varies. Msg&amp;data rates may apply. Reply STOP to opt out or HELP for help.
+            </div>
+          </div>
+          <div class="button disabled">Invite sponsor</div>
+        </article>
+      </div>
+
+      <h2>Recipient SMS Consent Flow</h2>
+      <ol>
+        <li>The app user verifies their own phone number after checking the SMS consent box.</li>
+        <li>The app user enters a sponsor phone number and confirms that the sponsor agreed to receive Pack Shield texts.</li>
+        <li>Pack Shield sends one invite to that phone number.</li>
+        <li>The sponsor opts in by replying VERIFY followed by the six-digit invite code from their own phone.</li>
+        <li>After verification, the sponsor may reply CODE followed by 4-10 digits to set or update a Shield approval code.</li>
+      </ol>
+
+      <h2>Sample Messages</h2>
+      <div class="message">Pack Shield: Your verification code is [123456]. Enter it in the app to verify your phone. Reply STOP to opt out, HELP for help.</div>
+      <div class="message">Pack Shield: A Pack Shield user says you agreed to be their support contact. To receive account and support alerts, reply VERIFY [123456]. Msg frequency varies. Msg&amp;data rates may apply. Reply STOP to opt out, HELP for help.</div>
+      <div class="message">Pack Shield: Support contact verified. To set or change the Shield approval code for this user's account, reply CODE followed by 4 to 10 digits. Msg frequency varies. Msg&amp;data rates may apply. Reply STOP to opt out, HELP for help.</div>
+      <div class="message">Pack Shield: [User] added apps or websites to their Shield list. A Shield approval code is required to remove or edit Shield items. Reply STOP to opt out, HELP for help.</div>
+      <div class="message">Pack Shield alert: [User] requested accountability support from their Pack Shield support contact. Please text or call them when you can. Reply STOP to opt out, HELP for help.</div>
+      <div class="message">Pack Shield: Your sponsor link was changed. You will no longer receive sponsor messages for this user. Reply HELP for help or STOP to opt out.</div>
+
+      <nav aria-label="Pack Shield legal pages">
+        <a href="/">SMS support</a>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms of Service</a>
+      </nav>
+    </section>
+  </main>
+</body>
+</html>

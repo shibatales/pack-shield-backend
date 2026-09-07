@@ -21,7 +21,8 @@ import { randomDigits } from "../../../lib/security.js";
 import {
   hasTwilioOutboundConfig,
   sendSponsorInvite,
-  sendSponsorReplacementNotice
+  sendSponsorReplacementNotice,
+  smsConsentVersion
 } from "../../../lib/twilio.js";
 
 interface SponsorBody {
@@ -29,6 +30,7 @@ interface SponsorBody {
   sponsorName?: unknown;
   currentSponsorPin?: unknown;
   sendInvite?: unknown;
+  sponsorSmsConsent?: unknown;
 }
 
 export default async function handler(
@@ -110,6 +112,12 @@ export default async function handler(
   const now = new Date().toISOString();
   const phoneUnchanged = existing?.sponsorPhone === sponsorPhone;
   const needsVerification = !phoneUnchanged || existing?.verificationStatus !== "verified";
+  const shouldSendInvite = body.sendInvite === true;
+  if (shouldSendInvite && needsVerification && body.sponsorSmsConsent !== true) {
+    sendJson(response, 400, { ok: false, error: "sponsor_sms_consent_required" });
+    return;
+  }
+
   const verificationCode = needsVerification ? randomDigits(6) : undefined;
   const verificationCodeVerifier = verificationCode
     ? await createPinVerifier(verificationCode, new Date(now))
@@ -120,6 +128,8 @@ export default async function handler(
     sponsorName,
     createdAt: existing?.createdAt ?? now,
     updatedAt: now,
+    inviteConsentGrantedAt: shouldSendInvite && needsVerification ? now : existing?.inviteConsentGrantedAt,
+    inviteConsentVersion: shouldSendInvite && needsVerification ? smsConsentVersion : existing?.inviteConsentVersion,
     verificationStatus: needsVerification ? "pending" : "verified",
     verificationCodeVerifier,
     verificationCodeCreatedAt: verificationCode ? now : existing?.verificationCodeCreatedAt,
@@ -129,7 +139,6 @@ export default async function handler(
 
   await saveSponsorRecord(record, previousSponsorPhone);
 
-  const shouldSendInvite = body.sendInvite === true;
   let inviteSent = false;
   let warning: string | null = null;
   if (shouldSendInvite) {
