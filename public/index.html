@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pack Shield SMS Support</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #0f0b17;
+      --panel: #1f1830;
+      --ink: #f7f2ff;
+      --muted: #c8bed6;
+      --accent: #4ee2c0;
+      --line: rgba(255, 255, 255, 0.14);
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font: 16px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 18% 10%, rgba(78, 226, 192, 0.22), transparent 34rem),
+        radial-gradient(circle at 88% 8%, rgba(255, 99, 111, 0.16), transparent 28rem),
+        linear-gradient(145deg, #0b0710, var(--bg));
+    }
+
+    main {
+      width: min(760px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 56px 0;
+    }
+
+    .panel {
+      padding: 28px;
+      background: rgba(31, 24, 48, 0.78);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(32px, 7vw, 56px);
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    p {
+      margin: 0 0 16px;
+      color: var(--muted);
+    }
+
+    a {
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    nav a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 42px;
+      padding: 0 16px;
+      border: 1px solid rgba(78, 226, 192, 0.42);
+      border-radius: 10px;
+      text-decoration: none;
+      background: rgba(78, 226, 192, 0.08);
+    }
+
+    .fine-print {
+      margin-top: 22px;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="panel" aria-labelledby="title">
+      <h1 id="title">Pack Shield SMS Support</h1>
+      <p>
+        Pack Shield uses SMS to verify a user's phone number, invite a trusted sponsor, let the sponsor confirm their role, and help the sponsor set or rotate a private approval PIN.
+      </p>
+      <p>
+        Sponsors opt in by texting VERIFY followed by the invite code they receive from Pack Shield. Message frequency varies based on user and sponsor actions. Message and data rates may apply. Reply STOP to opt out or HELP for help.
+      </p>
+      <nav aria-label="Legal pages">
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms of Service</a>
+      </nav>
+      <p class="fine-print">
+        Contact: <a href="mailto:support@packshield.app">support@packshield.app</a>
+      </p>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,40 @@
+{
+  "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/public/privacy.html",
+      "destination": "/privacy",
+      "permanent": true
+    },
+    {
+      "source": "/public/privacy",
+      "destination": "/privacy",
+      "permanent": true
+    },
+    {
+      "source": "/public/terms.html",
+      "destination": "/terms",
+      "permanent": true
+    },
+    {
+      "source": "/public/terms",
+      "destination": "/terms",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/privacy",
+      "destination": "/privacy.html"
+    },
+    {
+      "source": "/terms",
+      "destination": "/terms.html"
+    }
+  ],
+  "functions": {
+    "api/**/*.ts": {
+      "maxDuration": 10
+    }
+  }
+}

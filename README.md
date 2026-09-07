@@ -1,1 +1,189 @@
-# pack-shield-backend
+# PackPact SMS Backend
+
+Vercel hosts the API. Twilio owns the SMS number and sends inbound texts to the webhook. Redis stores sponsor links and salted PIN verifiers.
+
+## Runtime Pieces
+
+- Twilio phone number: receives sponsor commands and sends notifications.
+- Vercel Functions: webhook and app API endpoints.
+- Redis on Vercel Marketplace: persistent key-value storage through `REDIS_URL`.
+- Upstash Redis REST: optional fallback if you set `UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN`.
+- Node.js 24.x: pinned in `package.json` for Vercel's production runtime.
+
+## Local Setup
+
+1. Install dependencies.
+
+   ```sh
+   npm install
+   ```
+
+2. Create `.env.local` from `.env.example`.
+
+   ```sh
+   cp .env.example .env.local
+   ```
+
+3. Fill the environment values. Generate long secrets for:
+
+   ```sh
+   openssl rand -hex 32
+   ```
+
+4. Run locally.
+
+   ```sh
+   npm run dev
+   ```
+
+## Vercel Setup
+
+1. Log in and link this folder to a Vercel project.
+
+   ```sh
+   npx vercel login
+   npx vercel link
+   ```
+
+2. Add Redis from the Vercel Marketplace. Current Vercel docs route new Redis storage through Marketplace integrations.
+
+   ```sh
+   npx vercel install redis
+   ```
+
+3. Add the remaining environment variables in Vercel Project Settings or with `npx vercel env add`.
+
+   Required production variables:
+
+   ```txt
+   APP_API_KEY
+   APP_SIGNING_SECRET
+   PIN_PEPPER
+   PACKPACT_PUBLIC_BASE_URL
+   REDIS_URL
+   TWILIO_ACCOUNT_SID
+   TWILIO_AUTH_TOKEN
+   TWILIO_FROM_NUMBER
+   TWILIO_VALIDATE_WEBHOOKS
+   ```
+
+4. Deploy.
+
+   ```sh
+   npx vercel deploy --prod
+   ```
+
+5. Set your Twilio number's incoming messaging webhook to:
+
+   ```txt
+   https://YOUR-PRODUCTION-DOMAIN/api/twilio/inbound
+   ```
+
+   Use HTTP `POST`.
+
+6. Configure the iOS build with the backend URL and app API key. The app reads `PackPactBackendBaseURL` and `PackPactBackendAPIKey` from its Info.plist, or `PACKPACT_BACKEND_BASE_URL` and `PACKPACT_BACKEND_API_KEY` in a local debug environment.
+
+## Sponsor Flow
+
+1. The app registers the user's own phone with `POST /api/users/:userId/phone`.
+2. Backend texts the user a one-time code.
+3. The app verifies that code with `PUT /api/users/:userId/phone`.
+4. The app registers a sponsor phone with `POST /api/users/:userId/sponsor`.
+5. Backend rejects the sponsor if it matches the verified user phone.
+6. Backend texts the sponsor phone a one-time verification command.
+7. Sponsor verifies from their own phone by texting:
+
+   ```txt
+   VERIFY 123456
+   ```
+
+8. Sponsor sets or rotates the private Shield PIN by texting:
+
+   ```txt
+   PIN 482913
+   ```
+
+9. Backend validates the Twilio signature, verifies the sender phone, hashes the PIN, and stores the verifier.
+10. Sponsor can rotate any time by texting a new `PIN ######`.
+11. The app can notify the sponsor about added Shield items with `POST /api/users/:userId/shield-change`.
+
+Replacing an already verified sponsor requires the current sponsor PIN. That blocks silent sponsor swaps after the first sponsor is established. This still cannot prove the user does not control a second phone number; that part requires human trust, sponsor opt-in, and alerts.
+
+## API
+
+All app-facing endpoints require:
+
+```txt
+X-PackPact-API-Key: APP_API_KEY
+```
+
+### `GET /api/health`
+
+Returns `{ "ok": true }`.
+
+### `POST /api/users/:userId/phone`
+
+Starts user-phone verification.
+
+```json
+{
+  "userPhone": "+15557654321"
+}
+```
+
+### `PUT /api/users/:userId/phone`
+
+Verifies the user's phone code.
+
+```json
+{
+  "verificationCode": "123456"
+}
+```
+
+### `GET /api/users/:userId/phone`
+
+Returns masked user-phone verification status.
+
+### `POST /api/users/:userId/sponsor`
+
+Registers or updates the sponsor phone for a local app install. The user's phone must already be verified. If replacing a verified sponsor, include the current sponsor PIN.
+
+```json
+{
+  "sponsorPhone": "+15551234567",
+  "sponsorName": "Sam",
+  "currentSponsorPin": "482913",
+  "sendInvite": false
+}
+```
+
+### `GET /api/users/:userId/sponsor`
+
+Returns sponsor status without exposing the PIN verifier.
+
+### `GET /api/users/:userId/sponsor-pin`
+
+Returns whether a sponsor PIN exists.
+
+### `POST /api/users/:userId/sponsor-pin`
+
+Verifies a sponsor PIN and returns a short-lived signed approval token.
+
+```json
+{
+  "pin": "482913"
+}
+```
+
+### `POST /api/users/:userId/shield-change`
+
+Sends the sponsor a text notification, mainly for added blocked domains/apps.
+
+```json
+{
+  "action": "added",
+  "summary": "Added 2 blocked websites",
+  "items": ["example.com", "another.example"]
+}
+```
