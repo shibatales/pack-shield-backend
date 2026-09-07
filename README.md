@@ -1,4 +1,4 @@
-# PackPact SMS Backend
+# Pack Shield SMS Backend
 
 Vercel hosts the API. Twilio owns the SMS number and sends inbound texts to the webhook. Redis stores sponsor links and salted PIN verifiers.
 
@@ -9,6 +9,7 @@ Vercel hosts the API. Twilio owns the SMS number and sends inbound texts to the 
 - Redis on Vercel Marketplace: persistent key-value storage through `REDIS_URL`.
 - Upstash Redis REST: optional fallback if you set `UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN`.
 - Node.js 24.x: pinned in `package.json` for Vercel's production runtime.
+- Aggregate pack stats: anonymous Redis sets count unique app ids that join the pack or set up support.
 
 ## Local Setup
 
@@ -120,6 +121,32 @@ X-PackPact-API-Key: APP_API_KEY
 ### `GET /api/health`
 
 Returns `{ "ok": true }`.
+
+### `GET /api/stats/pack`
+
+Returns public aggregate pack stats for onboarding and The Den.
+
+```json
+{
+  "ok": true,
+  "stats": {
+    "joinedPackCount": 1284,
+    "handlerSetupCount": 212,
+    "sponsorSetupCount": 540,
+    "updatedAt": "2026-09-07T00:00:00.000Z"
+  }
+}
+```
+
+### `POST /api/users/:userId/pack-member`
+
+Records an anonymous app id in aggregate pack stats. `source` must be `install`, `handler`, or `sponsor`.
+
+```json
+{
+  "source": "install"
+}
+```
 
 ### `POST /api/users/:userId/phone`
 

@@ -11,6 +11,7 @@ interface RedisStore {
   set<T>(key: string, value: T): Promise<void>;
   sadd(key: string, value: string): Promise<void>;
   srem(key: string, value: string): Promise<void>;
+  scard(key: string): Promise<number>;
   smembers(key: string): Promise<string[]>;
 }
 
@@ -59,6 +60,15 @@ export interface PublicUserPhoneRecord {
   updatedAt: string;
 }
 
+export type PackMemberSource = "install" | "handler" | "sponsor";
+
+export interface PublicPackStats {
+  joinedPackCount: number;
+  handlerSetupCount: number;
+  sponsorSetupCount: number;
+  updatedAt: string;
+}
+
 export function redis(): RedisStore {
   redisStore ??= createRedisStore();
   return redisStore;
@@ -91,6 +101,26 @@ export async function saveSponsorRecord(
 
 export async function getUserIdsForSponsorPhone(phone: string): Promise<string[]> {
   return redis().smembers(sponsorUsersKey(phone));
+}
+
+export async function recordPackMember(
+  userId: string,
+  source: PackMemberSource
+): Promise<PublicPackStats> {
+  const client = redis();
+  await client.sadd(packMembersKey(), userId);
+  await client.sadd(packMembersBySourceKey(source), userId);
+  return publicPackStats();
+}
+
+export async function publicPackStats(): Promise<PublicPackStats> {
+  const client = redis();
+  return {
+    joinedPackCount: await client.scard(packMembersKey()),
+    handlerSetupCount: await client.scard(packMembersBySourceKey("handler")),
+    sponsorSetupCount: await client.scard(packMembersBySourceKey("sponsor")),
+    updatedAt: new Date().toISOString()
+  };
 }
 
 export function publicSponsorRecord(record: SponsorRecord): PublicSponsorRecord {
@@ -138,6 +168,14 @@ export function userSponsorKey(userId: string): string {
 
 function sponsorUsersKey(phone: string): string {
   return `sponsor:${phone}:users`;
+}
+
+function packMembersKey(): string {
+  return "stats:pack-members";
+}
+
+function packMembersBySourceKey(source: PackMemberSource): string {
+  return `stats:pack-members:${source}`;
 }
 
 function createRedisStore(): RedisStore {
@@ -189,6 +227,10 @@ class UrlRedisStore implements RedisStore {
     await (await this.connectedClient()).sRem(key, value);
   }
 
+  async scard(key: string): Promise<number> {
+    return (await this.connectedClient()).sCard(key);
+  }
+
   async smembers(key: string): Promise<string[]> {
     return (await this.connectedClient()).sMembers(key);
   }
@@ -233,6 +275,10 @@ class UpstashRedisStore implements RedisStore {
 
   async srem(key: string, value: string): Promise<void> {
     await this.client.srem(key, value);
+  }
+
+  async scard(key: string): Promise<number> {
+    return this.client.scard(key);
   }
 
   async smembers(key: string): Promise<string[]> {

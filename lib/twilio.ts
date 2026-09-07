@@ -52,7 +52,7 @@ export async function sendSponsorInvite(
   const name = sponsorName ? ` ${sponsorName}` : "";
   await sendText(
     sponsorPhone,
-    `PackPact:${name} you were invited as a recovery sponsor. Text VERIFY ${verificationCode} to accept. Then text PIN followed by 4-10 digits to set the private Shield PIN.`
+    `Pack Shield:${name} you were invited as a recovery sponsor. Text VERIFY ${verificationCode} to accept. Then text PIN followed by 4-10 digits to set the private Shield PIN.`
   );
 }
 
@@ -62,14 +62,14 @@ export async function sendUserPhoneVerification(
 ): Promise<void> {
   await sendText(
     userPhone,
-    `PackPact verification code: ${verificationCode}. Enter this in the app before adding an SMS sponsor.`
+    `Pack Shield verification code: ${verificationCode}. Enter this in the app before adding an SMS sponsor.`
   );
 }
 
 export async function sendSponsorReplacementNotice(sponsorPhone: string): Promise<void> {
   await sendText(
     sponsorPhone,
-    "PackPact: your sponsor link was changed. If this was not expected, check in with the PackPact user."
+    "Pack Shield: your sponsor link was changed. If this was not expected, check in with the Pack Shield user."
   );
 }
 
