@@ -142,7 +142,7 @@ body {
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  opacity: 0.46;
+  opacity: 0.56;
   contain: strict;
   mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.86) 0%, rgba(0, 0, 0, 0.34) 46%, rgba(0, 0, 0, 0.12) 100%);
   -webkit-mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.86) 0%, rgba(0, 0, 0, 0.34) 46%, rgba(0, 0, 0, 0.12) 100%);
@@ -154,7 +154,7 @@ body {
   height: calc(100% + 56px);
   transform: translate3d(0, -28px, 0);
   will-change: transform;
-  animation: tile-drift 150s linear infinite;
+  animation: tile-drift 80s linear infinite;
 }
 
 @keyframes tile-drift {
@@ -176,12 +176,12 @@ body {
 
 .fixed-pattern-backdrop .tile-line.vertical {
   stroke: rgb(var(--primary-rgb));
-  stroke-opacity: 0.14;
+  stroke-opacity: 0.22;
 }
 
 .fixed-pattern-backdrop .tile-line.horizontal {
   stroke: rgb(var(--secondary-rgb));
-  stroke-opacity: 0.12;
+  stroke-opacity: 0.18;
 }
 
 @media (prefers-reduced-motion: reduce) {
