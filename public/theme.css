@@ -108,7 +108,7 @@ body {
   margin: 0;
   overflow-x: hidden;
   color: rgb(var(--ink-rgb));
-  font: 16px/1.55 -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
+  font: 16px/1.42 -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
   letter-spacing: 0;
   background-color: rgb(var(--void-rgb));
   background-image:
@@ -160,6 +160,7 @@ a {
 p,
 li {
   color: rgb(var(--soft-rgb));
+  line-height: 1.42;
 }
 
 strong {
@@ -399,6 +400,7 @@ body[data-menu-open] .menu-toggle,
   padding: 8px 10px;
   color: rgb(var(--soft-rgb));
   font-size: 14px;
+  line-height: 1.05;
   text-decoration: none;
   border: 1px solid transparent;
   border-radius: 6px;
@@ -562,6 +564,7 @@ body[data-menu-open] .menu-toggle,
 .final-cta p {
   max-width: 740px;
   font-size: 21px;
+  line-height: 1.34;
 }
 
 .hero-note {
@@ -570,6 +573,7 @@ body[data-menu-open] .menu-toggle,
   color: rgb(var(--quiet-rgb));
   font-size: 14px !important;
   font-weight: 700;
+  line-height: 1.28;
 }
 
 .button-row,
@@ -588,6 +592,7 @@ body[data-menu-open] .menu-toggle,
   padding: 0 17px;
   color: rgb(var(--ink-rgb));
   font-weight: 900;
+  line-height: 1.08;
   text-decoration: none;
   border-radius: 8px;
 }
@@ -1030,7 +1035,8 @@ body[data-menu-open] .menu-toggle,
   display: grid;
   grid-template-columns: 42px 1fr;
   gap: 11px;
-  align-items: start;
+  align-content: center;
+  align-items: center;
   min-height: 132px;
   padding: 14px;
   border-color: rgba(var(--tile-rgb), 0.36);
@@ -1071,6 +1077,7 @@ body[data-menu-open] .menu-toggle,
   color: rgb(var(--quiet-rgb));
   font-size: 13px;
   font-weight: 700;
+  line-height: 1.26;
 }
 
 .tone-rescue { --tile-rgb: var(--rose-rgb); }
@@ -1213,7 +1220,13 @@ body[data-menu-open] .menu-toggle,
 
 @media (max-width: 860px) {
   body {
+    line-height: 1.36;
     background-attachment: scroll;
+  }
+
+  p,
+  li {
+    line-height: 1.36;
   }
 
   .marketing-page {
@@ -1387,6 +1400,7 @@ body[data-menu-open] .menu-toggle,
   .proof-band > p,
   .final-cta p {
     font-size: 18px;
+    line-height: 1.30;
   }
 
   .section {
@@ -1475,6 +1489,15 @@ body[data-menu-open] .menu-toggle,
 }
 
 @media (max-width: 520px) {
+  body {
+    line-height: 1.32;
+  }
+
+  p,
+  li {
+    line-height: 1.32;
+  }
+
   .site-shell,
   .site-footer {
     width: min(100% - 24px, 680px);
@@ -1512,11 +1535,13 @@ body[data-menu-open] .menu-toggle,
 
   h1 {
     font-size: 34px;
+    line-height: 1.0;
   }
 
   h2,
   .legal-article h1 {
     font-size: 29px;
+    line-height: 1.04;
   }
 
   .hero {
@@ -1564,7 +1589,7 @@ body[data-menu-open] .menu-toggle,
 
   .stat span {
     font-size: 11px;
-    line-height: 1.25;
+    line-height: 1.14;
   }
 
   .action-grid {
@@ -1594,7 +1619,7 @@ body[data-menu-open] .menu-toggle,
 
   .action-tile p {
     font-size: 12px;
-    line-height: 1.35;
+    line-height: 1.22;
   }
 
   .hero-visual {
