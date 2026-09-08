@@ -112,15 +112,10 @@ body {
   letter-spacing: 0;
   background-color: rgb(var(--void-rgb));
   background-image:
-    linear-gradient(
-      135deg,
-      rgb(var(--void-rgb)) 0%,
-      rgba(var(--primary-rgb), 0.76) 20%,
-      rgb(var(--middle-rgb)) 40%,
-      rgba(var(--secondary-rgb), 0.62) 60%,
-      rgba(var(--glow-rgb), 0.44) 78%,
-      rgb(var(--void-rgb)) 100%
-    );
+    linear-gradient(130deg, rgba(var(--primary-rgb), 0.82) 0%, rgba(var(--primary-rgb), 0.38) 19%, transparent 39%),
+    linear-gradient(32deg, transparent 15%, rgba(var(--secondary-rgb), 0.70) 42%, transparent 70%),
+    linear-gradient(310deg, rgba(var(--glow-rgb), 0.56) 0%, rgba(var(--glow-rgb), 0.22) 24%, transparent 46%),
+    linear-gradient(180deg, rgb(var(--void-rgb)) 0%, rgb(var(--middle-rgb)) 48%, rgb(var(--void-rgb)) 100%);
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -483,7 +478,10 @@ body[data-menu-open] .menu-toggle,
   border: 1px solid rgba(var(--line-rgb), 0.24);
   border-radius: 10px;
   background:
-    linear-gradient(136deg, rgba(255, 255, 255, 0.11), transparent 36%),
+    linear-gradient(132deg, rgba(var(--primary-rgb), 0.30) 0%, rgba(var(--primary-rgb), 0.13) 23%, transparent 44%),
+    linear-gradient(34deg, transparent 13%, rgba(var(--secondary-rgb), 0.28) 47%, transparent 76%),
+    linear-gradient(310deg, rgba(var(--glow-rgb), 0.18) 0%, transparent 38%),
+    linear-gradient(136deg, rgba(255, 255, 255, 0.10), transparent 36%),
     rgba(var(--surface-rgb), 0.08);
   box-shadow: 0 22px 64px rgba(0, 0, 0, 0.30), inset 0 1px 0 rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(18px) saturate(132%);
