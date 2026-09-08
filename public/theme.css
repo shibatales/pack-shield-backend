@@ -111,13 +111,14 @@ body {
   letter-spacing: 0;
   background-color: rgb(var(--middle-rgb));
   background-image:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 12%, rgba(var(--void-rgb), 0.76) 88%, rgba(var(--void-rgb), 0.92) 100%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.09), transparent 12%, rgba(var(--void-rgb), 0.38) 72%, rgba(var(--void-rgb), 0.80) 100%),
     repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.026) 0 1px, transparent 1px 96px),
-    linear-gradient(132deg, rgba(var(--primary-rgb), 0.98) -8%, rgba(var(--middle-rgb), 0.22) 23%, transparent 42%),
-    linear-gradient(38deg, transparent 20%, rgba(var(--secondary-rgb), 0.86) 46%, rgba(var(--glow-rgb), 0.54) 62%, transparent 82%),
-    linear-gradient(308deg, rgba(var(--solar-rgb), 0.52) 0%, transparent 24%, rgba(var(--rose-rgb), 0.42) 74%, transparent 100%),
+    linear-gradient(128deg, rgba(var(--primary-rgb), 0.92) 0%, rgba(var(--primary-rgb), 0.50) 18%, rgba(var(--middle-rgb), 0.08) 34%, transparent 48%),
+    linear-gradient(34deg, transparent 5%, rgba(var(--secondary-rgb), 0.74) 28%, rgba(var(--glow-rgb), 0.58) 48%, transparent 70%),
+    linear-gradient(296deg, rgba(var(--solar-rgb), 0.48) 0%, transparent 31%, rgba(var(--rose-rgb), 0.52) 58%, rgba(var(--ember-rgb), 0.40) 76%, transparent 100%),
+    linear-gradient(160deg, transparent 0%, rgba(var(--aqua-rgb), 0.40) 20%, transparent 42%, rgba(var(--violet-rgb), 0.34) 66%, transparent 100%),
     linear-gradient(180deg, rgb(var(--middle-rgb)) 0%, rgb(var(--void-rgb)) 100%);
-  background-size: auto, 120px 120px, auto, auto, auto, auto;
+  background-size: auto, 120px 120px, auto, auto, auto, auto, auto;
   background-position: center;
 }
 
@@ -128,8 +129,8 @@ body::before {
   pointer-events: none;
   content: "";
   background:
-    linear-gradient(180deg, rgba(var(--void-rgb), 0.04), transparent 36%, rgba(var(--void-rgb), 0.40) 100%),
-    linear-gradient(90deg, rgba(var(--void-rgb), 0.08), transparent 24%, transparent 76%, rgba(var(--void-rgb), 0.12));
+    linear-gradient(180deg, rgba(var(--void-rgb), 0.02), transparent 38%, rgba(var(--void-rgb), 0.42) 100%),
+    linear-gradient(90deg, rgba(var(--void-rgb), 0.03), transparent 22%, transparent 78%, rgba(var(--void-rgb), 0.08));
 }
 
 body::after {
@@ -140,8 +141,8 @@ body::after {
   content: "";
   opacity: 0.95;
   background:
-    linear-gradient(122deg, transparent 0%, transparent 10%, rgba(var(--primary-rgb), 0.28) 10%, rgba(var(--primary-rgb), 0.28) 22%, transparent 22%, transparent 30%, rgba(var(--secondary-rgb), 0.24) 30%, rgba(var(--secondary-rgb), 0.24) 44%, transparent 44%, transparent 58%, rgba(var(--glow-rgb), 0.24) 58%, rgba(var(--glow-rgb), 0.24) 70%, transparent 70%),
-    linear-gradient(22deg, rgba(var(--solar-rgb), 0.22), transparent 26%, rgba(var(--rose-rgb), 0.18) 58%, transparent 82%);
+    linear-gradient(118deg, rgba(var(--primary-rgb), 0.20) 0%, transparent 24%, rgba(var(--secondary-rgb), 0.22) 38%, transparent 58%, rgba(var(--glow-rgb), 0.20) 75%, transparent 100%),
+    linear-gradient(22deg, rgba(var(--solar-rgb), 0.20), transparent 24%, rgba(var(--rose-rgb), 0.20) 56%, transparent 82%);
 }
 
 ::selection {
