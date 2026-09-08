@@ -100,6 +100,15 @@ html {
   overflow-x: clip;
   background: rgb(var(--void-rgb));
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+html[data-menu-open],
+html[data-menu-open] body {
+  height: 100%;
+  overflow: hidden;
+  overscroll-behavior: none;
 }
 
 body {
@@ -107,6 +116,8 @@ body {
   min-height: 100vh;
   margin: 0;
   overflow-x: clip;
+  overscroll-behavior-y: none;
+  touch-action: pan-y pinch-zoom;
   color: rgb(var(--ink-rgb));
   font: 16px/1.42 -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
   letter-spacing: 0;
@@ -119,7 +130,7 @@ body {
     );
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
+  background-attachment: scroll;
 }
 
 body::before {
@@ -138,6 +149,30 @@ body::after {
 a {
   color: rgb(var(--primary-rgb));
   font-weight: 800;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  font-size: 16px;
+}
+
+a,
+button,
+input,
+select,
+textarea,
+label,
+[role="button"],
+.button,
+.nav-download,
+.menu-toggle,
+.theme-control,
+.mobile-sticky-cta {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 
 p,
@@ -225,9 +260,9 @@ body > header.site-shell {
   background:
     linear-gradient(135deg, rgba(255, 255, 255, 0.13), transparent 46%),
     rgba(var(--surface-rgb), 0.58);
-  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(26px) saturate(150%);
-  -webkit-backdrop-filter: blur(26px) saturate(150%);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
 }
 
 .brand-link,
@@ -270,9 +305,9 @@ body > header.site-shell {
   background:
     linear-gradient(145deg, rgba(255, 255, 255, 0.16), transparent 36%),
     rgba(var(--surface-rgb), 0.48);
-  backdrop-filter: blur(22px) saturate(155%);
-  -webkit-backdrop-filter: blur(22px) saturate(155%);
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.26), inset 0 1px 0 rgba(255, 255, 255, 0.12);
 }
 
 .stat,
@@ -283,8 +318,8 @@ body > header.site-shell {
 .screen-alert,
 .mockup,
 .message {
-  backdrop-filter: blur(14px) saturate(130%);
-  -webkit-backdrop-filter: blur(14px) saturate(130%);
+  backdrop-filter: blur(6px) saturate(115%);
+  -webkit-backdrop-filter: blur(6px) saturate(115%);
 }
 
 .brand-icon,
@@ -399,8 +434,8 @@ body[data-menu-open] .menu-toggle,
   border: 1px solid transparent;
   border-radius: 6px;
   background: rgba(var(--surface-rgb), 0.18);
-  backdrop-filter: blur(14px) saturate(140%);
-  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  backdrop-filter: blur(8px) saturate(125%);
+  -webkit-backdrop-filter: blur(8px) saturate(125%);
 }
 
 .nav-links a:hover,
@@ -434,7 +469,7 @@ body[data-menu-open] .menu-toggle,
 .mobile-sticky-cta:hover,
 .mobile-sticky-cta:focus-visible {
   transform: translateY(-1px);
-  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.28), 0 0 26px rgba(var(--primary-rgb), 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.26), 0 0 20px rgba(var(--primary-rgb), 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.12);
   outline: none;
 }
 
@@ -481,9 +516,9 @@ body[data-menu-open] .menu-toggle,
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.12), transparent 34%),
     rgba(var(--surface-rgb), 0.16);
-  box-shadow: 0 22px 64px rgba(0, 0, 0, 0.30), inset 0 1px 0 rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(18px) saturate(132%);
-  -webkit-backdrop-filter: blur(18px) saturate(132%);
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(6px) saturate(112%);
+  -webkit-backdrop-filter: blur(6px) saturate(112%);
 }
 
 .hero::before {
@@ -507,8 +542,8 @@ body[data-menu-open] .menu-toggle,
     linear-gradient(135deg, rgba(var(--primary-rgb), 0.16), transparent 48%, rgba(var(--secondary-rgb), 0.10)),
     rgba(var(--surface-rgb), 0.44);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(12px) saturate(125%);
-  -webkit-backdrop-filter: blur(12px) saturate(125%);
+  backdrop-filter: blur(6px) saturate(115%);
+  -webkit-backdrop-filter: blur(6px) saturate(115%);
 }
 
 .hero-kicker img {
@@ -665,7 +700,7 @@ body[data-menu-open] .menu-toggle,
   background:
     linear-gradient(145deg, rgba(255, 255, 255, 0.16), transparent 30%),
     linear-gradient(180deg, #222433, #05050c 38%, #010105);
-  box-shadow: 0 34px 80px rgba(0, 0, 0, 0.44), inset 0 0 0 1px rgba(255, 255, 255, 0.07);
+  box-shadow: 0 24px 54px rgba(0, 0, 0, 0.40), inset 0 0 0 1px rgba(255, 255, 255, 0.07);
 }
 
 .hero-phone.primary-shot {
@@ -790,7 +825,7 @@ body[data-menu-open] .menu-toggle,
   border-top-color: rgb(var(--primary-rgb));
   border-right-color: rgba(var(--secondary-rgb), 0.82);
   border-radius: 999px;
-  box-shadow: inset 0 0 40px rgba(var(--primary-rgb), 0.12), 0 0 42px rgba(var(--primary-rgb), 0.13);
+  box-shadow: inset 0 0 28px rgba(var(--primary-rgb), 0.10), 0 0 24px rgba(var(--primary-rgb), 0.11);
 }
 
 .progress-ring strong,
@@ -929,6 +964,8 @@ body[data-menu-open] .menu-toggle,
 .section {
   padding: 66px 0;
   border-top: 1px solid rgba(var(--line-rgb), 0.18);
+  content-visibility: auto;
+  contain-intrinsic-size: 720px;
 }
 
 .proof-band,
@@ -1008,7 +1045,7 @@ body[data-menu-open] .menu-toggle,
   line-height: 1;
   border-radius: 999px;
   background: linear-gradient(135deg, rgb(var(--primary-rgb)), rgb(var(--secondary-rgb)));
-  box-shadow: 0 8px 22px rgba(var(--primary-rgb), 0.20);
+  box-shadow: 0 6px 16px rgba(var(--primary-rgb), 0.16);
 }
 
 .feature-card h3 {
@@ -1229,8 +1266,10 @@ body[data-menu-open] .menu-toggle,
 
   body[data-menu-open] main,
   body[data-menu-open] .site-footer {
-    opacity: 0.42;
-    filter: blur(2px);
+    opacity: 0.18;
+    filter: blur(12px);
+    pointer-events: none;
+    user-select: none;
   }
 
   .site-shell,
@@ -1241,6 +1280,14 @@ body[data-menu-open] .menu-toggle,
   body > header.site-shell {
     width: min(100% - 22px, 680px);
     padding-top: 9px;
+  }
+
+  body[data-menu-open] > header.site-shell {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    z-index: 120;
+    transform: translateX(-50%);
   }
 
   .site-nav {
@@ -1284,6 +1331,8 @@ body[data-menu-open] .menu-toggle,
     padding: 14px;
     gap: 12px;
     overflow: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
     visibility: hidden;
     opacity: 0;
     pointer-events: none;
@@ -1296,9 +1345,9 @@ body[data-menu-open] .menu-toggle,
       linear-gradient(145deg, rgba(255, 255, 255, 0.18), transparent 34%),
       linear-gradient(124deg, rgba(var(--primary-rgb), 0.32), transparent 48%, rgba(var(--secondary-rgb), 0.24)),
       rgba(var(--middle-rgb), 0.94);
-    box-shadow: 0 24px 54px rgba(0, 0, 0, 0.42), 0 0 42px rgba(var(--primary-rgb), 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.10);
-    backdrop-filter: blur(24px) saturate(150%);
-    -webkit-backdrop-filter: blur(24px) saturate(150%);
+    box-shadow: 0 18px 42px rgba(0, 0, 0, 0.38), 0 0 28px rgba(var(--primary-rgb), 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.10);
+    backdrop-filter: blur(18px) saturate(140%);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
   }
 
   body[data-menu-open] .nav-actions {

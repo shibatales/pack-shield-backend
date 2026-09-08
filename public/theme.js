@@ -57,18 +57,47 @@
     if (!toggle || !panel || !nav) return;
 
     let isOpen = false;
+    let isScrollLocked = false;
+    let lockedScrollY = 0;
+
+    function lockPageScroll() {
+      if (isScrollLocked) return;
+      lockedScrollY = window.scrollY || document.documentElement.scrollTop || 0;
+      document.body.style.position = "fixed";
+      document.body.style.top = `-${lockedScrollY}px`;
+      document.body.style.right = "0";
+      document.body.style.left = "0";
+      document.body.style.width = "100%";
+      isScrollLocked = true;
+    }
+
+    function unlockPageScroll() {
+      if (!isScrollLocked) return;
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.right = "";
+      document.body.style.left = "";
+      document.body.style.width = "";
+      window.scrollTo(0, lockedScrollY);
+      isScrollLocked = false;
+    }
 
     function syncMenuState() {
       const isMobile = mobileQuery.matches;
+      const shouldOpen = isMobile && isOpen;
 
-      if (isMobile && isOpen) {
+      if (shouldOpen) {
+        document.documentElement.setAttribute("data-menu-open", "true");
         document.body.setAttribute("data-menu-open", "true");
+        lockPageScroll();
       } else {
+        document.documentElement.removeAttribute("data-menu-open");
         document.body.removeAttribute("data-menu-open");
+        unlockPageScroll();
       }
 
-      toggle.setAttribute("aria-expanded", String(isMobile && isOpen));
-      toggle.setAttribute("aria-label", isMobile && isOpen ? "Close menu" : "Open menu");
+      toggle.setAttribute("aria-expanded", String(shouldOpen));
+      toggle.setAttribute("aria-label", shouldOpen ? "Close menu" : "Open menu");
 
       if (isMobile) {
         panel.setAttribute("aria-hidden", String(!isOpen));
@@ -99,6 +128,18 @@
     document.addEventListener("keydown", (event) => {
       if (event.key === "Escape") setMenuOpen(false);
     });
+
+    document.addEventListener("wheel", (event) => {
+      if (!isOpen || !mobileQuery.matches) return;
+      const target = event.target;
+      if (!(target instanceof Node) || !panel.contains(target)) event.preventDefault();
+    }, { passive: false });
+
+    document.addEventListener("touchmove", (event) => {
+      if (!isOpen || !mobileQuery.matches) return;
+      const target = event.target;
+      if (!(target instanceof Node) || !panel.contains(target)) event.preventDefault();
+    }, { passive: false });
 
     mobileQuery.addEventListener("change", () => setMenuOpen(false));
     syncMenuState();
