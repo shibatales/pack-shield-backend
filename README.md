@@ -71,7 +71,6 @@ Vercel hosts the static Pack Shield website and API. The website is built with A
    APP_SIGNING_SECRET
    PIN_PEPPER
    PACKPACT_PUBLIC_BASE_URL
-   PACKPACT_SMS_ENABLED
    REDIS_URL
    TWILIO_ACCOUNT_SID
    TWILIO_AUTH_TOKEN
@@ -95,8 +94,6 @@ Vercel hosts the static Pack Shield website and API. The website is built with A
    Use HTTP `POST`.
 
 6. Configure the iOS build with the backend URL and app API key. The app reads `PackPactBackendBaseURL` and `PackPactBackendAPIKey` from its Info.plist, or `PACKPACT_BACKEND_BASE_URL` and `PACKPACT_BACKEND_API_KEY` in a local debug environment.
-
-Keep `PACKPACT_SMS_ENABLED=false` until A2P/10DLC approval is complete. Set it to `true` after approval and after the Twilio production number is ready to send.
 
 ## Sponsor Flow
 

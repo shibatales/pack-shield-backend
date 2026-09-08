@@ -148,7 +148,7 @@ export default async function handler(
       await sendSponsorInvite(sponsorPhone, sponsorName, verificationCode);
       inviteSent = true;
     } else {
-      warning = "sms_launch_pending";
+      warning = "sms_temporarily_unavailable";
     }
   }
 
