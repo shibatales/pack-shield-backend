@@ -106,16 +106,19 @@ body {
   position: relative;
   min-height: 100vh;
   margin: 0;
-  overflow-x: hidden;
+  overflow-x: clip;
   color: rgb(var(--ink-rgb));
   font: 16px/1.42 -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
   letter-spacing: 0;
   background-color: rgb(var(--void-rgb));
   background-image:
-    linear-gradient(130deg, rgba(var(--primary-rgb), 0.82) 0%, rgba(var(--primary-rgb), 0.38) 19%, transparent 39%),
-    linear-gradient(32deg, transparent 15%, rgba(var(--secondary-rgb), 0.70) 42%, transparent 70%),
-    linear-gradient(310deg, rgba(var(--glow-rgb), 0.56) 0%, rgba(var(--glow-rgb), 0.22) 24%, transparent 46%),
-    linear-gradient(180deg, rgb(var(--void-rgb)) 0%, rgb(var(--middle-rgb)) 48%, rgb(var(--void-rgb)) 100%);
+    linear-gradient(
+      180deg,
+      rgb(var(--secondary-rgb)) 0%,
+      rgb(var(--primary-rgb)) 18%,
+      rgb(var(--middle-rgb)) 52%,
+      rgb(var(--void-rgb)) 100%
+    );
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -208,7 +211,7 @@ h3 {
 body > header.site-shell {
   position: sticky;
   top: 0;
-  z-index: 20;
+  z-index: 100;
   padding-top: 10px;
 }
 
