@@ -30,6 +30,16 @@
       "source": "/public/sms-consent",
       "destination": "/sms-consent",
       "permanent": true
+    },
+    {
+      "source": "/public/support.html",
+      "destination": "/support",
+      "permanent": true
+    },
+    {
+      "source": "/public/support",
+      "destination": "/support",
+      "permanent": true
     }
   ],
   "rewrites": [
@@ -44,6 +54,10 @@
     {
       "source": "/sms-consent",
       "destination": "/sms-consent.html"
+    },
+    {
+      "source": "/support",
+      "destination": "/support.html"
     }
   ],
   "functions": {

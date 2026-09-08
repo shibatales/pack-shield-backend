@@ -1,106 +1,123 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="glass-aqua">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Pack Shield SMS Support</title>
-  <style>
-    :root {
-      color-scheme: light dark;
-      --bg: #0f0b17;
-      --panel: #1f1830;
-      --ink: #f7f2ff;
-      --muted: #c8bed6;
-      --accent: #4ee2c0;
-      --line: rgba(255, 255, 255, 0.14);
-    }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      font: 16px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--ink);
-      background:
-        radial-gradient(circle at 18% 10%, rgba(78, 226, 192, 0.22), transparent 34rem),
-        radial-gradient(circle at 88% 8%, rgba(255, 99, 111, 0.16), transparent 28rem),
-        linear-gradient(145deg, #0b0710, var(--bg));
-    }
-
-    main {
-      width: min(760px, calc(100% - 32px));
-      margin: 0 auto;
-      padding: 56px 0;
-    }
-
-    .panel {
-      padding: 28px;
-      background: rgba(31, 24, 48, 0.78);
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      backdrop-filter: blur(20px);
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
-    }
-
-    h1 {
-      margin: 0 0 10px;
-      font-size: clamp(32px, 7vw, 56px);
-      line-height: 1;
-      letter-spacing: 0;
-    }
-
-    p {
-      margin: 0 0 16px;
-      color: var(--muted);
-    }
-
-    a {
-      color: var(--accent);
-      font-weight: 700;
-    }
-
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 24px;
-    }
-
-    nav a {
-      display: inline-flex;
-      align-items: center;
-      min-height: 42px;
-      padding: 0 16px;
-      border: 1px solid rgba(78, 226, 192, 0.42);
-      border-radius: 10px;
-      text-decoration: none;
-      background: rgba(78, 226, 192, 0.08);
-    }
-
-    .fine-print {
-      margin-top: 22px;
-      font-size: 13px;
-    }
-  </style>
+  <meta name="description" content="Pack Shield is an adult recovery support app for building friction around selected apps, websites, urges, and late-night decisions.">
+  <title>Pack Shield</title>
+  <script>
+    (() => {
+      try {
+        const theme = localStorage.getItem("packshield.web.theme.v1");
+        if (theme) document.documentElement.dataset.theme = theme;
+      } catch {}
+    })();
+  </script>
+  <link rel="stylesheet" href="/theme.css">
+  <script defer src="/theme.js"></script>
 </head>
 <body>
-  <main>
-    <section class="panel" aria-labelledby="title">
-      <h1 id="title">Pack Shield SMS Support</h1>
-      <p>
-        Pack Shield uses SMS to verify a user's phone number, invite a trusted sponsor, let the sponsor confirm their role, send Shield notices, and help the sponsor set or update a Shield approval code.
+  <a class="skip-link" href="#content">Skip to content</a>
+  <header class="site-shell">
+    <nav class="site-nav" aria-label="Primary">
+      <a class="brand-link" href="/">
+        <span class="brand-mark">PS</span>
+        <span>
+          <span class="brand-title">Pack Shield</span>
+          <span class="brand-subtitle">Adult recovery support</span>
+        </span>
+      </a>
+      <div class="nav-actions">
+        <div class="nav-links">
+          <a href="/support">Support</a>
+          <a href="/privacy">Privacy</a>
+          <a href="/terms">Terms</a>
+          <a href="/sms-consent">SMS</a>
+        </div>
+        <label class="theme-control">
+          <span>Theme</span>
+          <select data-theme-select aria-label="Color theme">
+            <option value="glass-aqua">Glass Aqua</option>
+            <option value="glass-ember">Glass Ember</option>
+            <option value="glass-solar">Glass Solar</option>
+            <option value="glass-sky">Glass Sky</option>
+            <option value="glass-moss">Glass Moss</option>
+            <option value="glass-violet">Glass Violet</option>
+            <option value="glass-rose">Glass Rose</option>
+          </select>
+        </label>
+      </div>
+    </nav>
+  </header>
+
+  <main id="content" class="site-shell">
+    <section class="hero" aria-labelledby="title">
+      <div class="hero-copy">
+        <p class="eyebrow">Coming to the App Store</p>
+        <h1 id="title">Pack Shield keeps friction close when willpower gets thin.</h1>
+        <p>
+          Build a private shield around selected apps and websites, set recovery reminders, start focus timers, and keep a Shibit companion nearby for small moments of support.
+        </p>
+        <div class="button-row">
+          <a class="button primary" href="mailto:support@packshield.app">Email Support</a>
+          <a class="button secondary" href="/privacy">Privacy Policy</a>
+        </div>
+        <div class="stats" aria-label="Pack Shield highlights">
+          <div class="stat">
+            <strong>18+</strong>
+            <span>Built for adults</span>
+          </div>
+          <div class="stat">
+            <strong>Private</strong>
+            <span>No public recovery feed</span>
+          </div>
+          <div class="stat">
+            <strong>Optional</strong>
+            <span>Support contacts and suits</span>
+          </div>
+        </div>
+      </div>
+      <div class="character-stage" aria-label="Pack Shield Shibit character">
+        <img src="/shibit-tako.gif" alt="A Pack Shield Shibit companion">
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="features-title">
+      <h2 id="features-title">Small tools for hard moments.</h2>
+      <p class="section-lead">
+        Pack Shield is designed as supportive friction, not pressure. It helps make the better next action easier to choose.
       </p>
-      <p>
-        App users must check an SMS consent box before requesting a verification text. Sponsors opt in by replying VERIFY followed by the invite code they receive from Pack Shield. Message frequency varies based on user and sponsor actions. Message and data rates may apply. Reply STOP to opt out or HELP for help.
-      </p>
-      <nav aria-label="Legal pages">
-        <a href="/sms-consent">SMS Consent</a>
-        <a href="/privacy">Privacy Policy</a>
-        <a href="/terms">Terms of Service</a>
-      </nav>
-      <p class="fine-print">
-        Contact: <a href="mailto:support@packshield.app">support@packshield.app</a>
-      </p>
+      <div class="feature-grid">
+        <article class="feature-card">
+          <h3>Shield selected apps</h3>
+          <p>Use Screen Time permissions to add friction around apps and websites that tend to pull you away from your plan.</p>
+        </article>
+        <article class="feature-card">
+          <h3>Stay near your reasons</h3>
+          <p>Keep pledges, reminders, meetings, timers, and rescue actions in one place for moments when you need a quick reset.</p>
+        </article>
+        <article class="feature-card">
+          <h3>Bring support in carefully</h3>
+          <p>Save trusted support people for calls now. Text-message setup is paused while launch carrier approval finishes.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="support" aria-labelledby="support-title">
+      <div class="glass-panel">
+        <h2 id="support-title">Support</h2>
+        <p>
+          For help, privacy questions, bug reports, or App Store review questions, contact <a href="mailto:support@packshield.app">support@packshield.app</a>.
+        </p>
+        <p>
+          Pack Shield is not medical advice, therapy, treatment, emergency response, or crisis care. If you are in immediate danger, contact local emergency services.
+        </p>
+      </div>
     </section>
   </main>
+
+  <footer class="site-footer">
+    &copy; 2026 ShibaTales. Pack Shield is intended for adults 18 and older.
+  </footer>
 </body>
 </html>

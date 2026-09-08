@@ -1,84 +1,56 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="glass-aqua">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Pack Shield Privacy Policy</title>
-  <style>
-    :root {
-      color-scheme: light dark;
-      --bg: #fbf8ff;
-      --ink: #171121;
-      --muted: #5d536c;
-      --panel: #ffffff;
-      --accent: #0a806c;
-      --line: #e7deef;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #0f0b17;
-        --ink: #f7f2ff;
-        --muted: #c8bed6;
-        --panel: #1f1830;
-        --accent: #4ee2c0;
-        --line: rgba(255, 255, 255, 0.14);
-      }
-    }
-
-    body {
-      margin: 0;
-      font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--ink);
-      background: var(--bg);
-    }
-
-    main {
-      width: min(860px, calc(100% - 32px));
-      margin: 0 auto;
-      padding: 40px 0 64px;
-    }
-
-    article {
-      padding: 28px;
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: 12px;
-    }
-
-    h1, h2 {
-      line-height: 1.15;
-      letter-spacing: 0;
-    }
-
-    h1 {
-      margin: 0 0 6px;
-      font-size: clamp(30px, 7vw, 48px);
-    }
-
-    h2 {
-      margin: 30px 0 8px;
-      font-size: 22px;
-    }
-
-    p, li {
-      color: var(--muted);
-    }
-
-    a {
-      color: var(--accent);
-      font-weight: 700;
-    }
-
-    .updated {
-      margin-top: 0;
-      font-weight: 700;
-    }
-  </style>
+  <script>
+    (() => {
+      try {
+        const theme = localStorage.getItem("packshield.web.theme.v1");
+        if (theme) document.documentElement.dataset.theme = theme;
+      } catch {}
+    })();
+  </script>
+  <link rel="stylesheet" href="/theme.css">
+  <script defer src="/theme.js"></script>
 </head>
 <body>
-  <main>
-    <article>
+  <a class="skip-link" href="#content">Skip to content</a>
+  <header class="site-shell">
+    <nav class="site-nav" aria-label="Primary">
+      <a class="brand-link" href="/">
+        <span class="brand-mark">PS</span>
+        <span>
+          <span class="brand-title">Pack Shield</span>
+          <span class="brand-subtitle">Adult recovery support</span>
+        </span>
+      </a>
+      <div class="nav-actions">
+        <div class="nav-links">
+          <a href="/support">Support</a>
+          <a href="/privacy">Privacy</a>
+          <a href="/terms">Terms</a>
+          <a href="/sms-consent">SMS</a>
+        </div>
+        <label class="theme-control">
+          <span>Theme</span>
+          <select data-theme-select aria-label="Color theme">
+            <option value="glass-aqua">Glass Aqua</option>
+            <option value="glass-ember">Glass Ember</option>
+            <option value="glass-solar">Glass Solar</option>
+            <option value="glass-sky">Glass Sky</option>
+            <option value="glass-moss">Glass Moss</option>
+            <option value="glass-violet">Glass Violet</option>
+            <option value="glass-rose">Glass Rose</option>
+          </select>
+        </label>
+      </div>
+    </nav>
+  </header>
+
+  <main id="content" class="site-shell legal-page">
+    <article class="glass-panel legal-article">
       <h1>Privacy Policy</h1>
       <p class="updated">Last updated: September 8, 2026</p>
 
@@ -163,5 +135,9 @@
       </p>
     </article>
   </main>
+
+  <footer class="site-footer">
+    &copy; 2026 ShibaTales. Contact <a href="mailto:support@packshield.app">support@packshield.app</a>.
+  </footer>
 </body>
 </html>

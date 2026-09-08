@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en" data-theme="glass-aqua">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pack Shield Support</title>
+  <script>
+    (() => {
+      try {
+        const theme = localStorage.getItem("packshield.web.theme.v1");
+        if (theme) document.documentElement.dataset.theme = theme;
+      } catch {}
+    })();
+  </script>
+  <link rel="stylesheet" href="/theme.css">
+  <script defer src="/theme.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+  <header class="site-shell">
+    <nav class="site-nav" aria-label="Primary">
+      <a class="brand-link" href="/">
+        <span class="brand-mark">PS</span>
+        <span>
+          <span class="brand-title">Pack Shield</span>
+          <span class="brand-subtitle">Adult recovery support</span>
+        </span>
+      </a>
+      <div class="nav-actions">
+        <div class="nav-links">
+          <a href="/support">Support</a>
+          <a href="/privacy">Privacy</a>
+          <a href="/terms">Terms</a>
+          <a href="/sms-consent">SMS</a>
+        </div>
+        <label class="theme-control">
+          <span>Theme</span>
+          <select data-theme-select aria-label="Color theme">
+            <option value="glass-aqua">Glass Aqua</option>
+            <option value="glass-ember">Glass Ember</option>
+            <option value="glass-solar">Glass Solar</option>
+            <option value="glass-sky">Glass Sky</option>
+            <option value="glass-moss">Glass Moss</option>
+            <option value="glass-violet">Glass Violet</option>
+            <option value="glass-rose">Glass Rose</option>
+          </select>
+        </label>
+      </div>
+    </nav>
+  </header>
+
+  <main id="content" class="site-shell legal-page">
+    <article class="glass-panel legal-article">
+      <p class="eyebrow">Support</p>
+      <h1>Help with Pack Shield</h1>
+      <p>
+        For support, bug reports, privacy questions, or App Store review questions, email <a href="mailto:support@packshield.app">support@packshield.app</a>.
+      </p>
+
+      <h2>Bug Reports</h2>
+      <p>
+        Helpful bug reports include what you tapped, what you expected to happen, what actually happened, your iPhone or iPad model, and your iOS version. Screenshots are useful when they do not include sensitive information.
+      </p>
+
+      <h2>Purchases</h2>
+      <p>
+        Optional Shibit suit suites are purchased through Apple's In-App Purchase system. Use Restore Purchases in Pack Shield settings to ask the App Store to restore eligible purchases.
+      </p>
+
+      <h2>Text Messages</h2>
+      <p>
+        Text-message setup may be temporarily unavailable while carrier approval is pending. You can still save support people in the app and use phone calls.
+      </p>
+
+      <h2>Safety</h2>
+      <p>
+        Pack Shield is not medical advice, therapy, treatment, emergency response, or crisis care. If you are in immediate danger, contact local emergency services.
+      </p>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    &copy; 2026 ShibaTales. Contact <a href="mailto:support@packshield.app">support@packshield.app</a>.
+  </footer>
+</body>
+</html>
