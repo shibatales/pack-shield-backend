@@ -204,12 +204,15 @@ body > header.site-shell {
   justify-content: space-between;
   gap: 14px;
   padding: 10px;
+  contain: paint;
   border: 1px solid rgba(var(--line-rgb), 0.24);
   border-radius: 8px;
   background:
     linear-gradient(135deg, rgba(var(--primary-rgb), 0.09), transparent 46%, rgba(var(--secondary-rgb), 0.08)),
-    rgba(var(--surface-rgb), 0.82);
+    rgba(var(--surface-rgb), 0.74);
   box-shadow: 0 12px 34px rgba(0, 0, 0, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px) saturate(125%);
+  -webkit-backdrop-filter: blur(16px) saturate(125%);
 }
 
 .brand-link,
