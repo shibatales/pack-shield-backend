@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Pack Shield is an adult recovery support app for building friction around selected apps, websites, urges, and late-night decisions.">
+  <meta name="description" content="Pack Shield helps you put time and support between an urge and a choice with timers, Rescue tools, meetings, Shield friction, and Shibit care.">
   <title>Pack Shield</title>
   <script>
     (() => {
@@ -13,6 +13,8 @@
       } catch {}
     })();
   </script>
+  <link rel="icon" href="/app-icon.png">
+  <link rel="apple-touch-icon" href="/app-icon.png">
   <link rel="stylesheet" href="/theme.css">
   <script defer src="/theme.js"></script>
 </head>
@@ -21,19 +23,20 @@
   <header class="site-shell">
     <nav class="site-nav" aria-label="Primary">
       <a class="brand-link" href="/">
-        <span class="brand-mark">PS</span>
+        <img class="brand-icon" src="/app-icon.png" alt="" width="34" height="34">
         <span>
           <span class="brand-title">Pack Shield</span>
-          <span class="brand-subtitle">Adult recovery support</span>
+          <span class="brand-subtitle">Build your pack</span>
         </span>
       </a>
       <div class="nav-actions">
         <div class="nav-links">
-          <a href="/support">Support</a>
-          <a href="/privacy">Privacy</a>
-          <a href="/terms">Terms</a>
-          <a href="/sms-consent">SMS</a>
+          <a href="/support" data-nav-link>Support</a>
+          <a href="/privacy" data-nav-link>Privacy</a>
+          <a href="/terms" data-nav-link>Terms</a>
+          <a href="/sms-consent" data-nav-link>SMS</a>
         </div>
+        <a class="nav-download" href="https://apps.apple.com/app/id6809620104">Download</a>
         <label class="theme-control">
           <span>Theme</span>
           <select data-theme-select aria-label="Color theme">
@@ -53,15 +56,25 @@
   <main id="content" class="site-shell">
     <section class="hero" aria-labelledby="title">
       <div class="hero-copy">
-        <p class="eyebrow">Coming to the App Store</p>
-        <h1 id="title">Pack Shield keeps friction close when willpower gets thin.</h1>
+        <div class="hero-kicker">
+          <img src="/app-icon.png" alt="" width="46" height="46">
+          <div>
+            <span>Pack Shield for iPhone</span>
+            <strong>Built for the moment before a slip</strong>
+          </div>
+        </div>
+        <h1 id="title">Build your pack. Keep your pact.</h1>
         <p>
-          Build a private shield around selected apps and websites, set recovery reminders, start focus timers, and keep a Shibit companion nearby for small moments of support.
+          Put time and support between an urge and a choice. Pack Shield brings timers, Rescue tools, meetings, Shield friction, and Shibit care into one private daily path.
         </p>
         <div class="button-row">
-          <a class="button primary" href="mailto:support@packshield.app">Email Support</a>
-          <a class="button secondary" href="/privacy">Privacy Policy</a>
+          <a class="button primary app-store-button" href="https://apps.apple.com/app/id6809620104" aria-label="Download Pack Shield on the App Store">
+            <span>Download on the</span>
+            <strong>App Store</strong>
+          </a>
+          <a class="button secondary" href="#screenshots">See iPhone Screens</a>
         </div>
+        <p class="hero-note">Intended for adults 18 and older. Not medical treatment, therapy, emergency response, or crisis care.</p>
         <div class="stats" aria-label="Pack Shield highlights">
           <div class="stat">
             <strong>18+</strong>
@@ -72,46 +85,223 @@
             <span>No public recovery feed</span>
           </div>
           <div class="stat">
-            <strong>Optional</strong>
-            <span>Support contacts and suits</span>
+            <strong>Daily</strong>
+            <span>Pledges, timers, and review</span>
           </div>
         </div>
       </div>
-      <div class="character-stage" aria-label="Pack Shield Shibit character">
-        <img src="/shibit-tako.gif" alt="A Pack Shield Shibit companion">
+      <div class="hero-visual" aria-label="Pack Shield iPhone previews">
+        <div class="phone-stack">
+          <article class="iphone-frame hero-phone primary-shot" aria-label="Pack Shield home screen preview">
+            <div class="phone-button left"></div>
+            <div class="phone-button right"></div>
+            <div class="iphone-screen">
+              <div class="status-row"><span>9:41</span><span></span></div>
+              <div class="app-topbar">
+                <div>
+                  <span>Pack Shield</span>
+                  <strong>Today</strong>
+                </div>
+                <img src="/app-icon.png" alt="" width="30" height="30">
+              </div>
+              <div class="progress-ring">
+                <div><strong>24h</strong><span>streak</span></div>
+              </div>
+              <div class="screen-panel pledge-panel">
+                <span>I will stay free today</span>
+              </div>
+              <div class="mini-grid">
+                <span class="mini-action tone-rescue">Rescue</span>
+                <span class="mini-action tone-focus">Focus</span>
+                <span class="mini-action tone-shield">Shield</span>
+                <span class="mini-action tone-review">Review</span>
+              </div>
+              <div class="shibit-preview">
+                <img src="/shibit-tako.gif" alt="">
+                <span>Breathe. Your pack is with you.</span>
+              </div>
+            </div>
+          </article>
+          <article class="iphone-frame hero-phone secondary-shot" aria-label="Pack Shield onboarding preview">
+            <div class="iphone-screen">
+              <div class="status-row"><span>9:41</span><span></span></div>
+              <h3>Start with what you are changing.</h3>
+              <div class="screen-panel">Track time away from what you selected.</div>
+              <div class="screen-panel">Use Rescue, Focus, meetings, and Shield when risk rises.</div>
+              <div class="screen-panel">Care for your Shibit as recovery actions add up.</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section proof-band" aria-labelledby="proof-title">
+      <div>
+        <p class="eyebrow">Why it exists</p>
+        <h2 id="proof-title">For the seconds when the next step has to be obvious.</h2>
+      </div>
+      <p>
+        Pack Shield was created for people cutting back, quitting, rebuilding trust with themselves, or protecting an early streak. It is useful when motivation is low, stress is high, or the easy choice needs a little distance.
+      </p>
+    </section>
+
+    <section class="section screenshots-section" id="screenshots" aria-labelledby="screenshots-title">
+      <p class="eyebrow">iPhone experience</p>
+      <h2 id="screenshots-title">Screens that stay close to the moment.</h2>
+      <p class="section-lead">
+        Product shots use the same labels, actions, and glass palettes as the iOS app.
+      </p>
+      <div class="screenshot-grid">
+        <article class="iphone-frame screenshot-shot" aria-label="Onboarding screenshot preview">
+          <div class="iphone-screen onboarding-screen">
+            <div class="status-row"><span>9:41</span><span></span></div>
+            <p class="screen-step">Step 1 of 5</p>
+            <h3>Build your pack. Keep your pact.</h3>
+            <p>Start with what you are changing.</p>
+            <div class="screen-list">
+              <span>Track time away from what you selected.</span>
+              <span>Use Rescue, Focus, meetings, and Shield when risk rises.</span>
+              <span>Care for your Shibit as recovery actions add up.</span>
+            </div>
+            <div class="screen-toggle">I am 18+ and I understand</div>
+          </div>
+        </article>
+        <article class="iphone-frame screenshot-shot" aria-label="Home screenshot preview">
+          <div class="iphone-screen home-screen">
+            <div class="status-row"><span>9:41</span><span></span></div>
+            <h3>Today</h3>
+            <div class="screen-panel large">Protect today</div>
+            <div class="mini-grid">
+              <span class="mini-action tone-rescue">Rescue</span>
+              <span class="mini-action tone-restart">Restart</span>
+              <span class="mini-action tone-talk">Talk</span>
+              <span class="mini-action tone-focus">Focus</span>
+              <span class="mini-action tone-plan">Plan</span>
+              <span class="mini-action tone-meetings">Meetings</span>
+              <span class="mini-action tone-shield">Shield</span>
+              <span class="mini-action tone-review">Review</span>
+            </div>
+          </div>
+        </article>
+        <article class="iphone-frame screenshot-shot" aria-label="Shield screenshot preview">
+          <div class="iphone-screen shield-screen">
+            <div class="status-row"><span>9:41</span><span></span></div>
+            <h3>Shield</h3>
+            <p>Add friction to risky paths.</p>
+            <div class="screen-panel">Selected apps</div>
+            <div class="screen-panel">Blocked websites</div>
+            <div class="screen-panel">Support approval code</div>
+            <div class="screen-alert">Shield locks make sabotage harder, not impossible.</div>
+          </div>
+        </article>
       </div>
     </section>
 
     <section class="section" aria-labelledby="features-title">
       <h2 id="features-title">Small tools for hard moments.</h2>
       <p class="section-lead">
-        Pack Shield is designed as supportive friction, not pressure. It helps make the better next action easier to choose.
+        Pack Shield is designed as supportive friction, not pressure. It makes the next right step easier to see when motivation is low or stress is high.
       </p>
       <div class="feature-grid">
         <article class="feature-card">
-          <h3>Shield selected apps</h3>
-          <p>Use Screen Time permissions to add friction around apps and websites that tend to pull you away from your plan.</p>
+          <h3>A practical pause</h3>
+          <p>Track time away from the substance or habit you are changing and keep support near when the next decision matters.</p>
         </article>
         <article class="feature-card">
-          <h3>Stay near your reasons</h3>
-          <p>Keep pledges, reminders, meetings, timers, and rescue actions in one place for moments when you need a quick reset.</p>
+          <h3>Recovery method</h3>
+          <p>Make a small commitment, name triggers, interrupt the cue loop, choose a coping action, add friction, and review without shame.</p>
         </article>
         <article class="feature-card">
-          <h3>Bring support in carefully</h3>
-          <p>Save trusted support people for calls now. Text-message setup is paused while launch carrier approval finishes.</p>
+          <h3>Your Shibit companion</h3>
+          <p>Care, games, pledges, reviews, meetings, and Shield setup build visible progress with your Shibit along the way.</p>
         </article>
       </div>
     </section>
 
-    <section class="section" id="support" aria-labelledby="support-title">
-      <div class="glass-panel">
-        <h2 id="support-title">Support</h2>
+    <section class="section" aria-labelledby="actions-title">
+      <p class="eyebrow">Action shortcuts</p>
+      <h2 id="actions-title">The app menu, mirrored for launch.</h2>
+      <p class="section-lead">
+        These are the names and visual cues people will see in Pack Shield when they need a fast next step.
+      </p>
+      <div class="action-grid">
+        <article class="action-tile tone-rescue">
+          <span class="action-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M3 13h4l2-6 4 12 3-8 2 2h3"/></svg>
+          </span>
+          <div><h3>Rescue</h3><p>Open the urge interruption flow.</p></div>
+        </article>
+        <article class="action-tile tone-restart">
+          <span class="action-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="3"/><path d="M7 7l3 3M14 14l3 3M17 7l-3 3M10 14l-3 3"/></svg>
+          </span>
+          <div><h3>Restart</h3><p>Use the guided reset after a slip.</p></div>
+        </article>
+        <article class="action-tile tone-talk">
+          <span class="action-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M6 15l-3 3V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H6z"/><path d="M10 18h7l4 3V10"/></svg>
+          </span>
+          <div><h3>Talk</h3><p>Start a Shibit check-in.</p></div>
+        </article>
+        <article class="action-tile tone-focus">
+          <span class="action-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M10 3h4M12 8v5l3 2"/><circle cx="12" cy="14" r="7"/></svg>
+          </span>
+          <div><h3>Focus</h3><p>Run a short focus sprint.</p></div>
+        </article>
+        <article class="action-tile tone-plan">
+          <span class="action-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M8 4h8l1 3H7l1-3z"/><path d="M7 6H5v15h14V6h-2"/><path d="M8 11h8M8 15h8M8 19h5"/></svg>
+          </span>
+          <div><h3>Plan</h3><p>Open coping steps and recovery plan.</p></div>
+        </article>
+        <article class="action-tile tone-meetings">
+          <span class="action-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M4 7h11a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H4V7z"/><path d="M17 10l4-2v8l-4-2"/></svg>
+          </span>
+          <div><h3>Meetings</h3><p>Find support meetings quickly.</p></div>
+        </article>
+        <article class="action-tile tone-shield">
+          <span class="action-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6l7-3z"/></svg>
+          </span>
+          <div><h3>Shield</h3><p>Add friction to risky paths.</p></div>
+        </article>
+        <article class="action-tile tone-review">
+          <span class="action-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M17 3a8 8 0 1 0 4 13 7 7 0 0 1-8-8 7 7 0 0 1 4-5z"/><path d="M5 5l1-2 1 2 2 1-2 1-1 2-1-2-2-1 2-1z"/></svg>
+          </span>
+          <div><h3>Review</h3><p>Close the loop while the day is fresh.</p></div>
+        </article>
+        <article class="action-tile tone-reasons">
+          <span class="action-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M5 4h10a4 4 0 0 1 4 4v12H8a3 3 0 0 0-3 3V4z"/><path d="M8 8h7M8 12h7M8 16h5"/></svg>
+          </span>
+          <div><h3>Reasons</h3><p>Stay close to why you started.</p></div>
+        </article>
+        <article class="action-tile tone-room">
+          <span class="action-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M4 7h12v10H4z"/><path d="M16 10l4-2v11H8"/><path d="M7 4l1 2 2 1-2 1-1 2-1-2-2-1 2-1 1-2z"/></svg>
+          </span>
+          <div><h3>The Den</h3><p>Open Shibit care, games, and suits.</p></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section final-cta" id="support" aria-labelledby="support-title">
+      <div>
+        <p class="eyebrow">Ready when you are</p>
+        <h2 id="support-title">A practical pause for the next choice.</h2>
         <p>
-          For help, privacy questions, bug reports, or App Store review questions, contact <a href="mailto:support@packshield.app">support@packshield.app</a>.
+          Download Pack Shield, then start with the habit or substance you are changing.
         </p>
-        <p>
-          Pack Shield is not medical advice, therapy, treatment, emergency response, or crisis care. If you are in immediate danger, contact local emergency services.
-        </p>
+      </div>
+      <div class="final-actions">
+        <a class="button primary app-store-button" href="https://apps.apple.com/app/id6809620104" aria-label="Download Pack Shield on the App Store">
+          <span>Download on the</span>
+          <strong>App Store</strong>
+        </a>
+        <a class="button secondary" href="mailto:support@packshield.app">support@packshield.app</a>
       </div>
     </section>
   </main>

@@ -12,6 +12,8 @@
       } catch {}
     })();
   </script>
+  <link rel="icon" href="/app-icon.png">
+  <link rel="apple-touch-icon" href="/app-icon.png">
   <link rel="stylesheet" href="/theme.css">
   <script defer src="/theme.js"></script>
 </head>
@@ -20,19 +22,20 @@
   <header class="site-shell">
     <nav class="site-nav" aria-label="Primary">
       <a class="brand-link" href="/">
-        <span class="brand-mark">PS</span>
+        <img class="brand-icon" src="/app-icon.png" alt="" width="34" height="34">
         <span>
           <span class="brand-title">Pack Shield</span>
-          <span class="brand-subtitle">Adult recovery support</span>
+          <span class="brand-subtitle">Build your pack</span>
         </span>
       </a>
       <div class="nav-actions">
         <div class="nav-links">
-          <a href="/support">Support</a>
-          <a href="/privacy">Privacy</a>
-          <a href="/terms">Terms</a>
-          <a href="/sms-consent">SMS</a>
+          <a href="/support" data-nav-link>Support</a>
+          <a href="/privacy" data-nav-link>Privacy</a>
+          <a href="/terms" data-nav-link>Terms</a>
+          <a href="/sms-consent" data-nav-link>SMS</a>
         </div>
+        <a class="nav-download" href="https://apps.apple.com/app/id6809620104">Download</a>
         <label class="theme-control">
           <span>Theme</span>
           <select data-theme-select aria-label="Color theme">
