@@ -109,16 +109,15 @@ body {
   letter-spacing: 0;
   background-color: rgb(var(--void-rgb));
   background-image:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.07), transparent 16%, transparent 74%, rgba(0, 0, 0, 0.20)),
-    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.020) 0 1px, transparent 1px 96px),
-    linear-gradient(118deg, transparent 0%, rgba(var(--aqua-rgb), 0.34) 17%, transparent 33%),
-    linear-gradient(224deg, transparent 4%, rgba(var(--rose-rgb), 0.30) 29%, transparent 48%),
-    linear-gradient(30deg, transparent 16%, rgba(var(--solar-rgb), 0.20) 43%, transparent 66%),
-    linear-gradient(158deg, rgba(var(--primary-rgb), 0.30) 0%, transparent 31%, rgba(var(--secondary-rgb), 0.24) 55%, rgba(var(--glow-rgb), 0.22) 78%, transparent 100%),
-    linear-gradient(96deg, rgba(var(--violet-rgb), 0.16) 0%, transparent 24%, rgba(var(--moss-rgb), 0.18) 52%, transparent 75%, rgba(var(--ember-rgb), 0.14) 100%),
-    linear-gradient(124deg, rgb(var(--void-rgb)) 0%, rgba(var(--middle-rgb), 0.92) 28%, rgba(var(--panel-rgb), 0.88) 50%, rgba(var(--middle-rgb), 0.92) 70%, rgb(var(--void-rgb)) 100%);
-  background-size: auto, 120px 120px, 130% 130%, 135% 135%, 125% 125%, 145% 145%, 130% 130%, auto;
-  background-position: center, center, left top, right 12% top, left 18% bottom, center, center, center;
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 14%, transparent 76%, rgba(0, 0, 0, 0.16)),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.022) 0 1px, transparent 1px 96px),
+    radial-gradient(80vw 62vw at 12% 14%, rgba(var(--primary-rgb), 0.46), transparent 56%),
+    radial-gradient(72vw 58vw at 86% 10%, rgba(var(--glow-rgb), 0.38), transparent 58%),
+    radial-gradient(74vw 66vw at 70% 58%, rgba(var(--secondary-rgb), 0.42), transparent 60%),
+    radial-gradient(66vw 54vw at 18% 82%, rgba(var(--rose-rgb), 0.28), transparent 60%),
+    linear-gradient(132deg, rgb(var(--void-rgb)) 0%, rgba(var(--primary-rgb), 0.36) 20%, rgb(var(--middle-rgb)) 42%, rgba(var(--secondary-rgb), 0.30) 59%, rgba(var(--glow-rgb), 0.25) 76%, rgb(var(--void-rgb)) 100%);
+  background-size: auto, 120px 120px, auto, auto, auto, auto, auto;
+  background-position: center;
 }
 
 ::selection {
@@ -233,9 +232,10 @@ body > header.site-shell {
 .screen-alert {
   border: 1px solid rgba(var(--line-rgb), 0.30);
   background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.10), transparent 34%),
-    linear-gradient(124deg, rgba(var(--primary-rgb), 0.11), transparent 48%, rgba(var(--secondary-rgb), 0.08)),
-    rgba(var(--panel-rgb), 0.58);
+    linear-gradient(145deg, rgba(255, 255, 255, 0.12), transparent 34%),
+    linear-gradient(124deg, rgba(var(--primary-rgb), 0.22), transparent 46%, rgba(var(--secondary-rgb), 0.15)),
+    linear-gradient(42deg, rgba(var(--glow-rgb), 0.12), transparent 58%),
+    rgba(var(--surface-rgb), 0.42);
   box-shadow: 0 10px 26px rgba(0, 0, 0, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
@@ -390,8 +390,12 @@ body > header.site-shell {
   padding: 8px 12px 8px 8px;
   border: 1px solid rgba(var(--primary-rgb), 0.34);
   border-radius: 8px;
-  background: rgba(var(--surface-rgb), 0.58);
+  background:
+    linear-gradient(135deg, rgba(var(--primary-rgb), 0.16), transparent 48%, rgba(var(--secondary-rgb), 0.10)),
+    rgba(var(--surface-rgb), 0.44);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px) saturate(125%);
+  -webkit-backdrop-filter: blur(12px) saturate(125%);
 }
 
 .hero-kicker img {
@@ -872,8 +876,9 @@ body > header.site-shell {
   border-color: rgba(var(--tile-rgb), 0.36);
   border-radius: 8px;
   background:
-    linear-gradient(145deg, rgba(var(--tile-rgb), 0.18), transparent 58%),
-    rgba(var(--surface-rgb), 0.62);
+    linear-gradient(145deg, rgba(var(--tile-rgb), 0.24), transparent 58%),
+    linear-gradient(124deg, rgba(var(--primary-rgb), 0.10), transparent 46%, rgba(var(--secondary-rgb), 0.10)),
+    rgba(var(--surface-rgb), 0.44);
 }
 
 .action-icon {
@@ -1210,7 +1215,36 @@ body > header.site-shell {
   }
 
   .hero-visual {
-    display: none;
+    display: block;
+  }
+
+  .phone-stack {
+    min-height: 460px;
+  }
+
+  .hero-phone.primary-shot {
+    width: min(252px, 82vw);
+    min-height: 508px;
+    transform: none;
+  }
+
+  .hero-phone.primary-shot .iphone-screen {
+    min-height: 482px;
+  }
+
+  .progress-ring {
+    width: 142px;
+    height: 142px;
+    border-width: 8px;
+  }
+
+  .progress-ring strong {
+    font-size: 32px;
+  }
+
+  .shibit-preview img {
+    width: 48px;
+    height: 48px;
   }
 
   .hero-kicker {
