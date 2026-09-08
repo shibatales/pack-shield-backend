@@ -1,0 +1,15 @@
+---
+interface Props {
+  kind?: "marketing" | "contact";
+}
+
+const { kind = "contact" } = Astro.props;
+---
+
+<footer class="site-footer">
+  {kind === "marketing" ? (
+    <Fragment>&copy; 2026 Pack Shield. Intended for adults 18 and older.</Fragment>
+  ) : (
+    <Fragment>&copy; 2026 Pack Shield. Contact <a href="mailto:support@packshield.app">support@packshield.app</a>.</Fragment>
+  )}
+</footer>

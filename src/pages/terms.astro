@@ -1,63 +1,8 @@
-<!doctype html>
-<html lang="en" data-theme="glass-aqua">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Pack Shield Terms of Service</title>
-  <script>
-    (() => {
-      try {
-        const theme = localStorage.getItem("packshield.web.theme.v1");
-        if (theme) document.documentElement.dataset.theme = theme;
-      } catch {}
-    })();
-  </script>
-  <link rel="icon" href="/app-icon.png">
-  <link rel="apple-touch-icon" href="/app-icon.png">
-  <link rel="stylesheet" href="/theme.css?v=20260908-4">
-  <script defer src="/theme.js?v=20260908-4"></script>
-</head>
-<body>
-  <a class="skip-link" href="#content">Skip to content</a>
-  <header class="site-shell">
-    <nav class="site-nav" aria-label="Primary">
-      <a class="brand-link" href="/">
-        <img class="brand-icon" src="/app-icon.png" alt="" width="34" height="34">
-        <span>
-          <span class="brand-title">Pack Shield</span>
-          <span class="brand-subtitle">Build your pack</span>
-        </span>
-      </a>
-      <button class="menu-toggle" type="button" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false" data-menu-toggle>
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path class="menu-lines" d="M4 7h16M4 12h16M4 17h16"></path>
-          <path class="menu-x" d="M6 6l12 12M18 6 6 18"></path>
-        </svg>
-      </button>
-      <div class="nav-actions" id="mobile-menu" data-menu-panel>
-        <div class="nav-links">
-          <a href="/support" data-nav-link>Support</a>
-          <a href="/privacy" data-nav-link>Privacy</a>
-          <a href="/terms" data-nav-link>Terms</a>
-          <a href="/sms-consent" data-nav-link>SMS</a>
-        </div>
-        <a class="nav-download" href="https://apps.apple.com/app/id6809620104">Download</a>
-        <label class="theme-control">
-          <span>Theme</span>
-          <select data-theme-select aria-label="Color theme">
-            <option value="glass-aqua">Glass Aqua</option>
-            <option value="glass-ember">Glass Ember</option>
-            <option value="glass-solar">Glass Solar</option>
-            <option value="glass-sky">Glass Sky</option>
-            <option value="glass-moss">Glass Moss</option>
-            <option value="glass-violet">Glass Violet</option>
-            <option value="glass-rose">Glass Rose</option>
-          </select>
-        </label>
-      </div>
-    </nav>
-  </header>
+---
+import SiteLayout from "../components/SiteLayout.astro";
+---
 
+<SiteLayout title="Pack Shield Terms of Service">
   <main id="content" class="site-shell legal-page">
     <article class="glass-panel legal-article">
       <h1>Terms of Service</h1>
@@ -141,9 +86,4 @@
       </p>
     </article>
   </main>
-
-  <footer class="site-footer">
-    &copy; 2026 Pack Shield. Contact <a href="mailto:support@packshield.app">support@packshield.app</a>.
-  </footer>
-</body>
-</html>
+</SiteLayout>

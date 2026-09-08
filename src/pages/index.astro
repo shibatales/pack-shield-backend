@@ -1,69 +1,18 @@
-<!doctype html>
-<html lang="en" data-theme="glass-aqua">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Pack Shield helps adults put a practical pause between an urge and a choice with pledges, timers, support shortcuts, Shield friction, and Shibit care.">
-  <title>Pack Shield</title>
-  <script>
-    (() => {
-      try {
-        const theme = localStorage.getItem("packshield.web.theme.v1");
-        if (theme) document.documentElement.dataset.theme = theme;
-      } catch {}
-    })();
-  </script>
-  <link rel="icon" href="/app-icon.png">
-  <link rel="apple-touch-icon" href="/app-icon.png">
-  <link rel="stylesheet" href="/theme.css?v=20260908-4">
-  <script defer src="/theme.js?v=20260908-4"></script>
-</head>
-<body class="marketing-page">
-  <a class="skip-link" href="#content">Skip to content</a>
-  <header class="site-shell">
-    <nav class="site-nav" aria-label="Primary">
-      <a class="brand-link" href="/">
-        <img class="brand-icon" src="/app-icon.png" alt="" width="34" height="34">
-        <span>
-          <span class="brand-title">Pack Shield</span>
-          <span class="brand-subtitle">Build your pack</span>
-        </span>
-      </a>
-      <button class="menu-toggle" type="button" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false" data-menu-toggle>
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path class="menu-lines" d="M4 7h16M4 12h16M4 17h16"></path>
-          <path class="menu-x" d="M6 6l12 12M18 6 6 18"></path>
-        </svg>
-      </button>
-      <div class="nav-actions" id="mobile-menu" data-menu-panel>
-        <div class="nav-links">
-          <a href="/support" data-nav-link>Support</a>
-          <a href="/privacy" data-nav-link>Privacy</a>
-          <a href="/terms" data-nav-link>Terms</a>
-          <a href="/sms-consent" data-nav-link>SMS</a>
-        </div>
-        <a class="nav-download" href="https://apps.apple.com/app/id6809620104">Download</a>
-        <label class="theme-control">
-          <span>Theme</span>
-          <select data-theme-select aria-label="Color theme">
-            <option value="glass-aqua">Glass Aqua</option>
-            <option value="glass-ember">Glass Ember</option>
-            <option value="glass-solar">Glass Solar</option>
-            <option value="glass-sky">Glass Sky</option>
-            <option value="glass-moss">Glass Moss</option>
-            <option value="glass-violet">Glass Violet</option>
-            <option value="glass-rose">Glass Rose</option>
-          </select>
-        </label>
-      </div>
-    </nav>
-  </header>
+---
+import SiteLayout from "../components/SiteLayout.astro";
+---
 
+<SiteLayout
+  title="Pack Shield"
+  bodyClass="marketing-page"
+  footerKind="marketing"
+  stickyCta
+>
   <main id="content" class="site-shell">
     <section class="hero" aria-labelledby="title">
       <div class="hero-copy">
         <div class="hero-kicker">
-          <img src="/app-icon.png" alt="" width="46" height="46">
+          <img src="/app-icon.png" alt="" width="46" height="46" />
           <div>
             <span>Pack Shield for iPhone</span>
             <strong>Stay with the choice you meant to make</strong>
@@ -108,7 +57,7 @@
                   <span>Pack Shield</span>
                   <strong>Today</strong>
                 </div>
-                <img src="/app-icon.png" alt="" width="30" height="30">
+                <img src="/app-icon.png" alt="" width="30" height="30" />
               </div>
               <div class="progress-ring">
                 <div><strong>24h</strong><span>streak</span></div>
@@ -123,7 +72,7 @@
                 <span class="mini-action tone-review">Review</span>
               </div>
               <div class="shibit-preview">
-                <img src="/shibit-tako.gif" alt="">
+                <img src="/shibit-tako.gif" alt="" />
                 <span>Breathe. Your pack is with you.</span>
               </div>
             </div>
@@ -236,61 +185,61 @@
       <div class="action-grid">
         <article class="action-tile tone-rescue">
           <span class="action-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M3 13h4l2-6 4 12 3-8 2 2h3"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M3 13h4l2-6 4 12 3-8 2 2h3"></path></svg>
           </span>
           <div><h3>Rescue</h3><p>Open the urge interruption flow.</p></div>
         </article>
         <article class="action-tile tone-restart">
           <span class="action-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="3"/><path d="M7 7l3 3M14 14l3 3M17 7l-3 3M10 14l-3 3"/></svg>
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7"></circle><circle cx="12" cy="12" r="3"></circle><path d="M7 7l3 3M14 14l3 3M17 7l-3 3M10 14l-3 3"></path></svg>
           </span>
           <div><h3>Restart</h3><p>Use the guided reset after a slip.</p></div>
         </article>
         <article class="action-tile tone-talk">
           <span class="action-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M6 15l-3 3V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H6z"/><path d="M10 18h7l4 3V10"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M6 15l-3 3V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H6z"></path><path d="M10 18h7l4 3V10"></path></svg>
           </span>
           <div><h3>Talk</h3><p>Start a Shibit check-in.</p></div>
         </article>
         <article class="action-tile tone-focus">
           <span class="action-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M10 3h4M12 8v5l3 2"/><circle cx="12" cy="14" r="7"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M10 3h4M12 8v5l3 2"></path><circle cx="12" cy="14" r="7"></circle></svg>
           </span>
           <div><h3>Focus</h3><p>Run a short focus sprint.</p></div>
         </article>
         <article class="action-tile tone-plan">
           <span class="action-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M8 4h8l1 3H7l1-3z"/><path d="M7 6H5v15h14V6h-2"/><path d="M8 11h8M8 15h8M8 19h5"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M8 4h8l1 3H7l1-3z"></path><path d="M7 6H5v15h14V6h-2"></path><path d="M8 11h8M8 15h8M8 19h5"></path></svg>
           </span>
           <div><h3>Plan</h3><p>Open coping steps and recovery plan.</p></div>
         </article>
         <article class="action-tile tone-meetings">
           <span class="action-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M4 7h11a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H4V7z"/><path d="M17 10l4-2v8l-4-2"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M4 7h11a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H4V7z"></path><path d="M17 10l4-2v8l-4-2"></path></svg>
           </span>
           <div><h3>Meetings</h3><p>Find support meetings quickly.</p></div>
         </article>
         <article class="action-tile tone-shield">
           <span class="action-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6l7-3z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6l7-3z"></path></svg>
           </span>
           <div><h3>Shield</h3><p>Add friction to risky paths.</p></div>
         </article>
         <article class="action-tile tone-review">
           <span class="action-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M17 3a8 8 0 1 0 4 13 7 7 0 0 1-8-8 7 7 0 0 1 4-5z"/><path d="M5 5l1-2 1 2 2 1-2 1-1 2-1-2-2-1 2-1z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M17 3a8 8 0 1 0 4 13 7 7 0 0 1-8-8 7 7 0 0 1 4-5z"></path><path d="M5 5l1-2 1 2 2 1-2 1-1 2-1-2-2-1 2-1z"></path></svg>
           </span>
           <div><h3>Review</h3><p>Close the loop while the day is fresh.</p></div>
         </article>
         <article class="action-tile tone-reasons">
           <span class="action-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M5 4h10a4 4 0 0 1 4 4v12H8a3 3 0 0 0-3 3V4z"/><path d="M8 8h7M8 12h7M8 16h5"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M5 4h10a4 4 0 0 1 4 4v12H8a3 3 0 0 0-3 3V4z"></path><path d="M8 8h7M8 12h7M8 16h5"></path></svg>
           </span>
           <div><h3>Reasons</h3><p>Stay close to why you started.</p></div>
         </article>
         <article class="action-tile tone-room">
           <span class="action-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M4 7h12v10H4z"/><path d="M16 10l4-2v11H8"/><path d="M7 4l1 2 2 1-2 1-1 2-1-2-2-1 2-1 1-2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M4 7h12v10H4z"></path><path d="M16 10l4-2v11H8"></path><path d="M7 4l1 2 2 1-2 1-1 2-1-2-2-1 2-1 1-2z"></path></svg>
           </span>
           <div><h3>The Den</h3><p>Open Shibit care, games, and suits.</p></div>
         </article>
@@ -314,10 +263,4 @@
       </div>
     </section>
   </main>
-
-  <footer class="site-footer">
-    &copy; 2026 Pack Shield. Intended for adults 18 and older.
-  </footer>
-  <a class="mobile-sticky-cta" href="https://apps.apple.com/app/id6809620104">Download Pack Shield</a>
-</body>
-</html>
+</SiteLayout>

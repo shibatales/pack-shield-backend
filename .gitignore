@@ -1,6 +1,9 @@
 .vercel/
+.astro/
+dist/
 .local-home/
 .local-node/
+.npm-cache/
 node_modules/
 .env*
 !.env.example

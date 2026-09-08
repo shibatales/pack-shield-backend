@@ -1,0 +1,51 @@
+---
+import SiteFooter from "./SiteFooter.astro";
+import SiteHeader from "./SiteHeader.astro";
+
+interface Props {
+  title: string;
+  description?: string;
+  bodyClass?: string;
+  footerKind?: "marketing" | "contact";
+  stickyCta?: boolean;
+}
+
+const {
+  title,
+  description = "Pack Shield helps adults put a practical pause between an urge and a choice with pledges, timers, support shortcuts, Shield friction, and Shibit care.",
+  bodyClass = "",
+  footerKind = "contact",
+  stickyCta = false
+} = Astro.props;
+
+const assetVersion = "20260908-astro1";
+---
+
+<!doctype html>
+<html lang="en" data-theme="glass-aqua">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <script is:inline>
+      (() => {
+        try {
+          const theme = localStorage.getItem("packshield.web.theme.v1");
+          if (theme) document.documentElement.dataset.theme = theme;
+        } catch {}
+      })();
+    </script>
+    <link rel="icon" href="/app-icon.png" />
+    <link rel="apple-touch-icon" href="/app-icon.png" />
+    <link rel="stylesheet" href={`/theme.css?v=${assetVersion}`} />
+    <script defer src={`/theme.js?v=${assetVersion}`}></script>
+  </head>
+  <body class:list={[bodyClass]}>
+    <a class="skip-link" href="#content">Skip to content</a>
+    <SiteHeader />
+    <slot />
+    <SiteFooter kind={footerKind} />
+    {stickyCta && <a class="mobile-sticky-cta" href="https://apps.apple.com/app/id6809620104">Download Pack Shield</a>}
+  </body>
+</html>

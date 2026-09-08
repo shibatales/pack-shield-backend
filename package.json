@@ -7,9 +7,12 @@
     "node": "24.x"
   },
   "scripts": {
-    "dev": "vercel dev",
+    "dev": "ASTRO_TELEMETRY_DISABLED=1 astro dev",
+    "vercel:dev": "vercel dev",
+    "build": "ASTRO_TELEMETRY_DISABLED=1 astro build",
+    "preview": "ASTRO_TELEMETRY_DISABLED=1 astro preview",
     "typecheck": "tsc --noEmit",
-    "test": "npm run typecheck"
+    "test": "npm run typecheck && npm run build"
   },
   "dependencies": {
     "@types/node": "26.5.0",
@@ -20,6 +23,7 @@
     "typescript": "7.0.2"
   },
   "devDependencies": {
+    "astro": "^7.3.2",
     "vercel": "59.11.7"
   }
 }
