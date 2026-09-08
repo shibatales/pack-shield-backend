@@ -247,6 +247,17 @@ body > header.site-shell {
   border-radius: 8px;
 }
 
+.stat,
+.feature-card,
+.action-tile,
+.screen-panel,
+.screen-alert,
+.mockup,
+.message {
+  backdrop-filter: blur(14px) saturate(130%);
+  -webkit-backdrop-filter: blur(14px) saturate(130%);
+}
+
 .brand-icon,
 .brand-mark {
   display: grid;
