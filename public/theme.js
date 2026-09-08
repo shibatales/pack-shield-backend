@@ -60,7 +60,13 @@
 
     function syncMenuState() {
       const isMobile = mobileQuery.matches;
-      document.body.toggleAttribute("data-menu-open", isMobile && isOpen);
+
+      if (isMobile && isOpen) {
+        document.body.setAttribute("data-menu-open", "true");
+      } else {
+        document.body.removeAttribute("data-menu-open");
+      }
+
       toggle.setAttribute("aria-expanded", String(isMobile && isOpen));
       toggle.setAttribute("aria-label", isMobile && isOpen ? "Close menu" : "Open menu");
 
