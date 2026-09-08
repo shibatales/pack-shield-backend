@@ -1599,14 +1599,29 @@ body[data-menu-open] .menu-toggle,
   .button-row,
   .final-actions {
     align-items: center;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
     gap: 10px;
     margin-top: 22px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 4px;
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .button-row::-webkit-scrollbar,
+  .final-actions::-webkit-scrollbar {
+    display: none;
   }
 
   .button,
   .app-store-button {
+    flex: 0 0 auto;
     width: auto;
-    max-width: 100%;
+    max-width: none;
+    white-space: nowrap;
   }
 
   .stats {
