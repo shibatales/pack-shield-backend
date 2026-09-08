@@ -1601,27 +1601,48 @@ body[data-menu-open] .menu-toggle,
     align-items: center;
     justify-content: flex-start;
     flex-wrap: nowrap;
+    width: 100%;
     gap: 10px;
     margin-top: 22px;
-    overflow-x: auto;
-    overflow-y: hidden;
-    padding-bottom: 4px;
-    scroll-snap-type: x proximity;
-    scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .button-row::-webkit-scrollbar,
-  .final-actions::-webkit-scrollbar {
-    display: none;
   }
 
   .button,
   .app-store-button {
-    flex: 0 0 auto;
     width: auto;
-    max-width: none;
+    max-width: 100%;
     white-space: nowrap;
+  }
+
+  .button {
+    min-height: 44px;
+    padding: 0 12px;
+    font-size: 14px;
+  }
+
+  .button.secondary {
+    flex: 1 1 120px;
+    min-width: 0;
+  }
+
+  .app-store-button {
+    flex: 0 1 154px;
+    min-width: 132px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+  }
+
+  .app-store-button span {
+    font-size: 10px;
+  }
+
+  .app-store-button strong {
+    font-size: 18px;
+  }
+
+  .final-actions .button.secondary {
+    padding-right: 8px;
+    padding-left: 8px;
+    font-size: 12px;
   }
 
   .stats {
