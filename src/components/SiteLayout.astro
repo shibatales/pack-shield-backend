@@ -18,7 +18,7 @@ const {
   stickyCta = false
 } = Astro.props;
 
-const assetVersion = "20260908-design17";
+const assetVersion = "20260908-design18";
 ---
 
 <!doctype html>
@@ -46,12 +46,12 @@ const assetVersion = "20260908-design17";
     <div class="fixed-pattern-backdrop" aria-hidden="true">
       <svg width="100%" height="100%" focusable="false">
         <defs>
-          <pattern id="ground-glide-hatch" width="42" height="42" patternUnits="userSpaceOnUse">
-            <path class="hatch-line primary" d="M-10 14L14 -10M4 46L46 4" />
-            <path class="hatch-line secondary" d="M24 52L52 24" />
+          <pattern id="ground-glide-tiles" width="44" height="44" patternUnits="userSpaceOnUse">
+            <path class="tile-line vertical" d="M0 0V44" />
+            <path class="tile-line horizontal" d="M0 0H44" />
           </pattern>
         </defs>
-        <rect width="100%" height="100%" fill="url(#ground-glide-hatch)" />
+        <rect width="100%" height="100%" fill="url(#ground-glide-tiles)" />
       </svg>
     </div>
     <a class="skip-link" href="#content">Skip to content</a>

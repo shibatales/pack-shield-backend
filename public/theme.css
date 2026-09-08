@@ -154,18 +154,19 @@ body {
   height: 100%;
 }
 
-.fixed-pattern-backdrop .hatch-line {
+.fixed-pattern-backdrop .tile-line {
   fill: none;
-  stroke-linecap: round;
-  stroke-width: 1.1;
+  stroke-linecap: square;
+  stroke-width: 1;
+  shape-rendering: crispEdges;
 }
 
-.fixed-pattern-backdrop .hatch-line.primary {
+.fixed-pattern-backdrop .tile-line.vertical {
   stroke: rgb(var(--primary-rgb));
-  stroke-opacity: 0.18;
+  stroke-opacity: 0.14;
 }
 
-.fixed-pattern-backdrop .hatch-line.secondary {
+.fixed-pattern-backdrop .tile-line.horizontal {
   stroke: rgb(var(--secondary-rgb));
   stroke-opacity: 0.12;
 }
