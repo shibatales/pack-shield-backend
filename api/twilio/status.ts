@@ -2,6 +2,7 @@ import type { VercelRequest, VercelResponse } from "@vercel/node";
 import twilio from "twilio";
 import { allowMethods, requireAppApiKey, sendJson } from "../../lib/http.js";
 import { optionalEnv } from "../../lib/env.js";
+import { publicSmsAvailability, smsLaunchGateEnabled } from "../../lib/twilio.js";
 
 export default async function handler(
   request: VercelRequest,
@@ -27,7 +28,9 @@ export default async function handler(
     authTokenLooksQuoted: Boolean(authToken?.startsWith("\"") || authToken?.endsWith("\"")),
     hasFromNumber: Boolean(fromNumber),
     fromNumberLooksValid: Boolean(fromNumber?.match(/^\+\d{7,15}$/)),
-    validateWebhooks: validateWebhooks ?? "default_true"
+    validateWebhooks: validateWebhooks ?? "default_true",
+    smsLaunchGateEnabled: smsLaunchGateEnabled(),
+    sms: publicSmsAvailability()
   };
 
   if (!accountSid || !authToken || !fromNumber) {

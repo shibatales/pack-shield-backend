@@ -19,7 +19,7 @@ import {
 import { createPinVerifier, pinMatches } from "../../../lib/pin.js";
 import { randomDigits } from "../../../lib/security.js";
 import {
-  hasTwilioOutboundConfig,
+  canSendTwilioMessages,
   sendSponsorInvite,
   sendSponsorReplacementNotice,
   smsConsentVersion
@@ -144,15 +144,15 @@ export default async function handler(
   if (shouldSendInvite) {
     if (!verificationCode) {
       warning = "sponsor_already_verified";
-    } else if (hasTwilioOutboundConfig()) {
+    } else if (canSendTwilioMessages()) {
       await sendSponsorInvite(sponsorPhone, sponsorName, verificationCode);
       inviteSent = true;
     } else {
-      warning = "twilio_not_configured";
+      warning = "sms_launch_pending";
     }
   }
 
-  if (replacingVerifiedSponsor && previousSponsorPhone && hasTwilioOutboundConfig()) {
+  if (replacingVerifiedSponsor && previousSponsorPhone && canSendTwilioMessages()) {
     await sendSponsorReplacementNotice(previousSponsorPhone);
   }
 

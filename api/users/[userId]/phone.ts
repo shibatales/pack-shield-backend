@@ -17,9 +17,10 @@ import {
   type UserPhoneRecord
 } from "../../../lib/store.js";
 import {
-  hasTwilioOutboundConfig,
+  canSendTwilioMessages,
   sendUserPhoneVerification,
-  smsConsentVersion
+  smsConsentVersion,
+  smsUnavailableJson
 } from "../../../lib/twilio.js";
 
 interface UserPhoneBody {
@@ -85,6 +86,12 @@ async function requestVerificationCode(
   const phoneUnchanged = existing?.userPhone === userPhone;
   const alreadyVerified = phoneUnchanged && userPhoneVerificationStatus(existing) === "verified";
   const verificationCode = alreadyVerified ? undefined : randomDigits(6);
+
+  if (!alreadyVerified && !canSendTwilioMessages()) {
+    sendJson(response, 503, smsUnavailableJson());
+    return;
+  }
+
   const record: UserPhoneRecord = {
     userId,
     userPhone,
@@ -105,12 +112,8 @@ async function requestVerificationCode(
   let verificationSent = false;
   let warning: string | null = null;
   if (!alreadyVerified) {
-    if (hasTwilioOutboundConfig()) {
-      await sendUserPhoneVerification(userPhone, verificationCode!);
-      verificationSent = true;
-    } else {
-      warning = "twilio_not_configured";
-    }
+    await sendUserPhoneVerification(userPhone, verificationCode!);
+    verificationSent = true;
   }
 
   sendJson(response, 200, {

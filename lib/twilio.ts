@@ -4,6 +4,8 @@ import { booleanEnv, optionalEnv, requiredEnv } from "./env.js";
 import { requestPublicUrl } from "./http.js";
 
 export const smsConsentVersion = "sms-consent-2026-09-07";
+export const smsUnavailableMessage =
+  "Text-message setup is temporarily unavailable while we finish launch approval. You can still save support people and use phone calls.";
 export const smsOptInMessage =
   "Pack Shield: You are opted in for Pack Shield verification, sponsor setup, Shield notices, and accountability alerts. Msg frequency varies. Msg&data rates may apply. Reply HELP for help or STOP to opt out.";
 export const smsHelpMessage =
@@ -45,6 +47,10 @@ export function validateTwilioRequest(
 }
 
 export async function sendText(to: string, body: string): Promise<void> {
+  if (!canSendTwilioMessages()) {
+    throw new Error("sms_launch_pending");
+  }
+
   const accountSid = requiredEnv("TWILIO_ACCOUNT_SID");
   const authToken = requiredEnv("TWILIO_AUTH_TOKEN");
   const from = requiredEnv("TWILIO_FROM_NUMBER");
@@ -91,6 +97,40 @@ export function hasTwilioOutboundConfig(): boolean {
       optionalEnv("TWILIO_AUTH_TOKEN") &&
       optionalEnv("TWILIO_FROM_NUMBER")
   );
+}
+
+export function smsLaunchGateEnabled(): boolean {
+  const primary = optionalEnv("PACKPACT_SMS_ENABLED");
+  if (primary !== undefined) {
+    return booleanEnv("PACKPACT_SMS_ENABLED", false);
+  }
+  return booleanEnv("PACKSHIELD_SMS_ENABLED", false);
+}
+
+export function canSendTwilioMessages(): boolean {
+  return smsLaunchGateEnabled() && hasTwilioOutboundConfig();
+}
+
+export function publicSmsAvailability(): Record<string, unknown> {
+  const launchGateEnabled = smsLaunchGateEnabled();
+  const outboundConfigured = hasTwilioOutboundConfig();
+  const isEnabled = launchGateEnabled && outboundConfigured;
+
+  return {
+    isEnabled,
+    status: isEnabled ? "available" : launchGateEnabled ? "temporarily_unavailable" : "launch_pending",
+    message: isEnabled ? "Text-message setup is available." : smsUnavailableMessage
+  };
+}
+
+export function smsUnavailableJson(): Record<string, unknown> {
+  const sms = publicSmsAvailability();
+  return {
+    ok: false,
+    error: sms.status === "launch_pending" ? "sms_launch_pending" : "sms_temporarily_unavailable",
+    message: smsUnavailableMessage,
+    sms
+  };
 }
 
 function escapeXml(value: string): string {

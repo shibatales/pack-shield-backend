@@ -7,7 +7,7 @@ import {
   sendJson
 } from "../../../lib/http.js";
 import { getSponsorRecord } from "../../../lib/store.js";
-import { hasTwilioOutboundConfig, sendText } from "../../../lib/twilio.js";
+import { canSendTwilioMessages, sendText, smsUnavailableJson } from "../../../lib/twilio.js";
 
 const allowedActions = new Set(["added", "removed", "edited", "disabled", "cleared"]);
 
@@ -46,8 +46,8 @@ export default async function handler(
     return;
   }
 
-  if (!hasTwilioOutboundConfig()) {
-    sendJson(response, 503, { ok: false, error: "twilio_not_configured" });
+  if (!canSendTwilioMessages()) {
+    sendJson(response, 503, smsUnavailableJson());
     return;
   }
 
