@@ -142,8 +142,7 @@ body {
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  color: rgb(var(--line-rgb));
-  opacity: 0.42;
+  opacity: 0.46;
   contain: strict;
   mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.86) 0%, rgba(0, 0, 0, 0.34) 46%, rgba(0, 0, 0, 0.12) 100%);
   -webkit-mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.86) 0%, rgba(0, 0, 0, 0.34) 46%, rgba(0, 0, 0, 0.12) 100%);
@@ -155,36 +154,20 @@ body {
   height: 100%;
 }
 
-.fixed-pattern-backdrop .tile-grid,
-.fixed-pattern-backdrop .tile-lane {
+.fixed-pattern-backdrop .hatch-line {
   fill: none;
-  stroke: currentColor;
-  stroke-linecap: square;
+  stroke-linecap: round;
+  stroke-width: 1.1;
 }
 
-.fixed-pattern-backdrop .tile-grid {
-  stroke-width: 0.8;
-  stroke-opacity: 0.14;
+.fixed-pattern-backdrop .hatch-line.primary {
+  stroke: rgb(var(--primary-rgb));
+  stroke-opacity: 0.18;
 }
 
-.fixed-pattern-backdrop .tile-lane {
-  stroke-width: 1;
+.fixed-pattern-backdrop .hatch-line.secondary {
+  stroke: rgb(var(--secondary-rgb));
   stroke-opacity: 0.12;
-}
-
-.fixed-pattern-backdrop .tile-pixel.primary {
-  fill: rgb(var(--primary-rgb));
-  fill-opacity: 0.20;
-}
-
-.fixed-pattern-backdrop .tile-pixel.secondary {
-  fill: rgb(var(--secondary-rgb));
-  fill-opacity: 0.16;
-}
-
-.fixed-pattern-backdrop .tile-pixel.glow {
-  fill: rgb(var(--glow-rgb));
-  fill-opacity: 0.18;
 }
 
 ::selection {
