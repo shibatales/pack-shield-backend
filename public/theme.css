@@ -122,23 +122,19 @@ body {
   font: 16px/1.42 -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
   letter-spacing: 0;
   background-color: rgb(var(--void-rgb));
-  background-image:
+}
+
+.fixed-gradient-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
     linear-gradient(
       180deg,
       rgb(var(--panel-rgb)) 0%,
       rgb(var(--void-rgb)) 100%
     );
-  background-size: cover;
-  background-position: center;
-  background-attachment: scroll;
-}
-
-body::before {
-  display: none;
-}
-
-body::after {
-  display: none;
 }
 
 ::selection {
@@ -1251,7 +1247,6 @@ body[data-menu-open] .menu-toggle,
 @media (max-width: 860px) {
   body {
     line-height: 1.36;
-    background-attachment: scroll;
   }
 
   p,

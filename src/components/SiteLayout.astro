@@ -18,7 +18,7 @@ const {
   stickyCta = false
 } = Astro.props;
 
-const assetVersion = "20260908-design9";
+const assetVersion = "20260908-design10";
 ---
 
 <!doctype html>
@@ -42,6 +42,7 @@ const assetVersion = "20260908-design9";
     <script defer src={`/theme.js?v=${assetVersion}`}></script>
   </head>
   <body class:list={[bodyClass]}>
+    <div class="fixed-gradient-backdrop" aria-hidden="true"></div>
     <a class="skip-link" href="#content">Skip to content</a>
     <SiteHeader />
     <slot />
