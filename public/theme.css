@@ -108,40 +108,12 @@ body {
   font: 16px/1.55 -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
   letter-spacing: 0;
   background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.07), transparent 18%, transparent 76%, rgba(0, 0, 0, 0.24)),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.020) 0 1px, transparent 1px 96px),
+    linear-gradient(112deg, transparent 0 12%, rgba(var(--primary-rgb), 0.14) 24%, transparent 42%),
+    linear-gradient(216deg, transparent 0 18%, rgba(var(--secondary-rgb), 0.10) 48%, transparent 72%),
     linear-gradient(124deg, rgb(var(--void-rgb)) 0%, rgba(var(--middle-rgb), 0.98) 42%, rgb(var(--void-rgb)) 100%),
     linear-gradient(40deg, rgba(var(--primary-rgb), 0.22), transparent 36%, rgba(var(--secondary-rgb), 0.16) 68%, rgba(var(--glow-rgb), 0.12));
-  background-attachment: fixed;
-}
-
-body::before,
-body::after {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  content: "";
-}
-
-body::before {
-  opacity: 0.72;
-  background:
-    linear-gradient(112deg, transparent 0 12%, rgba(var(--primary-rgb), 0.20) 24%, transparent 42%),
-    linear-gradient(216deg, transparent 0 18%, rgba(var(--secondary-rgb), 0.14) 48%, transparent 72%),
-    linear-gradient(148deg, rgba(255, 255, 255, 0.06), transparent 22% 76%, rgba(255, 255, 255, 0.04));
-  background-size: 160% 160%;
-  animation: packGradientShift 18s ease-in-out infinite alternate;
-  mix-blend-mode: screen;
-}
-
-body::after {
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 18%, transparent 76%, rgba(0, 0, 0, 0.26)),
-    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.024) 0 1px, transparent 1px 96px);
-}
-
-@keyframes packGradientShift {
-  from { background-position: 0% 0%; }
-  to { background-position: 100% 84%; }
 }
 
 ::selection {
@@ -232,10 +204,8 @@ body > header.site-shell {
   padding: 10px;
   border: 1px solid rgba(var(--line-rgb), 0.24);
   border-radius: 8px;
-  background: rgba(var(--surface-rgb), 0.50);
-  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.26), inset 0 1px 0 rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(26px) saturate(150%);
-  -webkit-backdrop-filter: blur(26px) saturate(150%);
+  background: rgba(var(--surface-rgb), 0.86);
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
 .brand-link,
@@ -254,10 +224,8 @@ body > header.site-shell {
   border: 1px solid rgba(var(--line-rgb), 0.30);
   background:
     linear-gradient(145deg, rgba(255, 255, 255, 0.08), transparent 34%),
-    rgba(var(--surface-rgb), 0.60);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(24px) saturate(150%);
-  -webkit-backdrop-filter: blur(24px) saturate(150%);
+    rgba(var(--surface-rgb), 0.78);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
 .brand-link {
@@ -1177,10 +1145,6 @@ body > header.site-shell {
 }
 
 @media (max-width: 520px) {
-  body {
-    background-attachment: scroll;
-  }
-
   h1 {
     font-size: 40px;
   }
