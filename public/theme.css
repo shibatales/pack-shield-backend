@@ -114,9 +114,7 @@ body {
   background-image:
     linear-gradient(
       180deg,
-      rgb(var(--secondary-rgb)) 0%,
-      rgb(var(--primary-rgb)) 18%,
-      rgb(var(--middle-rgb)) 52%,
+      rgb(var(--panel-rgb)) 0%,
       rgb(var(--void-rgb)) 100%
     );
   background-size: cover;
@@ -481,11 +479,8 @@ body[data-menu-open] .menu-toggle,
   border: 1px solid rgba(var(--line-rgb), 0.24);
   border-radius: 10px;
   background:
-    linear-gradient(132deg, rgba(var(--primary-rgb), 0.30) 0%, rgba(var(--primary-rgb), 0.13) 23%, transparent 44%),
-    linear-gradient(34deg, transparent 13%, rgba(var(--secondary-rgb), 0.28) 47%, transparent 76%),
-    linear-gradient(310deg, rgba(var(--glow-rgb), 0.18) 0%, transparent 38%),
-    linear-gradient(136deg, rgba(255, 255, 255, 0.10), transparent 36%),
-    rgba(var(--surface-rgb), 0.08);
+    linear-gradient(180deg, rgba(255, 255, 255, 0.12), transparent 34%),
+    rgba(var(--surface-rgb), 0.16);
   box-shadow: 0 22px 64px rgba(0, 0, 0, 0.30), inset 0 1px 0 rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(18px) saturate(132%);
   -webkit-backdrop-filter: blur(18px) saturate(132%);
