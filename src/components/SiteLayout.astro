@@ -8,15 +8,20 @@ interface Props {
   bodyClass?: string;
   footerKind?: "marketing" | "contact";
   stickyCta?: boolean;
+  socialImage?: string;
 }
 
 const {
   title,
-  description = "Pack Shield helps adults put a practical pause between an urge and a choice with pledges, timers, support shortcuts, Shield friction, and Shibit care.",
+  description = "Pack Shield: Recovery Buddy helps adults put a practical pause between an urge and a choice with pledges, timers, support shortcuts, Shield friction, and Shibit care.",
   bodyClass = "",
   footerKind = "contact",
-  stickyCta = false
+  stickyCta = false,
+  socialImage = "/app-icon.png"
 } = Astro.props;
+
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site ?? "https://packshield.app").toString();
+const socialImageUrl = new URL(socialImage, Astro.site ?? "https://packshield.app").toString();
 
 const assetVersion = "20260908-design33";
 ---
@@ -27,6 +32,17 @@ const assetVersion = "20260908-design33";
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:site_name" content="Pack Shield" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={socialImageUrl} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImageUrl} />
     <title>{title}</title>
     <script is:inline>
       (() => {
