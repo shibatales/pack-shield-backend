@@ -20,7 +20,10 @@ const {
   socialImage = "/app-icon.png"
 } = Astro.props;
 
-const canonicalUrl = new URL(Astro.url.pathname, Astro.site ?? "https://packshield.app").toString();
+const canonicalPath = Astro.url.pathname
+  .replace(/\/index\.html$/, "/")
+  .replace(/\.html$/, "");
+const canonicalUrl = new URL(canonicalPath, Astro.site ?? "https://packshield.app").toString();
 const socialImageUrl = new URL(socialImage, Astro.site ?? "https://packshield.app").toString();
 
 const assetVersion = "20260908-design33";
@@ -74,6 +77,6 @@ const assetVersion = "20260908-design33";
     <SiteHeader />
     <slot />
     <SiteFooter kind={footerKind} />
-    {stickyCta && <a class="mobile-sticky-cta" href="https://apps.apple.com/app/id6809620104">Download Pack Shield</a>}
+    {stickyCta && <a class="mobile-sticky-cta" href="https://apps.apple.com/app/id6809620104" aria-label="Download Pack Shield: Recovery Buddy on the App Store">Download Pack Shield</a>}
   </body>
 </html>
