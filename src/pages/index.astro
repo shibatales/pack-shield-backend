@@ -1,5 +1,75 @@
 ---
 import SiteLayout from "../components/SiteLayout.astro";
+
+const appStoreUrl = "https://apps.apple.com/app/id6809620104";
+const appStoreBadgeUrl = "https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83";
+
+const heroScreenshots = {
+  primary: {
+    src: "/screenshots/home-dashboard.jpg",
+    alt: "Pack Shield home dashboard showing pledge, daily rhythm, timer, reminders, Shibit stats, and action shortcuts."
+  },
+  secondary: {
+    src: "/screenshots/pledge-saved.jpg",
+    alt: "Pack Shield pledge saved card with a recovery pledge and Shibit companion."
+  },
+  tertiary: {
+    src: "/screenshots/the-den.jpg",
+    alt: "The Den screen showing a Shibit room, care stats, games, and suit shop."
+  }
+};
+
+const websiteScreenshots = [
+  {
+    title: "Daily Home Base",
+    label: "Start here",
+    src: "/screenshots/home-dashboard.jpg",
+    alt: "Pack Shield home dashboard with pledge, daily rhythm, timer, reminders, Shibit stats, and action shortcuts.",
+    description: "Pledge, rescue, focus, Shield, reminders, and your Shibit status stay in one scannable place."
+  },
+  {
+    title: "Pledge Saved",
+    label: "Keep today",
+    src: "/screenshots/pledge-saved.jpg",
+    alt: "Pledge saved screen with a recovery pledge card for Day 1 and a Shibit companion.",
+    description: "A saved recovery card turns the day into something visible enough to revisit and share."
+  },
+  {
+    title: "The Den",
+    label: "Companion",
+    src: "/screenshots/the-den.jpg",
+    alt: "The Den screen showing a Shibit room, selected Shibit, care stats, games, suits, and shop preview.",
+    description: "Care, games, suits, and progress make the app feel alive without turning recovery into pressure."
+  },
+  {
+    title: "Shield Setup",
+    label: "Friction",
+    src: "/screenshots/shield-plan.jpg",
+    alt: "Shield settings screen with a Shield plan toggle, protection status, domains, and strict window settings.",
+    description: "Screen Time friction, risky domains, and emergency unlock rules are clear before the plan is on."
+  },
+  {
+    title: "Support People",
+    label: "Pack",
+    src: "/screenshots/support-people.jpg",
+    alt: "Onboarding support people screen with handlers, sponsors, contact picker, and phone or handle fields.",
+    description: "Handlers, sponsors, and trusted contacts are set up early so help is already close when risk rises."
+  },
+  {
+    title: "Galaxy Glide",
+    label: "Games",
+    src: "/screenshots/galaxy-glide.jpg",
+    alt: "Galaxy Glide mini-game with a Shibit avatar avoiding colorful space objects.",
+    description: "Short Shibit games give the user something active to do while an urge loses momentum."
+  },
+  {
+    title: "Progress History",
+    label: "Review",
+    src: "/screenshots/history.jpg",
+    alt: "History screen with pledge, review, urge, restart counts, badge wall, and monthly calendar.",
+    description: "Badges, calendars, cards, and review history keep the focus on patterns instead of shame."
+  }
+];
 ---
 
 <SiteLayout
@@ -23,9 +93,14 @@ import SiteLayout from "../components/SiteLayout.astro";
           When an urge hits, Pack Shield gives you a practical pause: a pledge, timed friction, support shortcuts, meetings, and a Shibit companion that rewards follow-through.
         </p>
         <div class="button-row">
-          <a class="button primary app-store-button" href="https://apps.apple.com/app/id6809620104" aria-label="Download Pack Shield on the App Store">
-            <span>Download on the</span>
-            <strong>App Store</strong>
+          <a class="app-store-badge-link" href={appStoreUrl} aria-label="Download Pack Shield on the App Store">
+            <img
+              class="app-store-badge"
+              src={appStoreBadgeUrl}
+              alt="Download on the App Store"
+              width="250"
+              height="83"
+            />
           </a>
           <a class="button secondary" href="#screenshots">Preview the app</a>
         </div>
@@ -46,45 +121,41 @@ import SiteLayout from "../components/SiteLayout.astro";
         </div>
       </div>
       <div class="hero-visual" aria-label="Pack Shield iPhone previews">
-        <div class="phone-stack">
-          <article class="iphone-frame hero-phone primary-shot" aria-label="Pack Shield home screen preview">
+        <div class="phone-stack real-phone-stack">
+          <article class="iphone-frame hero-phone primary-shot screenshot-device" aria-label="Pack Shield home screen preview">
             <div class="phone-button left"></div>
             <div class="phone-button right"></div>
-            <div class="iphone-screen">
-              <div class="status-row"><span>9:41</span><span></span></div>
-              <div class="app-topbar">
-                <div>
-                  <span>Pack Shield</span>
-                  <strong>Today</strong>
-                </div>
-                <img src="/app-icon.png" alt="" width="30" height="30" />
-              </div>
-              <div class="progress-ring">
-                <div><strong>24h</strong><span>streak</span></div>
-              </div>
-              <div class="screen-panel pledge-panel">
-                <span>I will stay free today</span>
-              </div>
-              <div class="mini-grid">
-                <span class="mini-action tone-rescue">Rescue</span>
-                <span class="mini-action tone-focus">Focus</span>
-                <span class="mini-action tone-shield">Shield</span>
-                <span class="mini-action tone-review">Review</span>
-              </div>
-              <div class="shibit-preview">
-                <img src="/shibit-tako.gif" alt="" />
-                <span>Breathe. Your pack is with you.</span>
-              </div>
-            </div>
+            <img
+              class="app-screenshot"
+              src={heroScreenshots.primary.src}
+              alt={heroScreenshots.primary.alt}
+              width="736"
+              height="1600"
+              decoding="async"
+              fetchpriority="high"
+            />
           </article>
-          <article class="iphone-frame hero-phone secondary-shot" aria-label="Pack Shield onboarding preview">
-            <div class="iphone-screen">
-              <div class="status-row"><span>9:41</span><span></span></div>
-              <h3>Start with what you are changing.</h3>
-              <div class="screen-panel">Track time away from what you selected.</div>
-              <div class="screen-panel">Use Rescue, Focus, meetings, and Shield when risk rises.</div>
-              <div class="screen-panel">Care for your Shibit as recovery actions add up.</div>
-            </div>
+          <article class="iphone-frame hero-phone secondary-shot screenshot-device" aria-label="Pack Shield pledge card preview">
+            <img
+              class="app-screenshot"
+              src={heroScreenshots.secondary.src}
+              alt={heroScreenshots.secondary.alt}
+              width="736"
+              height="1600"
+              loading="lazy"
+              decoding="async"
+            />
+          </article>
+          <article class="iphone-frame hero-phone tertiary-shot screenshot-device" aria-label="Pack Shield Den preview">
+            <img
+              class="app-screenshot"
+              src={heroScreenshots.tertiary.src}
+              alt={heroScreenshots.tertiary.alt}
+              width="736"
+              height="1600"
+              loading="lazy"
+              decoding="async"
+            />
           </article>
         </div>
       </div>
@@ -104,51 +175,29 @@ import SiteLayout from "../components/SiteLayout.astro";
       <p class="eyebrow">iPhone experience</p>
       <h2 id="screenshots-title">Screens that stay close to the moment.</h2>
       <p class="section-lead">
-        Preview the core flows before you download: onboarding, your daily home base, and Shield setup.
+        Preview the core flows before you download: the home dashboard, pledge card, Shibit care, Shield setup, support people, games, and history.
       </p>
-      <div class="screenshot-grid">
-        <article class="iphone-frame screenshot-shot" aria-label="Onboarding screenshot preview">
-          <div class="iphone-screen onboarding-screen">
-            <div class="status-row"><span>9:41</span><span></span></div>
-            <p class="screen-step">Step 1 of 5</p>
-            <h3>Build your pack. Keep your pact.</h3>
-            <p>Start with what you are changing.</p>
-            <div class="screen-list">
-              <span>Track time away from what you selected.</span>
-              <span>Use Rescue, Focus, meetings, and Shield when risk rises.</span>
-              <span>Care for your Shibit as recovery actions add up.</span>
+      <div class="screenshot-grid product-shot-grid">
+        {websiteScreenshots.map((shot) => (
+          <article class="product-shot">
+            <div class="shot-copy">
+              <span>{shot.label}</span>
+              <h3>{shot.title}</h3>
+              <p>{shot.description}</p>
             </div>
-            <div class="screen-toggle">I am 18+ and I understand</div>
-          </div>
-        </article>
-        <article class="iphone-frame screenshot-shot" aria-label="Home screenshot preview">
-          <div class="iphone-screen home-screen">
-            <div class="status-row"><span>9:41</span><span></span></div>
-            <h3>Today</h3>
-            <div class="screen-panel large">Protect today</div>
-            <div class="mini-grid">
-              <span class="mini-action tone-rescue">Rescue</span>
-              <span class="mini-action tone-restart">Restart</span>
-              <span class="mini-action tone-talk">Talk</span>
-              <span class="mini-action tone-focus">Focus</span>
-              <span class="mini-action tone-plan">Plan</span>
-              <span class="mini-action tone-meetings">Meetings</span>
-              <span class="mini-action tone-shield">Shield</span>
-              <span class="mini-action tone-review">Review</span>
+            <div class="iphone-frame screenshot-shot screenshot-device" aria-label={`${shot.title} screenshot preview`}>
+              <img
+                class="app-screenshot"
+                src={shot.src}
+                alt={shot.alt}
+                width="736"
+                height="1600"
+                loading="lazy"
+                decoding="async"
+              />
             </div>
-          </div>
-        </article>
-        <article class="iphone-frame screenshot-shot" aria-label="Shield screenshot preview">
-          <div class="iphone-screen shield-screen">
-            <div class="status-row"><span>9:41</span><span></span></div>
-            <h3>Shield</h3>
-            <p>Add friction to risky paths.</p>
-            <div class="screen-panel">Selected apps</div>
-            <div class="screen-panel">Blocked websites</div>
-            <div class="screen-panel">Support approval code</div>
-            <div class="screen-alert">Shield locks make sabotage harder, not impossible.</div>
-          </div>
-        </article>
+          </article>
+        ))}
       </div>
     </section>
 
@@ -255,9 +304,14 @@ import SiteLayout from "../components/SiteLayout.astro";
         </p>
       </div>
       <div class="final-actions">
-        <a class="button primary app-store-button" href="https://apps.apple.com/app/id6809620104" aria-label="Download Pack Shield on the App Store">
-          <span>Download on the</span>
-          <strong>App Store</strong>
+        <a class="app-store-badge-link" href={appStoreUrl} aria-label="Download Pack Shield on the App Store">
+          <img
+            class="app-store-badge"
+            src={appStoreBadgeUrl}
+            alt="Download on the App Store"
+            width="250"
+            height="83"
+          />
         </a>
         <a class="button secondary" href="mailto:support@packshield.app">support@packshield.app</a>
       </div>
