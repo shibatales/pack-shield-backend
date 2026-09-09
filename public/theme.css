@@ -733,9 +733,10 @@ body[data-menu-open] .menu-toggle,
   border-radius: 10px;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 36%),
-    linear-gradient(124deg, rgba(var(--primary-rgb), 0.14), transparent 52%, rgba(var(--secondary-rgb), 0.11)),
-    rgba(var(--middle-rgb), 0.94);
+    rgba(var(--surface-rgb), 0.56);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(3px) saturate(115%);
+  -webkit-backdrop-filter: blur(3px) saturate(115%);
   isolation: isolate;
   contain: paint;
 }
@@ -748,8 +749,9 @@ body[data-menu-open] .menu-toggle,
   overflow: hidden;
   place-items: center;
   background:
-    radial-gradient(circle at 62% 24%, rgba(var(--primary-rgb), 0.16), transparent 38%),
-    rgba(var(--surface-rgb), 0.36);
+    linear-gradient(145deg, rgba(255, 255, 255, 0.12), transparent 42%),
+    radial-gradient(circle at 62% 24%, rgba(var(--primary-rgb), 0.12), transparent 38%),
+    rgba(var(--surface-rgb), 0.76);
 }
 
 .real-phone-stack {
@@ -1109,8 +1111,10 @@ body[data-menu-open] .menu-toggle,
   border: 1px solid rgba(var(--line-rgb), 0.20);
   border-radius: 10px;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.06), transparent 34%),
-    rgba(var(--middle-rgb), 0.78);
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 34%),
+    rgba(var(--surface-rgb), 0.56);
+  backdrop-filter: blur(3px) saturate(115%);
+  -webkit-backdrop-filter: blur(3px) saturate(115%);
 }
 
 .screenshot-grid .iphone-frame {
@@ -1131,10 +1135,11 @@ body[data-menu-open] .menu-toggle,
   border: 1px solid rgba(var(--line-rgb), 0.24);
   border-radius: 8px;
   background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.10), transparent 36%),
-    linear-gradient(124deg, rgba(var(--primary-rgb), 0.14), transparent 48%, rgba(var(--secondary-rgb), 0.10)),
-    rgba(var(--surface-rgb), 0.94);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    linear-gradient(145deg, rgba(255, 255, 255, 0.12), transparent 42%),
+    rgba(var(--surface-rgb), 0.76);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(3px) saturate(115%);
+  -webkit-backdrop-filter: blur(3px) saturate(115%);
   isolation: isolate;
   contain: paint;
 }
@@ -1684,8 +1689,8 @@ body[data-menu-open] .menu-toggle,
     overflow: hidden;
     border-radius: 8px;
     background:
-      linear-gradient(180deg, rgba(var(--primary-rgb), 0.08), transparent 46%),
-      rgb(var(--middle-rgb));
+      linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 36%),
+      rgba(var(--surface-rgb), 0.56);
   }
 
   .proof-band,
