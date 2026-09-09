@@ -728,6 +728,16 @@ body[data-menu-open] .menu-toggle,
 
 .hero-visual {
   min-width: 0;
+  overflow: hidden;
+  border: 1px solid rgba(var(--line-rgb), 0.22);
+  border-radius: 10px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 36%),
+    linear-gradient(124deg, rgba(var(--primary-rgb), 0.14), transparent 52%, rgba(var(--secondary-rgb), 0.11)),
+    rgba(var(--middle-rgb), 0.94);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  isolation: isolate;
+  contain: paint;
 }
 
 .phone-stack {
@@ -735,7 +745,11 @@ body[data-menu-open] .menu-toggle,
   isolation: isolate;
   display: grid;
   min-height: 590px;
+  overflow: hidden;
   place-items: center;
+  background:
+    radial-gradient(circle at 62% 24%, rgba(var(--primary-rgb), 0.16), transparent 38%),
+    rgba(var(--surface-rgb), 0.36);
 }
 
 .real-phone-stack {
@@ -1090,6 +1104,13 @@ body[data-menu-open] .menu-toggle,
   gap: 18px;
   align-items: start;
   margin-top: 26px;
+  padding: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(var(--line-rgb), 0.20);
+  border-radius: 10px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.06), transparent 34%),
+    rgba(var(--middle-rgb), 0.78);
 }
 
 .screenshot-grid .iphone-frame {
@@ -1112,7 +1133,7 @@ body[data-menu-open] .menu-toggle,
   background:
     linear-gradient(145deg, rgba(255, 255, 255, 0.10), transparent 36%),
     linear-gradient(124deg, rgba(var(--primary-rgb), 0.14), transparent 48%, rgba(var(--secondary-rgb), 0.10)),
-    rgba(var(--surface-rgb), 0.86);
+    rgba(var(--surface-rgb), 0.94);
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.08);
   isolation: isolate;
   contain: paint;
