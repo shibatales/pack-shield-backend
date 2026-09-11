@@ -398,6 +398,10 @@ body > header.site-shell {
   line-height: 1.1;
 }
 
+.brand-title-mobile {
+  display: none;
+}
+
 .brand-subtitle {
   display: block;
   margin-top: 2px;
@@ -1462,6 +1466,15 @@ body[data-menu-open] .menu-toggle,
   body > header.site-shell {
     width: min(100% - 22px, 680px);
     padding-top: 9px;
+  }
+
+  .brand-title-desktop,
+  .brand-subtitle {
+    display: none;
+  }
+
+  .brand-title-mobile {
+    display: block;
   }
 
   body[data-menu-open] > header.site-shell {
