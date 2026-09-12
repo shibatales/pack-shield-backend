@@ -1,0 +1,102 @@
+---
+import SiteLayout from "../components/SiteLayout.astro";
+
+const releases = [
+  {
+    id: "build-34",
+    build: "Build 34",
+    date: "September 12, 2026",
+    title: "Mood, ailments, themes, and timer alerts",
+    intro:
+      "This release pulls together the polish since the previous build line: clearer Home language, richer Shibit care systems, refreshed Den guidance, stronger Focus timer alerts, and visual cleanup across themes and suites.",
+    highlights: [
+      {
+        title: "Mood and ailments",
+        detail:
+          "The Den now has dedicated Mood and Ailments guide pages, active ailment badges, treatment badges, clearer untreated-effect copy, and a mood pill beside Shibit level."
+      },
+      {
+        title: "Home and recovery flow",
+        detail:
+          "Home now uses clearer sobriety clock wording, improved recovery action colors, rotating stake reasons, compact ailment chips, and a more direct Den shortcut."
+      },
+      {
+        title: "Shibit stats and care",
+        detail:
+          "Stats now better explain your recovery buddy, the Shibit, including Health, Hunger, Hygiene, Home, Strength, Hope, Wisdom, Serenity, and Courage."
+      },
+      {
+        title: "Themes and suites",
+        detail:
+          "Theme previews and suite rooms were tuned so color overlays feel present without flattening the artwork, especially on synthwave and suit suite rooms."
+      },
+      {
+        title: "Focus timers",
+        detail:
+          "Timer completion now uses a stronger in-app alarm with haptics, while local notifications stay scheduled for background or locked-screen timer endings."
+      },
+      {
+        title: "Shibit collection refresh",
+        detail:
+          "Several Shibit bases and skins were refreshed, renamed, or reorganized so the collection lines up better with the current pack direction."
+      }
+    ],
+    smallerFixes: [
+      "History and stake displays were tightened up for easier scanning.",
+      "Settings copy now consistently refers to sobriety clocks instead of timers where appropriate.",
+      "Game and care resource language now uses Courage and Serenity more consistently.",
+      "The App Tour badge and dark-theme contrast received readability polish.",
+      "Stats and guide sheets received spacing, pagination, and badge color refinements."
+    ]
+  }
+];
+---
+
+<SiteLayout
+  title="Pack Shield Release Log"
+  description="See what changed in Pack Shield: Recovery Buddy releases, including Build 34 mood, ailments, themes, Shibit care, and timer alert updates."
+>
+  <main id="content" class="site-shell release-page">
+    <section class="release-hero glass-panel" aria-labelledby="release-title">
+      <p class="eyebrow">Release log</p>
+      <h1 id="release-title">What changed in Pack Shield</h1>
+      <p>
+        A plain-language history of important app updates. In-app announcements link here when a release needs more detail than a small card can comfortably hold.
+      </p>
+    </section>
+
+    <div class="release-list">
+      {releases.map((release) => (
+        <article class="release-entry glass-panel" id={release.id}>
+          <div class="release-entry-header">
+            <div>
+              <p class="eyebrow">{release.date}</p>
+              <h2>{release.title}</h2>
+            </div>
+            <a class="release-badge" href={`#${release.id}`} aria-label={`Permalink to ${release.build}`}>
+              {release.build}
+            </a>
+          </div>
+
+          <p class="release-intro">{release.intro}</p>
+
+          <div class="release-summary-grid">
+            {release.highlights.map((item) => (
+              <section class="release-change-card">
+                <h3>{item.title}</h3>
+                <p>{item.detail}</p>
+              </section>
+            ))}
+          </div>
+
+          <section class="release-fixes" aria-labelledby={`${release.id}-fixes`}>
+            <h3 id={`${release.id}-fixes`}>Also included</h3>
+            <ul>
+              {release.smallerFixes.map((fix) => <li>{fix}</li>)}
+            </ul>
+          </section>
+        </article>
+      ))}
+    </div>
+  </main>
+</SiteLayout>
