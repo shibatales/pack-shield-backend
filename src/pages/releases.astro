@@ -3,6 +3,68 @@ import SiteLayout from "../components/SiteLayout.astro";
 
 const releases = [
   {
+    id: "version-1-3",
+    version: "Version 1.3",
+    date: "Coming soon",
+    title: "Gratitude, meditation, and fuller Shibit progression",
+    intro:
+      "Version 1.3 expands the recovery loop after Version 1.2 with daily gratitude, meditation, richer reminders and achievements, fursuit clarity, deeper Shibit XP/stat systems, and a cleaner Care-first Den.",
+    highlights: [
+      {
+        title: "Daily gratitude",
+        detail:
+          "Create a daily gratitude list, count it toward Daily Flow, save it with your Shibit, and export a space-styled share card."
+      },
+      {
+        title: "Meditation timer",
+        detail:
+          "Meditation is now its own timer-backed daily action with Shibit memories, Daily XP, reminders, and achievement progress."
+      },
+      {
+        title: "Expanded Daily Flow",
+        detail:
+          "Daily Flow now includes Pledge, Gratitude, Meditation, Shibit care, Focus, and Review, with gratitude and meditation routed from reminders."
+      },
+      {
+        title: "Need Help Now additions",
+        detail:
+          "Need Help Now now includes Gratitude and Meditation alongside Rescue, Talk, Meetings, Shield, Focus, Plan, and Restart."
+      },
+      {
+        title: "Fursuits and collection clarity",
+        detail:
+          "Shibit skins are now presented as fursuits, with animated preview sheets, flavor text, owned/equipped states, fursuit bonuses, and clearer suite bundle styling."
+      },
+      {
+        title: "Shibit XP and stat growth",
+        detail:
+          "Fursuit XP bonuses apply to rewards, inactive Shibits receive 50% passive XP, and Shibit stat growth now explains how base stats influence HP, HUN, HYG, and HOM."
+      },
+      {
+        title: "Care-first Den",
+        detail:
+          "The Den now opens to Care first, then Games, Fursuits, and Suites. Active ailments, treatment actions, pulsing care prompts, and guide-sheet routing are easier to use."
+      },
+      {
+        title: "Suite and room polish",
+        detail:
+          "Suite room previews, owned/equipped labels, classic fursuit thumbnails, and room selection persistence were cleaned up to reduce visual jumping and clearer ownership states."
+      },
+      {
+        title: "Home cleanup",
+        detail:
+          "Home removes the old Status section, restores the sobriety-clock plus button, improves stat breakdown explanations, and opens the Badge Wall directly from tapped milestone badges."
+      }
+    ],
+    smallerFixes: [
+      "Ailment pills and treatment pills were normalized across Home, The Den, and the ailments sheet.",
+      "Treatment actions now confirm from the ailments sheet and can handle multiple active ailments treated by the same action.",
+      "The mood badge can route into The Den's Care tab.",
+      "Snackbar XP copy reflects fursuit XP bonuses where applicable.",
+      "Release announcements refresh when the app returns active so new release cards are easier to surface."
+    ]
+  },
+  {
     id: "version-1-2",
     version: "Version 1.2",
     date: "September 14, 2026",
@@ -128,7 +190,7 @@ const releases = [
 
 <SiteLayout
   title="Pack Shield Release Log"
-  description="See what changed in Pack Shield: Recovery Buddy releases, including Version 1.2 Shield and Daily Flow polish plus Version 1.1 mood, ailments, themes, Shibit care, and timer alert updates."
+  description="See what changed in Pack Shield: Recovery Buddy releases, including Version 1.3 gratitude, meditation, fursuits, and Shibit progression updates; Version 1.2 Shield and Daily Flow polish; and Version 1.1 mood, ailments, themes, Shibit care, and timer alert updates."
 >
   <main id="content" class="site-shell release-page">
     <section class="release-hero glass-panel" aria-labelledby="release-title">
