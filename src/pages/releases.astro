@@ -6,71 +6,73 @@ const releases = [
     id: "version-1-2",
     version: "Version 1.2",
     date: "September 14, 2026",
-    title: "Daily Flow, Shibit progression, and stronger recovery rituals",
+    title: "Daily Flow, Shield handoffs, and clearer action polish",
     intro:
-      "Version 1.2 expands Pack Shield into a fuller daily recovery loop: Daily Flow now includes gratitude, meditation, pledge, care, focus, and review; Need Help Now has more grounding options; The Den, fursuits, suites, ailments, and Shibit stat growth are clearer; and Shield/support flows are easier to trust in the moment.",
+      "Version 1.2 tightens the daily recovery loop that shipped through build 43: smarter Shield handoffs, clearer Shibit progression, Daily Flow with Daily XP, editable stake language, and more consistent action polish across Home, The Den, Settings, and release guidance.",
     highlights: [
+      {
+        title: "Smarter Shield handoffs",
+        detail:
+          "Screen Time shield actions now route into the Shield tab with the blocked app or site context preserved, so Open Shield, Contact Handler, and emergency paths can present a better next step."
+      },
+      {
+        title: "Expanded stat guides",
+        detail:
+          "The Den now explains Health, Hunger, Hygiene, Home, Strength, Hope, Wisdom, Serenity, and Courage with clearer descriptions and more useful guide-sheet context."
+      },
+      {
+        title: "SER and COU action pools",
+        detail:
+          "Care and play choices now surface how Serenity and Courage affect hourly recovery action capacity, making resource planning easier to understand."
+      },
+      {
+        title: "WIS point allocation",
+        detail:
+          "Wisdom now has a clearer role in point allocation for care and play capacity, tying long-term Shibit growth back to practical daily choices."
+      },
+      {
+        title: "Perk previews",
+        detail:
+          "Suit, skin, base, and room details now call out their perks so collection choices feel less mysterious before players equip or purchase them."
+      },
+      {
+        title: "Suite polish",
+        detail:
+          "Suite bundle previews and room styling were tightened so store and Den choices read more clearly across themes."
+      },
       {
         title: "Daily Flow and Daily XP",
         detail:
-          "Daily Flow now tracks Pledge, Gratitude, Meditation, Shibit care, Focus, and Review for 30 Daily XP each. Incomplete actions stay left, completed actions move right, and the collapsed row remains swipeable."
+          "Daily Flow on Home now tracks Daily XP for Pledge, Shibit care, Focus, and Review. Incomplete actions stay left, completed actions move right, and expanded cards show subdued XP until completion turns them green."
       },
       {
-        title: "Gratitude lists and share cards",
+        title: "Swipeable compact flow",
         detail:
-          "You can create a daily gratitude list, count it toward Daily Flow progress, schedule a gratitude reminder, and export a space-styled share image with your Shibit."
+          "The collapsed Daily Flow row now uses a clipped swipe tray so action icons can move horizontally without overlapping the Daily Flow title or accordion control."
       },
       {
-        title: "Meditation timer",
+        title: "Rescue as support status",
         detail:
-          "Meditation is now its own daily action with reminders, achievements, and a timer that records quiet reset sessions."
+          "Rescue moved out of the required daily checklist and into Support Status, where it can read Ready, Active, or Done without penalizing days when no urge needs rescuing."
       },
       {
-        title: "Need Help Now refresh",
+        title: "Editable primary stake",
         detail:
-          "Need Help Now adds Gratitude and Meditation alongside Rescue, Talk, Meetings, Shield, Focus, Plan, and Restart so more support tools are reachable in one place."
+          "The protected default reason is now My life, and it can be edited without becoming deletable. Clearing it restores the safe default."
       },
       {
-        title: "Shibit progression",
+        title: "Sobriety clock management",
         detail:
-          "Fursuit bonuses, XP boosts, 50% inactive Shibit XP, and stat-growth breakdowns make Shibit progression easier to understand and tune."
-      },
-      {
-        title: "The Den care pass",
-        detail:
-          "The Den now opens with Care first and presents active ailments, treatment actions, suite rooms, fursuits, games, and Shibit status with cleaner pills and guide sheets."
-      },
-      {
-        title: "Fursuits and suites",
-        detail:
-          "Skins are now fursuits. Fursuit and suite info sheets show bonuses, flavor text, animated previews, owned/equipped states, and clearer bundle mix styling."
-      },
-      {
-        title: "Ailments and treatment flow",
-        detail:
-          "Ailment sheets and care actions now show treatment pills, confirmation before treatment from the list, active-action pulses, and easier navigation from mood or ailment badges."
-      },
-      {
-        title: "Shield and support clarity",
-        detail:
-          "Screen Time shield actions route into the Shield tab with app or site context preserved, and Rescue now lives as support status rather than a required daily chore."
-      },
-      {
-        title: "Visual and interaction polish",
-        detail:
-          "Action colors, pledge gradients, suite previews, stat breakdowns, home headers, reminders, and swipe rows were tightened across light and dark themes."
+          "The main clock stays on Home, while add, show-on-Home, edit, reset, and delete controls now live under Recovery support in Settings."
       }
     ],
     smallerFixes: [
       "Emergency and handler flows now use typed Shield actions instead of loose string matching.",
       "Per-base Shibit care state is preserved more consistently when switching avatars.",
       "Old Myself stake defaults migrate cleanly into the new My life primary stake reason.",
-      "The protected default reason can be edited without becoming deletable, and clearing it restores the safe default.",
-      "Sobriety clocks can still be added from Home while full clock management lives in Settings.",
-      "Milestone badges open the Badge Wall focused on the tapped badge.",
-      "The Home status section was removed after support status moved into Daily Flow.",
-      "Home stat breakdown now explains each stat and renames Skin to the active fursuit.",
-      "Suite room selection persists more reliably and no longer flashes through unequipped rooms.",
+      "Guide sheets received clearer spacing, badges, and pagination for smaller screens.",
+      "Action colors were separated so Feed, Restart, Shibit, Care, Rescue, Soothe, Meetings, Water, Medicine, Shield, Support, Reflect, Plan, Den, and Focus are easier to tell apart wherever they appear.",
+      "The hold-to-pledge button now has a richer gradient treatment while preserving the same hold interaction.",
       "Release announcements can stay short in-app while linking here for the full detail list."
     ]
   },
@@ -126,7 +128,7 @@ const releases = [
 
 <SiteLayout
   title="Pack Shield Release Log"
-  description="See what changed in Pack Shield: Recovery Buddy releases, including Version 1.2 Daily Flow, gratitude, meditation, fursuit, suite, and Shibit progression updates plus Version 1.1 mood, ailments, themes, Shibit care, and timer alert updates."
+  description="See what changed in Pack Shield: Recovery Buddy releases, including Version 1.2 Shield and Daily Flow polish plus Version 1.1 mood, ailments, themes, Shibit care, and timer alert updates."
 >
   <main id="content" class="site-shell release-page">
     <section class="release-hero glass-panel" aria-labelledby="release-title">

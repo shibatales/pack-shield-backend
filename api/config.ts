@@ -16,11 +16,11 @@ export default function handler(
       sms: publicSmsAvailability(),
       announcements: [
         {
-          id: "version-1-2-recovery-rhythm",
+          id: "version-1-2-build-43",
           kind: "improvement",
           title: "Version 1.2 is ready",
           detail:
-            "Daily Flow now includes gratitude, meditation, Daily XP, clearer care actions, fursuit and suite polish, richer Shibit progress, and a stronger Pledge experience.",
+            "Daily Flow now tracks Daily XP, collapses into a swipeable row, keeps Rescue as support status, and brings clearer action colors plus a richer Pledge button.",
           badge: "Version 1.2",
           icon: "sparkles",
           color: "aqua",
