@@ -3,12 +3,84 @@ import SiteLayout from "../components/SiteLayout.astro";
 
 const releases = [
   {
-    id: "build-34",
-    build: "Build 34",
+    id: "version-1-2",
+    version: "Version 1.2",
+    date: "September 14, 2026",
+    title: "Daily Flow, Shibit progression, and stronger recovery rituals",
+    intro:
+      "Version 1.2 expands Pack Shield into a fuller daily recovery loop: Daily Flow now includes gratitude, meditation, pledge, care, focus, and review; Need Help Now has more grounding options; The Den, fursuits, suites, ailments, and Shibit stat growth are clearer; and Shield/support flows are easier to trust in the moment.",
+    highlights: [
+      {
+        title: "Daily Flow and Daily XP",
+        detail:
+          "Daily Flow now tracks Pledge, Gratitude, Meditation, Shibit care, Focus, and Review for 30 Daily XP each. Incomplete actions stay left, completed actions move right, and the collapsed row remains swipeable."
+      },
+      {
+        title: "Gratitude lists and share cards",
+        detail:
+          "You can create a daily gratitude list, count it toward Daily Flow progress, schedule a gratitude reminder, and export a space-styled share image with your Shibit."
+      },
+      {
+        title: "Meditation timer",
+        detail:
+          "Meditation is now its own daily action with reminders, achievements, and a timer that records quiet reset sessions."
+      },
+      {
+        title: "Need Help Now refresh",
+        detail:
+          "Need Help Now adds Gratitude and Meditation alongside Rescue, Talk, Meetings, Shield, Focus, Plan, and Restart so more support tools are reachable in one place."
+      },
+      {
+        title: "Shibit progression",
+        detail:
+          "Fursuit bonuses, XP boosts, 50% inactive Shibit XP, and stat-growth breakdowns make Shibit progression easier to understand and tune."
+      },
+      {
+        title: "The Den care pass",
+        detail:
+          "The Den now opens with Care first and presents active ailments, treatment actions, suite rooms, fursuits, games, and Shibit status with cleaner pills and guide sheets."
+      },
+      {
+        title: "Fursuits and suites",
+        detail:
+          "Skins are now fursuits. Fursuit and suite info sheets show bonuses, flavor text, animated previews, owned/equipped states, and clearer bundle mix styling."
+      },
+      {
+        title: "Ailments and treatment flow",
+        detail:
+          "Ailment sheets and care actions now show treatment pills, confirmation before treatment from the list, active-action pulses, and easier navigation from mood or ailment badges."
+      },
+      {
+        title: "Shield and support clarity",
+        detail:
+          "Screen Time shield actions route into the Shield tab with app or site context preserved, and Rescue now lives as support status rather than a required daily chore."
+      },
+      {
+        title: "Visual and interaction polish",
+        detail:
+          "Action colors, pledge gradients, suite previews, stat breakdowns, home headers, reminders, and swipe rows were tightened across light and dark themes."
+      }
+    ],
+    smallerFixes: [
+      "Emergency and handler flows now use typed Shield actions instead of loose string matching.",
+      "Per-base Shibit care state is preserved more consistently when switching avatars.",
+      "Old Myself stake defaults migrate cleanly into the new My life primary stake reason.",
+      "The protected default reason can be edited without becoming deletable, and clearing it restores the safe default.",
+      "Sobriety clocks can still be added from Home while full clock management lives in Settings.",
+      "Milestone badges open the Badge Wall focused on the tapped badge.",
+      "The Home status section was removed after support status moved into Daily Flow.",
+      "Home stat breakdown now explains each stat and renames Skin to the active fursuit.",
+      "Suite room selection persists more reliably and no longer flashes through unequipped rooms.",
+      "Release announcements can stay short in-app while linking here for the full detail list."
+    ]
+  },
+  {
+    id: "version-1-1",
+    version: "Version 1.1",
     date: "September 12, 2026",
     title: "Mood, ailments, themes, and timer alerts",
     intro:
-      "This release pulls together the polish since the previous build line: clearer Home language, richer Shibit care systems, refreshed Den guidance, stronger Focus timer alerts, and visual cleanup across themes and suites.",
+      "Version 1.1 pulled together clearer Home language, richer Shibit care systems, refreshed Den guidance, stronger Focus timer alerts, and visual cleanup across themes and suites.",
     highlights: [
       {
         title: "Mood and ailments",
@@ -54,7 +126,7 @@ const releases = [
 
 <SiteLayout
   title="Pack Shield Release Log"
-  description="See what changed in Pack Shield: Recovery Buddy releases, including Build 34 mood, ailments, themes, Shibit care, and timer alert updates."
+  description="See what changed in Pack Shield: Recovery Buddy releases, including Version 1.2 Daily Flow, gratitude, meditation, fursuit, suite, and Shibit progression updates plus Version 1.1 mood, ailments, themes, Shibit care, and timer alert updates."
 >
   <main id="content" class="site-shell release-page">
     <section class="release-hero glass-panel" aria-labelledby="release-title">
@@ -73,8 +145,8 @@ const releases = [
               <p class="eyebrow">{release.date}</p>
               <h2>{release.title}</h2>
             </div>
-            <a class="release-badge" href={`#${release.id}`} aria-label={`Permalink to ${release.build}`}>
-              {release.build}
+            <a class="release-badge" href={`#${release.id}`} aria-label={`Permalink to ${release.version}`}>
+              {release.version}
             </a>
           </div>
 

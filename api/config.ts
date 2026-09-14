@@ -16,18 +16,18 @@ export default function handler(
       sms: publicSmsAvailability(),
       announcements: [
         {
-          id: "build-34-mood-ailments-timers",
+          id: "version-1-2-recovery-rhythm",
           kind: "improvement",
-          title: "Build 34 is here",
+          title: "Version 1.2 is ready",
           detail:
-            "Mood and ailments, clearer Home and Den stats, refreshed Shibit visuals, stronger Focus timer alerts, and polish for clocks, stakes, history, and themes.",
-          badge: "Build 34",
+            "Daily Flow now includes gratitude, meditation, Daily XP, clearer care actions, fursuit and suite polish, richer Shibit progress, and a stronger Pledge experience.",
+          badge: "Version 1.2",
           icon: "sparkles",
           color: "aqua",
-          detailsURL: "https://packshield.app/releases#build-34",
-          startsAt: "2026-09-12T00:00:00Z",
-          expiresAt: "2026-12-12T00:00:00Z",
-          minimumBuildNumber: 34
+          detailsURL: "https://packshield.app/releases#version-1-2",
+          startsAt: "2026-09-13T00:00:00Z",
+          expiresAt: "2026-12-14T00:00:00Z",
+          minimumBuildNumber: 43
         }
       ]
     }
