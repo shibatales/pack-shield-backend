@@ -7,7 +7,7 @@ const appStoreBadgeUrl = "https://tools.applemediaservices.com/api/badges/downlo
 const heroScreenshots = {
   primary: {
     src: "/screenshots/home-dashboard.jpg",
-    alt: "Pack Shield home dashboard showing pledge, daily rhythm, timer, reminders, Shibit stats, and action shortcuts."
+    alt: "Pack Shield home dashboard showing sober time, pledge actions, reminders, Shibit progress, and recovery shortcuts."
   },
   secondary: {
     src: "/screenshots/pledge-saved.jpg",
@@ -15,17 +15,17 @@ const heroScreenshots = {
   },
   tertiary: {
     src: "/screenshots/the-den.jpg",
-    alt: "The Den screen showing a Shibit room, care stats, games, and suit shop."
+    alt: "The Den screen showing a Shibit room, care stats, games, fursuits, and suite shop."
   }
 };
 
 const websiteScreenshots = [
   {
-    title: "Daily Home Base",
+    title: "Recovery home base",
     label: "Start here",
     src: "/screenshots/home-dashboard.jpg",
-    alt: "Pack Shield home dashboard with pledge, daily rhythm, timer, reminders, Shibit stats, and action shortcuts.",
-    description: "Pledge, rescue, focus, Shield, reminders, and your Shibit status stay in one scannable place."
+    alt: "Pack Shield home dashboard with sober time, pledge, daily rhythm, reminders, Shibit progress, and action shortcuts.",
+    description: "Sober time, pledges, Rescue, Shield, reminders, and your Shibit buddy stay in one scannable place."
   },
   {
     title: "Pledge Saved",
@@ -38,22 +38,22 @@ const websiteScreenshots = [
     title: "The Den",
     label: "Companion",
     src: "/screenshots/the-den.jpg",
-    alt: "The Den screen showing a Shibit room, selected Shibit, care stats, games, suits, and shop preview.",
-    description: "Care, games, suits, and progress make the app feel alive without turning recovery into pressure."
+    alt: "The Den screen showing a Shibit room, selected Shibit, care stats, games, fursuits, and shop preview.",
+    description: "Optional care, games, fursuits, and progress make the app feel alive without turning recovery into pressure."
   },
   {
     title: "Shield Setup",
     label: "Friction",
     src: "/screenshots/shield-plan.jpg",
     alt: "Shield settings screen with a Shield plan toggle, protection status, domains, and strict window settings.",
-    description: "Screen Time friction, risky domains, and emergency unlock rules are clear before the plan is on."
+    description: "Screen Time friction, risky paths, active windows, and emergency unlock rules are clear before the plan is on."
   },
   {
     title: "Support People",
-    label: "Pack",
+    label: "Support",
     src: "/screenshots/support-people.jpg",
-    alt: "Onboarding support people screen with handlers, sponsors, contact picker, and phone or handle fields.",
-    description: "Handlers, sponsors, and trusted contacts are set up early so help is already close when risk rises."
+    alt: "Support people screen with trusted contacts, contact picker, and phone or handle fields.",
+    description: "Trusted contacts and sponsor-style accountability can be added when extra support would help."
   },
   {
     title: "Galaxy Glide",
@@ -64,7 +64,7 @@ const websiteScreenshots = [
   },
   {
     title: "Progress History",
-    label: "Review",
+    label: "Progress",
     src: "/screenshots/history.jpg",
     alt: "History screen with pledge, review, urge, restart counts, badge wall, and monthly calendar.",
     description: "Badges, calendars, cards, and review history keep the focus on patterns instead of shame."
@@ -74,7 +74,7 @@ const websiteScreenshots = [
 
 <SiteLayout
   title="Pack Shield: Recovery Buddy"
-  description="Pack Shield: Recovery Buddy helps adults cut back, quit, and protect early recovery with pledges, timers, support shortcuts, Screen Time friction, and a Shibit companion."
+  description="Pack Shield: Recovery Buddy helps adults track sober time, get help when urges hit, and add friction around risky apps or sites."
   socialImage="/screenshots/home-dashboard.jpg"
   bodyClass="marketing-page"
   footerKind="marketing"
@@ -87,12 +87,12 @@ const websiteScreenshots = [
           <img src="/app-icon.png" alt="" width="46" height="46" />
           <div>
             <span>Pack Shield: Recovery Buddy for iPhone</span>
-            <strong>Stay with the choice you meant to make</strong>
+            <strong>Track sober time. Get help fast.</strong>
           </div>
         </div>
-        <h1 id="title">Build your pack. Keep your pact.</h1>
+        <h1 id="title">Pack Shield: Recovery Buddy</h1>
         <p>
-          When an urge hits, Pack Shield: Recovery Buddy gives you a practical pause: a pledge, timed friction, support shortcuts, meetings, and a Shibit companion that rewards follow-through.
+          Track sober time, make a daily pledge, open Rescue when urges hit, and add Screen Time friction around risky apps or sites. Your Shibit buddy keeps progress visible without turning recovery into pressure.
         </p>
         <div class="button-row">
           <a class="app-store-badge-link" href={appStoreUrl} aria-label="Download Pack Shield on the App Store">
@@ -109,16 +109,16 @@ const websiteScreenshots = [
         <p class="hero-note">For adults 18+. Pack Shield is a support tool, not medical treatment or crisis care.</p>
         <div class="stats" aria-label="Pack Shield highlights">
           <div class="stat">
-            <strong>18+</strong>
-            <span>Adult support</span>
+            <strong>Clock</strong>
+            <span>Sober time</span>
           </div>
           <div class="stat">
-            <strong>Private</strong>
-            <span>No public feed</span>
+            <strong>Rescue</strong>
+            <span>Help now</span>
           </div>
           <div class="stat">
-            <strong>Fast</strong>
-            <span>Rescue, Shield, Focus</span>
+            <strong>Shield</strong>
+            <span>Optional friction</span>
           </div>
         </div>
       </div>
@@ -166,10 +166,10 @@ const websiteScreenshots = [
     <section class="section proof-band" aria-labelledby="proof-title">
       <div>
         <p class="eyebrow">Why it exists</p>
-        <h2 id="proof-title">For the moment before autopilot wins.</h2>
+        <h2 id="proof-title">Track sober time, then protect the next choice.</h2>
       </div>
       <p>
-        Pack Shield: Recovery Buddy is for people cutting back, quitting, rebuilding trust with themselves, or protecting an early streak. Open it, pick one next step, add friction to risky paths, and keep your support close.
+        Pack Shield: Recovery Buddy is for people cutting back, quitting, rebuilding trust with themselves, or protecting an early streak. Open it to see what you are protecting, choose one next step, and keep support close when risk rises.
       </p>
     </section>
 
@@ -177,7 +177,7 @@ const websiteScreenshots = [
       <p class="eyebrow">iPhone experience</p>
       <h2 id="screenshots-title">Screens that stay close to the moment.</h2>
       <p class="section-lead">
-        Preview the core flows before you download: the home dashboard, pledge card, Shibit care, Shield setup, support people, games, and history.
+        Preview the core flows before you download: sober time, pledge cards, your Shibit buddy, Shield setup, support people, short games, and progress history.
       </p>
       <div class="screenshot-grid product-shot-grid">
         {websiteScreenshots.map((shot) => (
@@ -211,25 +211,25 @@ const websiteScreenshots = [
       <div class="feature-grid">
         <article class="feature-card">
           <span class="feature-index">01</span>
-          <h3>A practical pause</h3>
-          <p>Put a pledge, a timer, and support between the urge and the action.</p>
+          <h3>Sober time you can see</h3>
+          <p>Keep a clear clock for the substance or behavior you are changing.</p>
         </article>
         <article class="feature-card">
           <span class="feature-index">02</span>
-          <h3>Recovery method</h3>
-          <p>Name the trigger, interrupt the loop, choose a coping action, and review without shame.</p>
+          <h3>Rescue for risky moments</h3>
+          <p>Name the moment, choose a coping action, and review without shame later.</p>
         </article>
         <article class="feature-card">
           <span class="feature-index">03</span>
-          <h3>Your Shibit companion</h3>
-          <p>Care, pledges, reviews, meetings, and Shield setup build visible progress along the way.</p>
+          <h3>A recovery buddy that grows</h3>
+          <p>Pledges, reviews, meetings, and Shield setup build visible progress along the way.</p>
         </article>
       </div>
     </section>
 
     <section class="section" aria-labelledby="actions-title">
       <p class="eyebrow">In the app</p>
-      <h2 id="actions-title">Tap the next right step fast.</h2>
+      <h2 id="actions-title">Helpful actions stay close.</h2>
       <p class="section-lead">
         The home screen keeps high-value actions close, so support is visible before the risky choice gets momentum.
       </p>
@@ -300,9 +300,9 @@ const websiteScreenshots = [
     <section class="section final-cta" id="support" aria-labelledby="support-title">
       <div>
         <p class="eyebrow">Ready when you are</p>
-        <h2 id="support-title">A practical pause for the next choice.</h2>
+        <h2 id="support-title">Track sober time. Protect the next choice.</h2>
         <p>
-          Download Pack Shield: Recovery Buddy, then start with the habit or substance you are changing.
+          Download Pack Shield: Recovery Buddy, then start with the substance or behavior you are changing.
         </p>
       </div>
       <div class="final-actions">

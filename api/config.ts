@@ -16,7 +16,21 @@ export default function handler(
       sms: publicSmsAvailability(),
       announcements: [
         {
-          id: "version-1-2-build-43",
+          id: "version-1-3-build-44",
+          kind: "feature",
+          title: "Version 1.3 is ready on the App Store",
+          detail:
+            "Gratitude lists, meditation, richer Daily Flow reminders, fursuit clarity, Shibit XP growth, and a cleaner Care-first Den are now part of your recovery loop.",
+          badge: "Version 1.3",
+          icon: "sparkles",
+          color: "violet",
+          detailsURL: "https://packshield.app/releases#version-1-3",
+          startsAt: "2026-09-15T00:00:00Z",
+          expiresAt: "2026-12-15T00:00:00Z",
+          minimumBuildNumber: 44
+        },
+        {
+          id: "version-1-2-build-42",
           kind: "improvement",
           title: "Version 1.2 is ready",
           detail:
@@ -27,7 +41,8 @@ export default function handler(
           detailsURL: "https://packshield.app/releases#version-1-2",
           startsAt: "2026-09-13T00:00:00Z",
           expiresAt: "2026-12-14T00:00:00Z",
-          minimumBuildNumber: 43
+          minimumBuildNumber: 42,
+          maximumBuildNumber: 43
         }
       ]
     }
