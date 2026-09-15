@@ -13,7 +13,7 @@ interface Props {
 
 const {
   title,
-  description = "Pack Shield: Recovery Buddy helps adults track sober time, get help in risky moments, and add friction around risky apps or sites.",
+  description = "Pack Shield: Recovery Buddy helps adults track sober time, get help in risky moments, use Pause timers, and add optional friction around risky apps or sites.",
   bodyClass = "",
   footerKind = "contact",
   stickyCta = false,
@@ -26,7 +26,7 @@ const canonicalPath = Astro.url.pathname
 const canonicalUrl = new URL(canonicalPath, Astro.site ?? "https://packshield.app").toString();
 const socialImageUrl = new URL(socialImage, Astro.site ?? "https://packshield.app").toString();
 
-const assetVersion = "20260908-design33";
+const assetVersion = "20260915-announce14";
 ---
 
 <!doctype html>

@@ -3,12 +3,71 @@ import SiteLayout from "../components/SiteLayout.astro";
 
 const releases = [
   {
+    id: "version-1-4",
+    version: "Version 1.4",
+    date: "September 15, 2026",
+    title: "Essentials, Pause, and calmer recovery flows",
+    intro:
+      "Version 1.4 reorganizes Pack Shield around the recovery tools people need fastest: Today, Rescue, Pause, Progress, and Settings in Essentials, with deeper Shield, buddy, meeting, recovery-plan, and data controls still available in All Tools.",
+    highlights: [
+      {
+        title: "Shorter first run",
+        detail:
+          "Onboarding now focuses on four steps: start, choose a recovery buddy, set a sober clock, and name what you are protecting."
+      },
+      {
+        title: "Essentials and All Tools",
+        detail:
+          "Essentials keeps the app calmer by centering the sober clock, Rescue, Pause timers, Progress, Settings, optional support setup, and a passive recovery buddy. All Tools keeps the deeper controls."
+      },
+      {
+        title: "Today feels lighter",
+        detail:
+          "Home is now Today, with the sober clock, what you are protecting, and Rescue placed closer to the top. The extra mode switch moved into Settings."
+      },
+      {
+        title: "Pause timer ideas",
+        detail:
+          "Pause now includes clickable idea pills for breathwork, prayer, quiet time, support calls, walking outside, shower resets, rest, reading, and other short recovery pauses."
+      },
+      {
+        title: "Cleaner Rescue",
+        detail:
+          "Rescue now keeps the immediate action, timer, support options, and protected reason in a simpler order with less setup work during risky moments."
+      },
+      {
+        title: "Progress without extra pressure",
+        detail:
+          "Progress keeps recovery milestones, badges, calendars, and activity easier to scan. Buddy memories and buddy-specific badges stay in All Tools."
+      },
+      {
+        title: "Shield as optional friction",
+        detail:
+          "Shield setup now explains the Screen Time path more clearly, previews the pause flow, and treats Shield as supportive friction rather than a guarantee."
+      },
+      {
+        title: "Settings reorganized",
+        detail:
+          "Settings is grouped around Recovery, Protection, Buddy, App, Account and data, Help, About, and Safety, with clearer labels for switching between Essentials and All Tools."
+      }
+    ],
+    smallerFixes: [
+      "Navigation labels now read Today, Pause, Progress, Shield, and Settings.",
+      "Selected tab capsules have more breathing room around labels.",
+      "The Progress calendar header has more top room.",
+      "XP labels now use the clearer spaced format, such as 20 XP.",
+      "Shibit wording was softened to recovery buddy, looks, rooms, Den, and care cues where it fits.",
+      "Support copy now uses support person language more consistently.",
+      "The Shield extension now sends people toward Pause, Rescue, support, or a limited emergency unlock with calmer wording."
+    ]
+  },
+  {
     id: "version-1-3",
     version: "Version 1.3",
     date: "September 15, 2026",
     title: "Gratitude, meditation, and fuller Shibit progression",
     intro:
-      "Version 1.3 expands the recovery loop after Version 1.2 with daily gratitude, meditation, richer reminders and achievements, fursuit clarity, deeper Shibit XP/stat systems, and a cleaner Care-first Den.",
+      "Version 1.3 expands the recovery loop after Version 1.2 with daily gratitude, meditation, richer reminders and achievements, alternate-look clarity, deeper Shibit XP/stat systems, and a cleaner Care-first Den.",
     highlights: [
       {
         title: "Daily gratitude",
@@ -23,32 +82,32 @@ const releases = [
       {
         title: "Expanded Daily Flow",
         detail:
-          "Daily Flow now includes Pledge, Gratitude, Meditation, Shibit care, Focus, and Review, with gratitude and meditation routed from reminders."
+          "Daily Flow now includes Pledge, Gratitude, Meditation, Shibit care, Pause, and Review, with gratitude and meditation routed from reminders."
       },
       {
         title: "Support toolkit additions",
         detail:
-          "The quick-support toolkit now includes Gratitude and Meditation alongside Rescue, Talk, Meetings, Shield, Focus, Plan, and Restart."
+          "The quick-support toolkit now includes Gratitude and Meditation alongside Rescue, Talk, Meetings, Shield, Pause, Plan, and Restart."
       },
       {
-        title: "Fursuits and collection clarity",
+        title: "Looks and collection clarity",
         detail:
-          "Shibit alternate looks are now presented as fursuits, with animated preview sheets, flavor text, owned/equipped states, fursuit bonuses, and clearer suite bundle styling."
+          "Shibit alternate looks now have animated preview sheets, flavor text, owned/equipped states, look bonuses, and clearer room bundle styling."
       },
       {
         title: "Shibit XP and stat growth",
         detail:
-          "Fursuit XP bonuses apply to rewards, inactive Shibits receive 50% passive XP, and Shibit stat growth now explains how base stats influence HP, HUN, HYG, and HOM."
+          "Look XP bonuses apply to rewards, inactive Shibits receive 50% passive XP, and Shibit stat growth now explains how base stats influence HP, HUN, HYG, and HOM."
       },
       {
         title: "Care-first Den",
         detail:
-          "The Den now opens to Care first, then Games, Fursuits, and Suites. Active risks, treatment actions, pulsing care prompts, and guide-sheet routing are easier to use."
+          "The Den now opens to Care first, then Games, Looks, and Rooms. Active risks, treatment actions, pulsing care prompts, and guide-sheet routing are easier to use."
       },
       {
-        title: "Suite and room polish",
+        title: "Room polish",
         detail:
-          "Suite room previews, owned/equipped labels, classic fursuit thumbnails, and room selection persistence were cleaned up to reduce visual jumping and clarify ownership states."
+          "Room previews, owned/equipped labels, classic look thumbnails, and room selection persistence were cleaned up to reduce visual jumping and clarify ownership states."
       },
       {
         title: "Home cleanup",
@@ -60,7 +119,7 @@ const releases = [
       "Risk pills and treatment pills were normalized across Home, The Den, and the risks sheet.",
       "Treatment actions now confirm from the risks sheet and can handle multiple active risks treated by the same action.",
       "The mood badge can route into The Den's Care tab.",
-      "Snackbar XP copy reflects fursuit XP bonuses where applicable.",
+      "Snackbar XP copy reflects look XP bonuses where applicable.",
       "Release announcements refresh when the app returns active so new release cards are easier to surface."
     ]
   },
@@ -95,7 +154,7 @@ const releases = [
       {
         title: "Perk previews",
         detail:
-          "Suite, fursuit, base, and room details now call out their perks so collection choices feel less mysterious before players equip or purchase them."
+          "Room bundle, look, base, and room details now call out their perks so collection choices feel less mysterious before players equip or purchase them."
       },
       {
         title: "Suite polish",
@@ -105,7 +164,7 @@ const releases = [
       {
         title: "Daily Flow and Daily XP",
         detail:
-          "Daily Flow on Home now tracks Daily XP for Pledge, Shibit care, Focus, and Review. Incomplete actions stay left, completed actions move right, and expanded cards show subdued XP until completion turns them green."
+          "Daily Flow on Home now tracks Daily XP for Pledge, Shibit care, Pause, and Review. Incomplete actions stay left, completed actions move right, and expanded cards show subdued XP until completion turns them green."
       },
       {
         title: "Swipeable compact flow",
@@ -133,7 +192,7 @@ const releases = [
       "Per-base Shibit care state is preserved more consistently when switching avatars.",
       "Old Myself stake defaults migrate cleanly into the new My life primary stake reason.",
       "Guide sheets received clearer spacing, badges, and pagination for smaller screens.",
-      "Action colors were separated so Feed, Restart, Shibit, Care, Rescue, Soothe, Meetings, Water, Medicine, Shield, Support, Reflect, Plan, Den, and Focus are easier to tell apart wherever they appear.",
+      "Action colors were separated so Feed, Restart, Shibit, Care, Rescue, Soothe, Meetings, Water, Medicine, Shield, Support, Reflect, Plan, Den, and Pause are easier to tell apart wherever they appear.",
       "The hold-to-pledge button now has a richer gradient treatment while preserving the same hold interaction.",
       "Release announcements can stay short in-app while linking here for the full detail list."
     ]
@@ -144,7 +203,7 @@ const releases = [
     date: "September 12, 2026",
     title: "Mood, risks, themes, and timer alerts",
     intro:
-      "Version 1.1 pulled together clearer Home language, richer Shibit care systems, refreshed Den guidance, stronger Focus timer alerts, and visual cleanup across themes and suites.",
+      "Version 1.1 pulled together clearer Home language, richer Shibit care systems, refreshed Den guidance, stronger Pause timer alerts, and visual cleanup across themes and rooms.",
     highlights: [
       {
         title: "Mood and risks",
@@ -167,14 +226,14 @@ const releases = [
           "Theme previews and suite rooms were tuned so color overlays feel present without flattening the artwork, especially on synthwave and suit suite rooms."
       },
       {
-        title: "Focus timers",
+        title: "Pause timers",
         detail:
           "Timer completion now uses a stronger in-app alarm with haptics, while local notifications stay scheduled for background or locked-screen timer endings."
       },
       {
         title: "Shibit collection refresh",
         detail:
-          "Several Shibit bases and fursuits were refreshed, renamed, or reorganized so the collection lines up better with the current pack direction."
+          "Several Shibit bases and looks were refreshed, renamed, or reorganized so the collection lines up better with the current pack direction."
       }
     ],
     smallerFixes: [
@@ -190,7 +249,7 @@ const releases = [
 
 <SiteLayout
   title="Pack Shield Release Log"
-  description="See what changed in Pack Shield: Recovery Buddy releases, including Version 1.3 gratitude, meditation, fursuits, and Shibit progression updates; Version 1.2 Shield and Daily Flow polish; and Version 1.1 mood, risks, themes, Shibit care, and timer alert updates."
+  description="See what changed in Pack Shield: Recovery Buddy releases, including Version 1.4 Essentials and Pause updates, Version 1.3 gratitude and meditation, Version 1.2 Shield and Daily Flow polish, and Version 1.1 timer alert updates."
 >
   <main id="content" class="site-shell release-page">
     <section class="release-hero glass-panel" aria-labelledby="release-title">

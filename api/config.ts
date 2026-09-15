@@ -16,18 +16,33 @@ export default function handler(
       sms: publicSmsAvailability(),
       announcements: [
         {
+          id: "version-1-4-build-45",
+          kind: "feature",
+          title: "Version 1.4 keeps recovery simpler",
+          detail:
+            "Today, Rescue, Pause, and Progress are clearer in Essentials. All Tools still keeps Shield tuning, meetings, the buddy Den, and data controls when you want more.",
+          badge: "Version 1.4",
+          icon: "sparkles",
+          color: "aqua",
+          detailsURL: "https://packshield.app/releases#version-1-4",
+          startsAt: "2026-09-15T00:00:00Z",
+          expiresAt: "2026-12-15T00:00:00Z",
+          minimumBuildNumber: 45
+        },
+        {
           id: "version-1-3-build-44",
           kind: "feature",
-          title: "Version 1.3 is ready on the App Store",
+          title: "Version 1.3 is ready",
           detail:
-            "Gratitude lists, meditation, richer Daily Flow reminders, fursuit clarity, Shibit XP growth, and a cleaner Care-first Den are now part of your recovery loop.",
+            "Gratitude lists, meditation, richer Daily Flow reminders, alternate-look clarity, Shibit XP growth, and a cleaner Care-first Den are now part of your recovery loop.",
           badge: "Version 1.3",
           icon: "sparkles",
           color: "violet",
           detailsURL: "https://packshield.app/releases#version-1-3",
           startsAt: "2026-09-15T00:00:00Z",
           expiresAt: "2026-12-15T00:00:00Z",
-          minimumBuildNumber: 44
+          minimumBuildNumber: 44,
+          maximumBuildNumber: 44
         },
         {
           id: "version-1-2-build-42",
