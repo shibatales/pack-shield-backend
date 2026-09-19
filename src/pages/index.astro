@@ -7,11 +7,11 @@ const appStoreBadgeUrl = "https://tools.applemediaservices.com/api/badges/downlo
 const heroScreenshots = {
   primary: {
     src: "/screenshots/home-dashboard.jpg",
-    alt: "Pack Shield Today screen showing sober time, recovery actions, reminders, and support shortcuts."
+    alt: "Pack Shield Today screen showing sober time, Just For Today actions, reminders, meetings, and support shortcuts."
   },
   secondary: {
     src: "/screenshots/pledge-saved.jpg",
-    alt: "Pack Shield pledge saved card with a recovery pledge and Shibit companion."
+    alt: "Pack Shield personalized pledge card with a recovery pledge and Shibit companion."
   },
   tertiary: {
     src: "/screenshots/the-den.jpg",
@@ -25,21 +25,21 @@ const websiteScreenshots = [
     label: "Start here",
     src: "/screenshots/home-dashboard.jpg",
     alt: "Pack Shield Today screen with sober time, daily recovery rhythm, reminders, and action shortcuts.",
-    description: "Sober time, what you are protecting, Rescue, Pause, reminders, and your recovery buddy stay in one scannable place."
+    description: "Sober time, what you are protecting, Rescue, Pause, Just For Today actions, reminders, meetings, and your recovery buddy stay in one scannable place."
   },
   {
     title: "Pledge Saved",
     label: "Keep today",
     src: "/screenshots/pledge-saved.jpg",
-    alt: "Pledge saved screen with a recovery pledge card for Day 1 and a Shibit companion.",
-    description: "A saved recovery card turns the day into something visible enough to revisit and share."
+    alt: "Pledge saved screen with a personalized recovery pledge card for Day 1 and a Shibit companion.",
+    description: "Pledge and gratitude cards can include your name, buddy, level, and current look so the day feels easier to revisit and share."
   },
   {
     title: "The Den",
     label: "Companion",
     src: "/screenshots/the-den.jpg",
     alt: "The Den screen showing a recovery buddy room, selected Shibit, care stats, games, looks, and shop preview.",
-    description: "Optional care, games, looks, rooms, and progress live in All Tools when you want a deeper buddy layer."
+    description: "Optional buddy care, stats, games, looks, rooms, and progress live in All Tools when you want a deeper buddy layer."
   },
   {
     title: "Shield Setup",
@@ -60,7 +60,7 @@ const websiteScreenshots = [
     label: "Games",
     src: "/screenshots/galaxy-glide.jpg",
     alt: "Galaxy Glide mini-game with a Shibit avatar avoiding colorful space objects.",
-    description: "Short Shibit games give the user something active to do while an urge loses momentum."
+    description: "Short buddy games open from the Games sheet and can still be played while Courage rewards refill."
   },
   {
     title: "Progress History",
@@ -92,7 +92,7 @@ const websiteScreenshots = [
         </div>
         <h1 id="title">Pack Shield: Recovery Buddy</h1>
         <p>
-          Track sober time, remember what you are protecting, open Rescue when urges hit, and use Pause timers before the risky choice gets momentum. All Tools can add deeper Shield, support, and buddy controls when you want them.
+          Track sober time, remember what you are protecting, open Rescue when urges hit, and use Pause timers before the risky choice gets momentum. Daily Routine keeps Just For Today actions, reminders, meetings, and latest activity close, while All Tools can add deeper Shield, Games, support, buddy controls, and personalized recovery cards when you want them.
         </p>
         <div class="button-row">
           <a class="app-store-badge-link" href={appStoreUrl} aria-label="Download Pack Shield on the App Store">
@@ -177,7 +177,7 @@ const websiteScreenshots = [
       <p class="eyebrow">iPhone experience</p>
       <h2 id="screenshots-title">Screens that stay close to the moment.</h2>
       <p class="section-lead">
-        Preview the core flows before you download: sober time, Rescue, Pause, pledge cards, your recovery buddy, optional Shield setup, support people, and progress history.
+        Preview the core flows before you download: sober time, Rescue, Pause, Daily Routine, pledge cards, Games, your recovery buddy, optional Shield setup, support people, and progress history.
       </p>
       <div class="screenshot-grid product-shot-grid">
         {websiteScreenshots.map((shot) => (
@@ -212,17 +212,17 @@ const websiteScreenshots = [
         <article class="feature-card">
           <span class="feature-index">01</span>
           <h3>Sober time you can see</h3>
-          <p>Keep one or more clear clocks for the substance or behavior you are changing.</p>
+          <p>Keep one or more clear clocks for the substance or behavior you are changing, with remembered day, hour, month, and year views.</p>
         </article>
         <article class="feature-card">
           <span class="feature-index">02</span>
-          <h3>Rescue and Pause</h3>
-          <p>Name the moment, start a short timer, contact support, or ride out the urge without extra setup.</p>
+          <h3>Rescue, Pause, and Routine</h3>
+          <p>Name the moment, start a short timer, choose a Just For Today action, or keep reminders and meetings visible without extra setup.</p>
         </article>
         <article class="feature-card">
           <span class="feature-index">03</span>
-          <h3>Optional deeper tools</h3>
-          <p>All Tools keeps Shield tuning, meetings, recovery planning, buddy care, games, and data controls available.</p>
+          <h3>All Tools when useful</h3>
+          <p>All Tools keeps sortable recovery actions, Shield tuning, meetings, recovery planning, buddy care, games, and data controls available.</p>
         </article>
       </div>
     </section>
@@ -269,6 +269,12 @@ const websiteScreenshots = [
             <svg viewBox="0 0 24 24"><path d="M4 7h11a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H4V7z"></path><path d="M17 10l4-2v8l-4-2"></path></svg>
           </span>
           <div><h3>Meetings</h3><p>Find support meetings quickly.</p></div>
+        </article>
+        <article class="action-tile tone-games">
+          <span class="action-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M7 9h10a4 4 0 0 1 4 4v2a3 3 0 0 1-5 2l-1.5-1h-5L8 17a3 3 0 0 1-5-2v-2a4 4 0 0 1 4-4z"></path><path d="M8 12v4M6 14h4M16.5 13h.01M18.5 15h.01"></path></svg>
+          </span>
+          <div><h3>Games</h3><p>Open short games from one sheet.</p></div>
         </article>
         <article class="action-tile tone-shield">
           <span class="action-icon" aria-hidden="true">

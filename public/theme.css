@@ -1300,6 +1300,7 @@ body[data-menu-open] .menu-toggle,
 .tone-focus { --tile-rgb: var(--aqua-rgb); }
 .tone-plan { --tile-rgb: var(--violet-rgb); }
 .tone-meetings { --tile-rgb: var(--aqua-rgb); }
+.tone-games { --tile-rgb: var(--sky-rgb); }
 .tone-shield { --tile-rgb: var(--ember-rgb); }
 .tone-review { --tile-rgb: var(--lavender-rgb); }
 .tone-reasons { --tile-rgb: var(--solar-rgb); }

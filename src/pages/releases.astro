@@ -3,12 +3,75 @@ import SiteLayout from "../components/SiteLayout.astro";
 
 const releases = [
   {
+    id: "version-1-5",
+    version: "Version 1.5",
+    date: "September 19, 2026",
+    title: "Personalized cards, buddy polish, and steadier setup",
+    intro:
+      "Version 1.5 focuses on the details that make Pack Shield feel more personal and reliable: a cleaner launch moment, release-aware announcements, persistent sober clock views, smoother substance selection, richer pledge and gratitude cards, and refreshed buddy profiles.",
+    highlights: [
+      {
+        title: "Cleaner launch and announcements",
+        detail:
+          "Pack Shield now opens with the Pack Shield logo before the main interface appears. Release announcements and buddy level-up cards sit above active sheets and use a short celebration effect when they appear."
+      },
+      {
+        title: "Release cards match the installed version",
+        detail:
+          "New version announcements can appear again after an app update, even if an older announcement was already dismissed, so people see the right what's-new card for their installed build."
+      },
+      {
+        title: "Sober clock views persist",
+        detail:
+          "Each sober clock remembers its countdown display state when moving between screens. Year, month, day, and hour totals now use compact decimal and thousand-style formatting where helpful."
+      },
+      {
+        title: "Better substance selection",
+        detail:
+          "Substance choices now use a reusable selection sheet with category filtering and multi-select support, making onboarding and meeting reminders easier to complete without a jumpy dropdown."
+      },
+      {
+        title: "More personal cards",
+        detail:
+          "Onboarding can collect a short first name for personalization. Pledge and gratitude cards now show the user's name, buddy, level, and current look, and gratitude cards use Intention for the day with randomized theme-aware colors."
+      },
+      {
+        title: "Buddy profile refresh",
+        detail:
+          "Menchi is now Nabe, Nabe's food is Nabeyaki, Katsu's food is Katsuyaki, and Yaki's profile now uses the fire theme with a compact list of related Japanese foods."
+      },
+      {
+        title: "Buddies sheet polish",
+        detail:
+          "Buddy rows now keep profile info buttons, use Name: food formatting, show innate suit icons inside each buddy container, and avoid the old transition when switching active and inactive buddies."
+      },
+      {
+        title: "Care and game resources feel fairer",
+        detail:
+          "Active-buddy care spending no longer drains inactive buddies. Inactive buddies restore hourly resources cleanly, games keep their own heart tanks, and Try Again can return to the Den when hearts are still available."
+      },
+      {
+        title: "Preferences and setup cleanup",
+        detail:
+          "Settings has moved toward Preferences language, Recovery Setup uses clearer color separation, and setup/profile screens received small copy and spacing fixes."
+      }
+    ],
+    smallerFixes: [
+      "The Pack Shield logo asset was cleaned up for the splash screen.",
+      "Level-up and release popups are less likely to be hidden behind other active sheets.",
+      "The Den sheet received fixes for a sliding background artifact in buddy and tool sections.",
+      "Gratitude list creation renamed Note to Intention for the day.",
+      "The Buddy food guide now uses Nabe: one-pot meal and updated Yaki/Katsu food labels.",
+      "Edit Buddy no longer shows the old Shibit name field."
+    ]
+  },
+  {
     id: "version-1-4",
     version: "Version 1.4",
     date: "September 15, 2026",
-    title: "Essentials, Pause, and calmer recovery flows",
+    title: "Essentials, Daily Routine, Games, and Buddy XP",
     intro:
-      "Version 1.4 reorganizes Pack Shield around the recovery tools people need fastest: Today, Rescue, Pause, Progress, and Settings in Essentials, with deeper Shield, buddy, meeting, recovery-plan, and data controls still available in All Tools.",
+      "Version 1.4 reorganizes Pack Shield around the tools people need fastest, then tightens the deeper All Tools loop with clearer Daily Routine feedback, better buddy XP rules, playable games, richer gratitude cards, and calmer Den controls.",
     highlights: [
       {
         title: "Shorter first run",
@@ -16,19 +79,29 @@ const releases = [
           "Onboarding now focuses on four steps: start, choose a recovery buddy, set a sober clock, and name what you are protecting."
       },
       {
-        title: "Essentials and All Tools",
+        title: "Essentials first, All Tools when useful",
         detail:
-          "Essentials keeps the app calmer by centering the sober clock, Rescue, Pause timers, Progress, Settings, optional support setup, and a passive recovery buddy. All Tools keeps the deeper controls."
+          "Essentials keeps the app calmer by centering the sober clock, Rescue, Pause timers, Progress, Settings, optional support setup, and a passive recovery buddy. All Tools now keeps that same Home layout, then adds deeper controls below it."
       },
       {
-        title: "Today feels lighter",
+        title: "Today feels calmer",
         detail:
           "Home is now Today, with the sober clock, what you are protecting, and Rescue placed closer to the top. The extra mode switch moved into Settings."
       },
       {
+        title: "Sortable recovery tray",
+        detail:
+          "All Tools now turns Rescue and related recovery tools into a compact swipeable tray. Actions can expand for more context, and the row can be manually sorted when someone wants their most-used tools first."
+      },
+      {
+        title: "Daily Routine",
+        detail:
+          "Daily Routine now gathers Just For Today actions, latest completed activity, enabled reminders, and scheduled support meetings into compact rows, with snackbar feedback when routine actions earn XP."
+      },
+      {
         title: "Pause timer ideas",
         detail:
-          "Pause now includes clickable idea pills for breathwork, prayer, quiet time, support calls, walking outside, shower resets, rest, reading, and other short recovery pauses."
+          "Pause now includes clickable idea pills for countdown, ongoing, and Pomodoro timers, including breathwork, prayer, quiet time, support calls, walking outside, shower resets, rest, reading, and other short recovery pauses."
       },
       {
         title: "Cleaner Rescue",
@@ -36,14 +109,49 @@ const releases = [
           "Rescue now keeps the immediate action, timer, support options, and protected reason in a simpler order with less setup work during risky moments."
       },
       {
+        title: "Stable sober clock views",
+        detail:
+          "Sober time can now be viewed as the main clock or as days, hours, months, and years in one steady row, using subdued theme colors without making the Home layout jump."
+      },
+      {
         title: "Progress without extra pressure",
         detail:
           "Progress keeps recovery milestones, badges, calendars, and activity easier to scan. Buddy memories and buddy-specific badges stay in All Tools."
       },
       {
-        title: "Shield as optional friction",
+        title: "Shield as deeper support",
         detail:
-          "Shield setup now explains the Screen Time path more clearly, previews the pause flow, and treats Shield as supportive friction rather than a guarantee."
+          "Shield setup now explains the Screen Time path more clearly, previews the pause flow, and treats Shield as supportive friction in All Tools instead of something Essentials needs to manage from the navigation bar."
+      },
+      {
+        title: "Games are easier to open",
+        detail:
+          "Games now open from a dedicated Games sheet on Home and in the Den. Game cards are tappable, the Play call-to-action spans the full card, and Courage only limits rewards, not whether someone can keep playing."
+      },
+      {
+        title: "Buddy XP and resources behave more clearly",
+        detail:
+          "Active and inactive buddies now celebrate level gains, inactive buddies receive half of active-buddy XP without stat decay, SER gates care actions, and COU gates game XP while still letting games run for practice."
+      },
+      {
+        title: "Shared game hearts",
+        detail:
+          "Tic Tac Toe, Match Maker, and Galaxy Glide now share one heart pool during play. Hearts start at three plus the active buddy's current-level HP stat, support retries while hearts remain, and compactly display larger totals."
+      },
+      {
+        title: "Gratitude and share cards",
+        detail:
+          "Gratitude lists can now hold up to 13 capped entries, can be edited from the share sheet, and export alongside pledge cards with stable theme colors, readable text, buddy level, look, and packshield.app."
+      },
+      {
+        title: "History opens back into details",
+        detail:
+          "Progress history now surfaces gratitude lists and can reopen pledge cards, gratitude cards, daily reviews, meeting actions, and meditation sessions from recent activity."
+      },
+      {
+        title: "Buddy and Den polish",
+        detail:
+          "The buddy section keeps the Essentials feel while All Tools adds stats rings. The Home and Den stats trays show the same level pill, optional care and game notes sit below their action rows, and Den game tiles are tighter."
       },
       {
         title: "Settings reorganized",
@@ -54,10 +162,16 @@ const releases = [
     smallerFixes: [
       "Navigation labels now read Today, Pause, Progress, Shield, and Settings.",
       "Selected tab capsules have more breathing room around labels.",
+      "The protected reason editor now ticks only the reason text, and the info and edit controls line up with the What you're protecting header.",
       "The Progress calendar header has more top room.",
       "XP labels now use the clearer spaced format, such as 20 XP.",
-      "Shibit wording was softened to recovery buddy, looks, rooms, Den, and care cues where it fits.",
+      "Care restores now scale with SER and COU allocations for Health, Hunger, Hygiene, Home, Strength, and Hope.",
+      "Game start overlays now clarify when COU is empty and a game is for fun without XP.",
+      "Support meeting actions now use the shorter Attended label.",
+      "The Den preview mode avoids spending resources or changing stats for inactive buddies.",
+      "Buddy wording was softened to recovery buddy, Buddies, looks, rooms, Den, and care cues where it fits.",
       "Support copy now uses support person language more consistently.",
+      "Synthwave Den is now Synthwave Suite.",
       "The Shield extension now sends people toward Pause, Rescue, support, or a limited emergency unlock with calmer wording."
     ]
   },
@@ -249,7 +363,7 @@ const releases = [
 
 <SiteLayout
   title="Pack Shield Release Log"
-  description="See what changed in Pack Shield: Recovery Buddy releases, including Version 1.4 Essentials and Pause updates, Version 1.3 gratitude and meditation, Version 1.2 Shield and Daily Flow polish, and Version 1.1 timer alert updates."
+  description="See what changed in Pack Shield: Recovery Buddy releases, including Version 1.5 personalized cards, sober clock persistence, buddy profile polish, release announcements, Version 1.4 Essentials, Daily Routine, Games, buddy XP, gratitude cards, and Pause updates."
 >
   <main id="content" class="site-shell release-page">
     <section class="release-hero glass-panel" aria-labelledby="release-title">
