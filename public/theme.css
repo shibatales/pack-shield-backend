@@ -152,9 +152,7 @@ body {
   display: block;
   width: calc(100% + 56px);
   height: calc(100% + 56px);
-  transform: translate3d(0, -28px, 0);
-  will-change: transform;
-  animation: tile-drift 10s linear infinite;
+  transform: translate3d(0, 0, 0);
 }
 
 @keyframes tile-drift {
