@@ -20,7 +20,7 @@ export default function handler(
           kind: "improvement",
           title: "Version 1.5.2 is ready",
           detail:
-            "Buddy care is smarter, sobriety clocks are clearer, cards look better, and Shibit level-ups now get their own celebration.",
+            "Includes 1.5.1 and 1.5.2: better name and gratitude flows, accurate pledge days, smarter buddy care, clearer clocks, saved looks, and level-up celebrations.",
           badge: "Version 1.5.2",
           icon: "sparkles",
           color: "aqua",
