@@ -16,6 +16,20 @@ export default function handler(
       sms: publicSmsAvailability(),
       announcements: [
         {
+          id: "version-1-5-2-build-64",
+          kind: "improvement",
+          title: "Version 1.5.2 is ready",
+          detail:
+            "Buddy care is smarter, sobriety clocks are clearer, cards look better, and Shibit level-ups now get their own celebration.",
+          badge: "Version 1.5.2",
+          icon: "sparkles",
+          color: "aqua",
+          detailsURL: "https://packshield.app/releases#version-1-5-2",
+          startsAt: "2026-09-22T00:00:00Z",
+          expiresAt: "2026-12-22T00:00:00Z",
+          minimumBuildNumber: 64
+        },
+        {
           id: "version-1-5-build-57",
           kind: "feature",
           title: "Version 1.5 is ready",
@@ -27,7 +41,8 @@ export default function handler(
           detailsURL: "https://packshield.app/releases#version-1-5",
           startsAt: "2026-09-19T00:00:00Z",
           expiresAt: "2026-12-19T00:00:00Z",
-          minimumBuildNumber: 57
+          minimumBuildNumber: 57,
+          maximumBuildNumber: 63
         },
         {
           id: "version-1-4-build-45",

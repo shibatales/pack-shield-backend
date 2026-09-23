@@ -3,6 +3,76 @@ import SiteLayout from "../components/SiteLayout.astro";
 
 const releases = [
   {
+    id: "version-1-5-2",
+    version: "Version 1.5.2",
+    date: "September 22, 2026",
+    title: "Smarter buddy care, clearer clocks, and better celebrations",
+    intro:
+      "Version 1.5.2 tightens the buddy and recovery loops that shipped in Version 1.5. Care rewards are fairer, sobriety clocks are easier to read, Shibit equipment saves more reliably, release and level-up celebrations feel bigger, and pledge and gratitude cards get more visual variety.",
+    highlights: [
+      {
+        title: "Care rewards are fairer",
+        detail:
+          "SER now controls whether care actions can be used, and care actions only award XP when they actually restore at least one stat."
+      },
+      {
+        title: "Clearer buddy feedback",
+        detail:
+          "Care and game snackbars now name the Shibit affected by the action, and stat restore chips use the same colors as the Shibit stat rings."
+      },
+      {
+        title: "Inactive buddies stay safer",
+        detail:
+          "Inactive Shibits no longer lose care stats while previewed or inactive, and preview guidance clarifies that care and games still affect the active buddy."
+      },
+      {
+        title: "Equipment saves across buddies",
+        detail:
+          "Selected looks and equipment now persist for each Shibit, not just the starter buddy."
+      },
+      {
+        title: "Sobriety clocks read better",
+        detail:
+          "Today clocks can reveal years and months when they exist, hide empty day counts, and use theme-matched colors across the static and animated clock views."
+      },
+      {
+        title: "More theme options",
+        detail:
+          "Random Light and Random Dark themes can cycle through matching theme pools when the logo screen loads."
+      },
+      {
+        title: "Level-up celebrations",
+        detail:
+          "Shibit level-ups now appear in the same announcement popup system as release notes, queue one at a time, and list any stat point increases."
+      },
+      {
+        title: "Bigger release celebrations",
+        detail:
+          "Release popups now use falling confetti from under the announcement card instead of a small burst hidden behind it."
+      },
+      {
+        title: "Cleaner timers and cards",
+        detail:
+          "The meditation timer keeps the active Shibit simple with just the buddy GIF, while pledge and gratitude cards get more randomized star placement and aligned footer styling."
+      },
+      {
+        title: "Swipe polish",
+        detail:
+          "Swipeable rows received subtler tick feedback, including wider-element spacing and one-tick behavior for two-page rows."
+      }
+    ],
+    smallerFixes: [
+      "Today care actions now follow the same resource and reward logic as Den care actions.",
+      "Room-matched inactive Shibits can receive XP from room bonuses.",
+      "WIS allocation works for previewed Shibits.",
+      "The WIS confirmation dialog names the Shibit affected.",
+      "The Den stat tray shows inactive Shibit SER and other stat tray details more consistently in preview mode.",
+      "Pledge and gratitude cards randomize star placement more naturally.",
+      "Pledge card packshield.app styling now matches gratitude cards.",
+      "The release announcement system can show remote announcements from the website config."
+    ]
+  },
+  {
     id: "version-1-5",
     version: "Version 1.5",
     date: "September 19, 2026",
@@ -363,7 +433,7 @@ const releases = [
 
 <SiteLayout
   title="Pack Shield Release Log"
-  description="See what changed in Pack Shield: Recovery Buddy releases, including Version 1.5 personalized cards, sober clock persistence, buddy profile polish, release announcements, Version 1.4 Essentials, Daily Routine, Games, buddy XP, gratitude cards, and Pause updates."
+  description="See what changed in Pack Shield: Recovery Buddy releases, including Version 1.5.2 smarter buddy care, clearer sobriety clocks, Shibit level-up celebrations, Version 1.5 personalized cards, Version 1.4 Essentials, Daily Routine, Games, buddy XP, gratitude cards, and Pause updates."
 >
   <main id="content" class="site-shell release-page">
     <section class="release-hero glass-panel" aria-labelledby="release-title">
